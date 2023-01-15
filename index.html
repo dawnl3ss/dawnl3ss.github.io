@@ -1,12 +1,17 @@
-<!DOCTYPE html>
 <html>
 	<head>
 		<title> 4m4Sec </title>
 
 		<!-- Head Meta -->
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta property="og:title" content="4m4Sec">
+		<meta property="og:image" content="http://4m4sec.me/images/meta-img.png">
+		<meta property="og:description" content="My own website build with ❤️.">
+		<meta name="author" content="Amanara">
 
 		<!-- CSS & JS -->
+		<link rel="icon" type="image/png" href="assets/img/icon.png">
 		<link rel="stylesheet" href="assets/css/index.css">
 		<link rel="stylesheet" href="assets/css/base.css">
 		<link rel="stylesheet" href="assets/css/vendor.css">
@@ -16,6 +21,12 @@
 
 	<body>
 		<header class="s-header">
+			<div class="header-logo">
+				<a href="./index.html">
+					<img src="assets/img/icon.png">
+				</a>
+			</div>
+
 			<div class="header-content">
 				<nav class="row header-nav-wrap">
 					<ul class="header-nav">
@@ -31,11 +42,13 @@
 		</header>
 
 		<section id="home" data-parallax="scroll" data-image-src="assets/img/header-background.jpg" data-natural-width=1920 data-natural-height=1080 data-position-y=center>
-			<div id="termynal" data-termynal data-ty-typeDelay="100" data-ty-lineDelay="700">
+			<div id="termynal" data-termynal data-ty-typeDelay="100" data-ty-lineDelay="500">
 				<span data-ty="input" data-ty-prompt="$">whoami</span>
 				<span data-ty>Amanara (4m4Sec)</span>
 				<span data-ty="input" data-ty-prompt="$">/bin/sh about-me.sh</span>
-				<span data-ty>Wannabe red-teamer, CTF player and web-dev.</span>
+				<span data-ty>Cybersecurity enthusiast, ctf player and web-dev.</span>
+				<span data-ty="input" data-ty-prompt="$">/bin/python3 life.py -job</span>
+				<span data-ty>Wannabe red-teamer.</span>
 			</div>
 		</section>
 		<pre>
