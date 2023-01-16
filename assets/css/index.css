@@ -1,0 +1,622 @@
+*, *::before, *::after {
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    font-size: 10px;
+    font-size: 62.5%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    scrollbar-color: rgb(1, 1, 1) rgb(110, 110, 110);
+}
+
+@media screen and (max-width:400px) {
+    html {
+        font-size: 9.444444444444444px;
+    }
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    line-height: 1.778;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    font-weight: normal;
+    line-height: 1;
+    word-wrap: break-word;
+    -moz-font-smoothing: grayscale;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+    -webkit-text-size-adjust: none;
+    background: #080a11;
+    font-family: "Martel", serif;
+    font-size: 1.8rem;
+    font-style: normal;
+    color: #000000;
+}
+
+section {
+    padding: 0; margin: 0;
+    width: 100%;
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    --color-text: #17ff3e;
+}
+
+.s-header {
+    z-index: 100;
+    width: 100%;
+    height: 8.8rem;
+    position: absolute;
+    top: 4rem;
+    left: 0;
+}
+
+.s-header.offset {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}
+
+.s-header.scrolling {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.s-header.sticky {
+    background-color: #050505;
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.s-header.sticky .header-logo img {
+    width: 50px;
+    height: 50px;
+}
+
+.s-header.sticky .header-content .btn {
+    height: 4.8rem !important;
+    line-height: 4.4rem !important;
+}
+
+.s-header.sticky .header-nav a {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.s-header.sticky.scrolling {
+    opacity: 1;
+    visibility: visible;
+}
+
+.header-content {
+    height: 8.8rem;
+    position: relative;
+}
+
+.header-logo {
+    z-index: 101;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+    -webkit-transform: translate3d(0, -50%, 0);
+    transform: translate3d(0, -50%, 0);
+    position: absolute;
+    left: 8rem;
+    top: 50%;
+}
+
+.header-logo a {
+    display: block;
+    border: none;
+    padding: 0;
+    outline: 0;
+}
+
+.header-logo img {
+    width: 56px;
+    height: 56px;
+    vertical-align: bottom;
+}
+
+.header-nav-wrap {
+    max-width: 1400px;
+    padding-left: 10px;
+}
+
+.header-nav {
+    list-style: none;
+    font-family: "Gothic A1", sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 6rem;
+    padding-top: 1.4rem;
+    padding-bottom: 1.4rem;
+    margin: 0;
+}
+
+.header-nav a {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.header-nav a:hover,
+.header-nav a:focus {
+    color: #ffffff !important;
+}
+
+.header-nav li {
+    display: inline-block;
+    padding-left: 0;
+    margin: 0 1rem;
+}
+
+.header-menu-toggle {
+    z-index: 101;
+    display: none;
+    height: 4.2rem;
+    width: 4.2rem;
+    line-height: 4.2rem;
+    font-family: "Gothic A1", sans-serif;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+    color: #ffffff;
+    outline: none;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    position: absolute;
+    right: 5.2rem;
+    top: 1.6rem;
+}
+
+.header-menu-toggle:hover,
+.header-menu-toggle:focus {
+    color: #ffffff;
+}
+
+.header-menu-toggle span {
+    display: block;
+    width: 2.4rem;
+    height: 2px;
+    background-color: #ffffff;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+    font: 0/0 a; /** pourquoi y'a une putain d'erreur sur phpstorm alors que c'est bon ?? */
+    text-shadow: none;
+    color: transparent;
+    margin-top: -1px;
+    position: absolute;
+    top: 50%;
+    left: .9rem;
+    right: auto;
+    bottom: auto;
+}
+
+.header-menu-toggle span::before,
+.header-menu-toggle span::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+    position: absolute;
+    left: 0;
+}
+
+.header-menu-toggle span::before {
+    top: -.9rem;
+}
+
+.header-menu-toggle span::after {
+    bottom: -.9rem;
+}
+
+.header-menu-toggle.is-clicked span {
+    background-color: rgba(255, 255, 255, 0);
+    -webkit-transition: all .1s;
+    transition: all .1s;
+}
+
+.header-menu-toggle.is-clicked span::before,
+.header-menu-toggle.is-clicked span::after {
+    background-color: white;
+}
+
+.header-menu-toggle.is-clicked span::before {
+    top: 0;
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+}
+
+.header-menu-toggle.is-clicked span::after {
+    bottom: 0;
+    -webkit-transform: rotate(225deg);
+    transform: rotate(225deg);
+}
+
+.header-content .btn {
+    border-color: #ffffff;
+    color: #ffffff;
+    margin: 0;
+    padding: 0 4rem;
+    font-size: 1.1rem;
+    -webkit-transform: translate3d(0, -50%, 0);
+    transform: translate3d(0, -50%, 0);
+    position: absolute;
+    top: 50%;
+    right: 8rem;
+}
+
+.header-content .btn:hover,
+.header-content .btn:focus {
+    background-color: #f9861a !important;
+    border-color: #f9861a !important;
+}
+
+@media screen and (max-width:1700px) {
+    .header-logo {
+        left: 6rem;
+    }
+
+    .header-nav-wrap {
+        max-width: none;
+        width: 100%;
+        padding-left: 13.2rem;
+    }
+
+    .header-content .btn {
+        right: 6rem;
+    }
+
+}
+
+@media screen and (max-width:1000px) {
+    .header-content .btn {
+        height: 4.8rem !important;
+        line-height: 4.4rem !important;
+    }
+
+}
+
+@media screen and (max-width:900px) {
+    .s-header {
+        top: 2rem;
+        height: 8rem;
+    }
+
+    .header-logo img {
+        width: 52px;
+        height: 52px;
+    }
+
+    .header-content {
+        display: block;
+        background-color: #050505;
+        height: auto;
+        width: 100%;
+        padding: 16rem 6rem 8rem;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+        position: absolute;
+        top: -2rem;
+        left: 0;
+    }
+
+    .header-content .btn {
+        margin-top: 4.8rem;
+        -webkit-transform: translate3d(0, -2rem, 0);
+        transform: translate3d(0, -2rem, 0);
+        opacity: 0;
+        visibility: hidden;
+        position: static;
+    }
+
+    .header-nav-wrap {
+        padding: 0;
+        -webkit-transform: translate3d(0, -2rem, 0);
+        transform: translate3d(0, -2rem, 0);
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .header-nav {
+        display: block;
+        width: 100%;
+        padding: 0;
+    }
+
+    .header-nav a {
+        display: block;
+    }
+
+    .header-nav li {
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        display: block;
+        margin: 0;
+    }
+
+    .header-nav li:last-child {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .header-menu-toggle {
+        display: block;
+    }
+
+    .menu-is-open .header-content {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+        transition: -webkit-transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+        transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+        transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    .menu-is-open .header-content .btn {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+        visibility: visible;
+        -webkit-transition-property: opacity, -webkit-transform;
+        transition-property: opacity, -webkit-transform;
+        transition-property: transform, opacity;
+        transition-property: transform, opacity, -webkit-transform;
+        -webkit-transition-duration: .5s;
+        transition-duration: .5s;
+        -webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        -webkit-transition-delay: .7s;
+        transition-delay: .7s;
+    }
+
+    .menu-is-open .header-nav-wrap {
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+        visibility: visible;
+        -webkit-transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+        transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+        -webkit-transition-delay: .6s;
+        transition-delay: .6s;
+    }
+
+}
+
+@media screen and (max-width:600px) {
+    .header-logo {
+        left: 4rem;
+    }
+
+    .header-menu-toggle {
+        right: 3.2rem;
+    }
+
+    .header-content {
+        padding: 16rem 4rem 8rem;
+    }
+
+    .header-content .btn {
+        display: block;
+    }
+
+}
+
+.s-hero {
+    width: 100%;
+    height: 100vh;
+    min-height: 82rem;
+    overflow: hidden;
+    background-color: transparent;
+    position: relative;
+}
+
+.s-hero::before {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: -webkit-gradient(linear, left top, right top, color-stop(10%, black), to(rgba(0, 0, 0, 0)));
+    background: linear-gradient(90deg, black 10%, rgba(0, 0, 0, 0) 100%);
+    opacity: .25;
+}
+
+.no-js .s-hero {
+    background: #ffffff;
+}
+
+.hero-content {
+    height: 100%;
+    max-width: 1400px;
+    -ms-flex-align: end;
+    -webkit-box-align: end;
+    align-items: flex-end;
+    padding-top: 20vh;
+    padding-bottom: 14vh;
+    position: relative;
+}
+
+.hero-content h1 {
+    font-size: 7rem;
+    font-weight: 400;
+    line-height: 1.257;
+    padding-right: 3.2rem;
+    margin-top: 0;
+    color: #ffffff;
+    position: relative;
+}
+
+.hero-content h1::before {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 8rem;
+    background-color: #f9861a;
+    position: absolute;
+    left: -10.8rem;
+    top: .55em;
+}
+
+a {
+    background-color: transparent;
+    text-decoration: none;
+    line-height: inherit;
+}
+
+.row {
+    width: 89%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+    -ms-flex-flow: row wrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-flow: row wrap;
+}
+
+.row .row {
+    width: auto;
+    max-width: none;
+    margin-left: -20px;
+    margin-right: -20px;
+}
+
+
+.row.row-wrap {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.row.row-nowrap {
+    -ms-flex-wrap: none; /** c'est quoi cette erreur de merde encore phpstorm ? */
+    flex-wrap: nowrap;
+}
+
+.row.row-y-top {
+    -ms-flex-align: start;
+    -webkit-box-align: start;
+    align-items: flex-start;
+}
+
+.row.row-y-bottom {
+    -ms-flex-align: end;
+    -webkit-box-align: end;
+    align-items: flex-end;
+}
+
+.row.row-y-center {
+    -ms-flex-align: center;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.row.row-stretch {
+    -ms-flex-align: stretch;
+    -webkit-box-align: stretch;
+    align-items: stretch;
+}
+
+.row.row-baseline {
+    -ms-flex-align: baseline;
+    -webkit-box-align: baseline;
+    align-items: baseline;
+}
+
+.row.row-x-left {
+    -ms-flex-pack: start;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+}
+
+.row.row-x-right {
+    -ms-flex-pack: end;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+}
+
+.row.row-x-center {
+    -ms-flex-pack: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+/** bon, on va comencer la responsive, ça va être vraiment chiant */
+@media screen and (max-width: 1200px) {
+    .row .row {
+        margin-left: -16px;
+        margin-right: -16px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .row {
+        width: 100%;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .row .row {
+        margin-left: -10px;
+        margin-right: -10px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .row {
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+
+    .row .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(110, 110, 110);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(110, 110, 110);
+}
