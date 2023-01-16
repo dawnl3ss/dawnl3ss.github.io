@@ -4,16 +4,16 @@
 
 		<!-- Head Meta -->
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta property="og:title" content="4m4Sec">
-		<meta property="og:image" content="http://4m4sec.me/images/meta-img.png">
-		<meta property="og:description" content="My own website build with ❤️.">
-		<meta name="author" content="Amanara">
+		<meta content="width=device-width, initial-scale=1.0" name="viewport">
+		<meta content="4m4Sec" property="og:title">
+		<meta content="http://4m4sec.me/images/meta-img.png" property="og:image">
+		<meta content="My own website build with ❤️." property="og:description">
+		<meta content="Amanara" name="author">
 
 		<!-- CSS & JS -->
-		<link rel="icon" type="image/png" href="assets/img/icon.png">
-		<link rel="stylesheet" href="assets/css/index.css">
-		<link rel="stylesheet" href="vendor/termynal/termynal.css">
+		<link href="assets/img/icon.png" rel="icon" type="image/png">
+		<link href="assets/css/index.css" rel="stylesheet">
+		<link href="vendor/termynal/termynal.css" rel="stylesheet">
 		<script src="app/project/projects.js"></script>
 	</head>
 
@@ -37,8 +37,9 @@
 			<a class="header-menu-toggle" href=""><span> Menu </span></a>
 		</header>
 
-		<section id="home" data-parallax="scroll" data-image-src="assets/img/header-background.jpg" data-natural-width=1920 data-natural-height=1080 data-position-y=center>
-			<div id="termynal" data-termynal data-ty-typeDelay="100" data-ty-lineDelay="500">
+		<section data-image-src="assets/img/header-background.jpg" data-natural-height=1080 data-natural-width=1920 data-parallax="scroll"
+				 data-position-y=center id="home">
+			<div data-termynal data-ty-lineDelay="500" data-ty-typeDelay="100" id="termynal">
 				<span data-ty="input" data-ty-prompt="$">whoami</span>
 				<span data-ty>Amanara (4m4Sec)</span>
 				<span data-ty="input" data-ty-prompt="$">/bin/sh about-me.sh</span>
@@ -48,14 +49,14 @@
 			</div>
 		</section>
 
-		<section id="skills" class="s-hero">
+		<section class="s-hero" id="skills">
 		</section>
 
-		<section id="projects" class="s-hero">
+		<section class="s-hero" id="projects">
 		</section>
 
 
-		<script src="vendor/termynal/termynal.js" data-termynal-container="#termynal"></script>
+		<script data-termynal-container="#termynal" src="vendor/termynal/termynal.js"></script>
 		<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 		<script src="app/App.js"></script>
 		<script src="vendor/parallax/parallax.js"></script>
