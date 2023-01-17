@@ -60,36 +60,6 @@ section {
     --color-text: #17ff3e;
 }
 
-.back-header {
-    z-index: -1;
-    background-color: black;
-    height: 100px;
-}
-
-@media screen and (max-width:1700px){
-    .back-header {
-        height: 100px;
-    }
-}
-
-@media screen and (max-width:1000px){
-    .back-header {
-        height: 110px;
-    }
-}
-
-@media screen and (max-width:900px){
-    .back-header {
-        height: 120px;
-    }
-}
-
-@media screen and (max-width:600px){
-    .back-header {
-        height: 125px;
-    }
-}
-
 .s-header {
     z-index: 100;
     width: 100%;

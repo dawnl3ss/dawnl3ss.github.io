@@ -13,12 +13,13 @@
         <!-- CSS & JS -->
         <link href="assets/img/icon.png" rel="icon" type="image/png">
         <link href="assets/css/index.css" rel="stylesheet">
+        <link href="assets/css/tree.css" rel="stylesheet">
         <link href="vendor/termynal/termynal.css" rel="stylesheet">
+        <link rel="stylesheet" href="vendor/mdi/css/materialdesignicons.min.css">
         <script src="app/project/projects.js"></script>
     </head>
 
     <body>
-        <div id="home" class="back-header"></div>
         <header class="s-header">
             <div class="header-logo">
                 <a href="./index.html">
@@ -38,7 +39,7 @@
             <a class="header-menu-toggle" href=""><span> Menu </span></a>
         </header>
 
-        <section data-image-src="assets/img/header-background.jpg" data-natural-height=1080 data-natural-width=1920 data-parallax="scroll" data-position-y=center>
+        <section id="home" data-image-src="assets/img/header-background.jpg" data-natural-height=1080 data-natural-width=1920 data-parallax="scroll" data-position-y=center>
             <div data-termynal data-ty-lineDelay="500" data-ty-typeDelay="100" id="termynal">
                 <span data-ty="input" data-ty-prompt="$">whoami</span>
                 <span data-ty>Amanara (4m4Sec)</span>
@@ -50,9 +51,106 @@
         </section>
 
         <section class="s-hero" id="skills">
+            <div data-termynal data-ty-lineDelay="500" data-ty-typeDelay="100" id="termynal-skills">
+                <span data-ty="input" data-ty-prompt="$">ls /home/4m4sec/skills/</span>
+                <span data-ty>
+                    <div class="tree">
+                        <ul>
+                            <li><i class="mdi mdi-folder-sync"></i>
+                                <span> skills/ </span>
+                                <ul>
+                                    <li><i class="mdi mdi-folder-open"></i>
+                                        <span> web-dev/ </span>
+                                        <ul>
+                                            <li><i class="mdi mdi-folder-open"></i>
+                                                <span> front-end/ </span>
+                                                <ul>
+                                                    <li><i class="mdi mdi-language-html5"></i> html/css.txt </li>
+                                                    <li><i class="mdi mdi-language-javascript"></i> javascript.txt </li>
+                                                    <li><i class="mdi mdi-language-javascript"></i> (react, jquery, vuejs).txt </li>
+                                                </ul>
+                                            </li>
+                                            <li><i class="mdi mdi-folder-open"></i>
+                                                <span> back-end/ </span>
+                                                <ul>
+                                                    <li><i class="mdi mdi-language-php"></i> php.txt </li>
+                                                    <li><i class="mdi mdi-language-php"></i> (symfony, laravel).txt</li>
+                                                    <li><i class="mdi mdi-nodejs"></i> nodejs.txt </li>
+                                                    <li><i class="mdi mdi-ruby"></i> ruby.txt </li>
+                                                    <li><i class="mdi mdi-language-cpp"></i> c/c++.txt </li>
+                                                </ul>
+                                            </li>
+                                            <li><i class="mdi mdi-database"></i> databases (mysql, maria).db </li>
+                                        </ul>
+                                    </li>
+                                    <li><i class="mdi mdi-folder-open"></i>
+                                        <span> cybersecurity/ </span>
+                                        <ul>
+                                            <li><i class="mdi mdi-server-network"></i> webenum.http </li>
+                                            <li><i class="mdi mdi-settings"></i> privesc.bin </li>
+                                            <li><i class="mdi mdi-bomb"></i> exploits.db </li>
+                                            <li><i class="mdi mdi-image"></i> steganography.jpg </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </span>
+            </div>
         </section>
-        
+
         <section class="s-hero" id="projects">
+            <div data-termynal data-ty-lineDelay="500" data-ty-typeDelay="100" id="termynal-projects">
+                <span data-ty="input" data-ty-prompt="$">cat /home/4m4sec/.projects </span>
+                <span data-ty>
+                    <div class="tree">
+                        <ul>
+                            <li><i class="mdi mdi-folder-sync"></i>
+                                <span> projects/ </span>
+
+
+
+
+
+
+                                <ul>
+                                    <li><i class="mdi mdi-folder-open"></i>
+                                        <span> websites/ </span>
+                                        <ul>
+                                            <script>
+                                                for (const [name, project] of Object.entries(getProjects()["Websites"])) {
+                                                    document.write("<li><i class=\"mdi mdi-" + project.getIcon() + "\"></i> " + name + " </li>");
+                                                }
+                                            </script>
+                                        </ul>
+                                    </li>
+                                    <li><i class="mdi mdi-folder-open"></i>
+                                        <span> tools/ </span>
+                                        <ul>
+                                            <script>
+                                                for (const [name, project] of Object.entries(getProjects()["Tools"])) {
+                                                    document.write("<li><i class=\"mdi mdi-" + project.getIcon() + "\"></i> " + name + " </li>");
+                                                }
+                                            </script>
+                                        </ul>
+                                    </li>
+                                    <li><i class="mdi mdi-folder-open"></i>
+                                        <span> others/ </span>
+                                        <ul>
+                                            <script>
+                                                for (const [name, project] of Object.entries(getProjects()["Others"])) {
+                                                    document.write("<li><i class=\"mdi mdi-" + project.getIcon() + "\"></i> " + name + " </li>");
+                                                }
+                                            </script>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </span>
+            </div>
         </section>
 
         <script data-termynal-container="#termynal" src="vendor/termynal/termynal.js"></script>
