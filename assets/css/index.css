@@ -640,4 +640,10 @@ a {
     #projects {
         background: url("../../assets/img/blob-background-phone.svg");
     }
+
+    .hidden {
+        display: none;
+        color: #17ff3e;
+    }
 }
+

@@ -7,7 +7,7 @@
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="Amanara | 4m4Sec" property="og:title">
         <meta content="https://4m4sec.github.io/assets/img/ogimage.jpg" property="og:image">
-        <meta content="4m4sec website. Cybersecurity enthusiast, ctf player and web-dev.\n boot-to-root enjoyer 💀" property="og:description">
+        <meta content="4m4sec website. Cybersecurity enthusiast, ctf player and web-dev. Boot-to-Root enjoyer 💀" property="og:description">
         <meta content="Amanara" name="author">
 
         <!-- CSS & JS -->
@@ -46,7 +46,7 @@
                 <span data-ty="input" data-ty-prompt="$">/bin/sh about-me.sh</span>
                 <span data-ty>Cybersecurity enthusiast, ctf player and web-dev.</span>
                 <span data-ty="input" data-ty-prompt="$">/bin/python3 life.py -job</span>
-                <span data-ty>Wannabe red-teamer.</span>
+                <span data-ty>Wannabe red-teamer || pentester.</span>
             </div>
         </section>
 
@@ -54,13 +54,13 @@
             <div class="tree">
                 <ul>
                     <li><i class="mdi mdi-folder-sync"></i>
-                        <span> skills/ </span>
+                        <span class="t"> skills/ </span>
                         <ul>
                             <li><i class="mdi mdi-folder-open"></i>
-                                <span> web-dev/ </span>
+                                <span class="t"> web-dev/ </span>
                                 <ul>
                                     <li><i class="mdi mdi-folder-open"></i>
-                                        <span> front-end/ </span>
+                                        <span class="t"> front-end/ </span>
                                         <ul>
                                             <li><i class="mdi mdi-language-html5"></i> .html, .css </li>
                                             <li><i class="mdi mdi-language-javascript"></i> .javascript </li>
@@ -68,7 +68,7 @@
                                         </ul>
                                     </li>
                                     <li><i class="mdi mdi-folder-open"></i>
-                                        <span> back-end/ </span>
+                                        <span class="t"> back-end/ </span>
                                         <ul>
                                             <li><i class="mdi mdi-language-php"></i> .php </li>
                                             <li><i class="mdi mdi-language-php"></i> .symfony, .laravel </li>
@@ -81,12 +81,14 @@
                                 </ul>
                             </li>
                             <li><i class="mdi mdi-folder-open"></i>
-                                <span> cybersecurity/ </span>
+                                <span class="t"> cybersecurity/ </span>
                                 <ul>
                                     <li><i class="mdi mdi-server-network"></i> webenum.http </li>
                                     <li><i class="mdi mdi-settings"></i> privesc.bin </li>
                                     <li><i class="mdi mdi-bomb"></i> exploits.db </li>
+                                    <li><i class="mdi mdi-windows"></i> activedir.exe </li>
                                     <li><i class="mdi mdi-image"></i> steganography.jpg </li>
+                                    <li><i class="mdi mdi-account-search"></i> osint.txt </li>
                                 </ul>
                             </li>
                         </ul>
@@ -102,34 +104,34 @@
                     <div class="tree">
                         <ul>
                             <li><i class="mdi mdi-folder-sync"></i>
-                                <span> projects/ </span>
+                                <span class="t"> projects/ </span>
                                 <ul>
                                     <li><i class="mdi mdi-folder-open"></i>
-                                        <span> websites/ </span>
+                                        <span class="t"> websites/ </span>
                                         <ul>
                                             <script>
                                                 for (const [name, project] of Object.entries(getProjects()["Websites"])) {
-                                                    document.write("<li>" + "<a class='project-link' href='" + project.getLink() + "'>" + "<i class=\"mdi mdi-" + project.getIcon() + "\"></i> " + name + "</a> - " + project.getDescription() + "</li>");
+                                                    document.write("<li>" + "<a class='project-link' href='" + project.getLink() + "'>" + "<i class=\"mdi mdi-" + project.getIcon() + "\"></i> " + name + "</a>" + "<span class='hidden'> - " + project.getDescription() + "</span>" + "</li>");
                                                 }
                                             </script>
                                         </ul>
                                     </li>
                                     <li><i class="mdi mdi-folder-open"></i>
-                                        <span> tools/ </span>
+                                        <span class="t"> tools/ </span>
                                         <ul>
                                             <script>
                                                 for (const [name, project] of Object.entries(getProjects()["Tools"])) {
-                                                    document.write("<li>" + "<a class='project-link' href='" + project.getLink() + "'>" + "<i class=\"mdi mdi-" + project.getIcon() + "\"></i> " + name + "</a> - " + project.getDescription() + "</li>");
+                                                    document.write("<li>" + "<a class='project-link' href='" + project.getLink() + "'>" + "<i class=\"mdi mdi-" + project.getIcon() + "\"></i> " + name + "</a>" + "<span class='hidden'> - " + project.getDescription() + "</span>" + "</li>");
                                                 }
                                             </script>
                                         </ul>
                                     </li>
                                     <li><i class="mdi mdi-folder-open"></i>
-                                        <span> others/ </span>
+                                        <span class="t"> others/ </span>
                                         <ul>
                                             <script>
                                                 for (const [name, project] of Object.entries(getProjects()["Others"])) {
-                                                    document.write("<li>" + "<a class='project-link' href='" + project.getLink() + "'>" + "<i class=\"mdi mdi-" + project.getIcon() + "\"></i> " + name + "</a> - " + project.getDescription() + "</li>");
+                                                    document.write("<li>" + "<a class='project-link' href='" + project.getLink() + "'>" + "<i class=\"mdi mdi-" + project.getIcon() + "\"></i> " + name + "</a>" + "<span class='hidden'> - " + project.getDescription() + "</span>" + "</li>");
                                                 }
                                             </script>
                                         </ul>
