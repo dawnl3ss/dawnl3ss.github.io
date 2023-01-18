@@ -16,7 +16,7 @@
 }
 
 .tree ul {
-	 padding-left: 5px;
+	 padding-left: 30px;
 	 list-style: none;
 }
 
@@ -62,4 +62,14 @@
 
 .tree ul a:hover {
 	 text-decoration: none;
+}
+
+.project-link {
+	color: #17ff3e;
+	transition: 0.25s;
+}
+
+.project-link:hover {
+	color: #a8a8a8;
+	transition: 0.25s;
 }

@@ -114,7 +114,7 @@
                                         <ul>
                                             <script>
                                                 for (const [name, project] of Object.entries(getProjects()["Websites"])) {
-                                                    document.write("<li><i class=\"mdi mdi-" + project.getIcon() + "\"></i> " + name + " </li>");
+                                                    document.write("<li><i class=\"mdi mdi-" + project.getIcon() + "\"></i> " + "<a class='project-link' href='" + project.getLink() + "'>" + name + "</a> - " + project.getDescription() + "</li>");
                                                 }
                                             </script>
                                         </ul>
@@ -124,7 +124,7 @@
                                         <ul>
                                             <script>
                                                 for (const [name, project] of Object.entries(getProjects()["Tools"])) {
-                                                    document.write("<li><i class=\"mdi mdi-" + project.getIcon() + "\"></i> " + name + " </li>");
+                                                    document.write("<li><i class=\"mdi mdi-" + project.getIcon() + "\"></i> " + "<a class='project-link' href='" + project.getLink() + "'>" + name + "</a> - " + project.getDescription() + "</li>");
                                                 }
                                             </script>
                                         </ul>
@@ -134,7 +134,7 @@
                                         <ul>
                                             <script>
                                                 for (const [name, project] of Object.entries(getProjects()["Others"])) {
-                                                    document.write("<li><i class=\"mdi mdi-" + project.getIcon() + "\"></i> " + name + " </li>");
+                                                    document.write("<li><i class=\"mdi mdi-" + project.getIcon() + "\"></i> " + "<a class='project-link' href='" + project.getLink() + "'>" + name + "</a> - " + project.getDescription() + "</li>");
                                                 }
                                             </script>
                                         </ul>
