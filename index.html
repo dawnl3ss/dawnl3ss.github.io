@@ -6,8 +6,8 @@
         <meta charset="utf-8">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="Amanara | 4m4Sec" property="og:title">
-        <meta content="assets/img/ogimage.jpg" property="og:image">
-        <meta content="4m4sec website. Cybersecurity enthusiast, ctf player and web-dev. boot-to-root enjoyer 💀" property="og:description">
+        <meta content="https://4m4sec.github.io/assets/img/ogimage.jpg" property="og:image">
+        <meta content="4m4sec website. Cybersecurity enthusiast, ctf player and web-dev.\n boot-to-root enjoyer 💀" property="og:description">
         <meta content="Amanara" name="author">
 
         <!-- CSS & JS -->
@@ -51,52 +51,47 @@
         </section>
 
         <section class="s-hero" id="skills">
-            <div data-termynal data-ty-lineDelay="500" data-ty-typeDelay="100" id="termynal-skills">
-                <span data-ty="input" data-ty-prompt="$">ls /home/4m4sec/skills/</span>
-                <span data-ty>
-                    <div class="tree">
+            <div class="tree">
+                <ul>
+                    <li><i class="mdi mdi-folder-sync"></i>
+                        <span> skills/ </span>
                         <ul>
-                            <li><i class="mdi mdi-folder-sync"></i>
-                                <span> skills/ </span>
+                            <li><i class="mdi mdi-folder-open"></i>
+                                <span> web-dev/ </span>
                                 <ul>
                                     <li><i class="mdi mdi-folder-open"></i>
-                                        <span> web-dev/ </span>
+                                        <span> front-end/ </span>
                                         <ul>
-                                            <li><i class="mdi mdi-folder-open"></i>
-                                                <span> front-end/ </span>
-                                                <ul>
-                                                    <li><i class="mdi mdi-language-html5"></i> html/css.txt </li>
-                                                    <li><i class="mdi mdi-language-javascript"></i> javascript.txt </li>
-                                                    <li><i class="mdi mdi-language-javascript"></i> (react, jquery, vuejs).txt </li>
-                                                </ul>
-                                            </li>
-                                            <li><i class="mdi mdi-folder-open"></i>
-                                                <span> back-end/ </span>
-                                                <ul>
-                                                    <li><i class="mdi mdi-language-php"></i> php.txt </li>
-                                                    <li><i class="mdi mdi-language-php"></i> (symfony, laravel).txt</li>
-                                                    <li><i class="mdi mdi-nodejs"></i> nodejs.txt </li>
-                                                    <li><i class="mdi mdi-ruby"></i> ruby.txt </li>
-                                                    <li><i class="mdi mdi-language-cpp"></i> c/c++.txt </li>
-                                                </ul>
-                                            </li>
-                                            <li><i class="mdi mdi-database"></i> databases (mysql, maria).db </li>
+                                            <li><i class="mdi mdi-language-html5"></i> html/css.txt </li>
+                                            <li><i class="mdi mdi-language-javascript"></i> javascript.txt </li>
+                                            <li><i class="mdi mdi-language-javascript"></i> (react, jquery, vuejs).txt </li>
                                         </ul>
                                     </li>
                                     <li><i class="mdi mdi-folder-open"></i>
-                                        <span> cybersecurity/ </span>
+                                        <span> back-end/ </span>
                                         <ul>
-                                            <li><i class="mdi mdi-server-network"></i> webenum.http </li>
-                                            <li><i class="mdi mdi-settings"></i> privesc.bin </li>
-                                            <li><i class="mdi mdi-bomb"></i> exploits.db </li>
-                                            <li><i class="mdi mdi-image"></i> steganography.jpg </li>
+                                            <li><i class="mdi mdi-language-php"></i> php.txt </li>
+                                            <li><i class="mdi mdi-language-php"></i> (symfony, laravel).txt</li>
+                                            <li><i class="mdi mdi-nodejs"></i> nodejs.txt </li>
+                                            <li><i class="mdi mdi-ruby"></i> ruby.txt </li>
+                                            <li><i class="mdi mdi-language-cpp"></i> c/c++.txt </li>
                                         </ul>
                                     </li>
+                                    <li><i class="mdi mdi-database"></i> databases (mysql, maria).db </li>
+                                </ul>
+                            </li>
+                            <li><i class="mdi mdi-folder-open"></i>
+                                <span> cybersecurity/ </span>
+                                <ul>
+                                    <li><i class="mdi mdi-server-network"></i> webenum.http </li>
+                                    <li><i class="mdi mdi-settings"></i> privesc.bin </li>
+                                    <li><i class="mdi mdi-bomb"></i> exploits.db </li>
+                                    <li><i class="mdi mdi-image"></i> steganography.jpg </li>
                                 </ul>
                             </li>
                         </ul>
-                    </div>
-                </span>
+                    </li>
+                </ul>
             </div>
         </section>
 
@@ -114,7 +109,7 @@
                                         <ul>
                                             <script>
                                                 for (const [name, project] of Object.entries(getProjects()["Websites"])) {
-                                                    document.write("<li><i class=\"mdi mdi-" + project.getIcon() + "\"></i> " + "<a class='project-link' href='" + project.getLink() + "'>" + name + "</a> - " + project.getDescription() + "</li>");
+                                                    document.write("<li>" + "<a class='project-link' href='" + project.getLink() + "'>" + "<i class=\"mdi mdi-" + project.getIcon() + "\"></i> " + name + "</a> - " + project.getDescription() + "</li>");
                                                 }
                                             </script>
                                         </ul>
@@ -124,7 +119,7 @@
                                         <ul>
                                             <script>
                                                 for (const [name, project] of Object.entries(getProjects()["Tools"])) {
-                                                    document.write("<li><i class=\"mdi mdi-" + project.getIcon() + "\"></i> " + "<a class='project-link' href='" + project.getLink() + "'>" + name + "</a> - " + project.getDescription() + "</li>");
+                                                    document.write("<li>" + "<a class='project-link' href='" + project.getLink() + "'>" + "<i class=\"mdi mdi-" + project.getIcon() + "\"></i> " + name + "</a> - " + project.getDescription() + "</li>");
                                                 }
                                             </script>
                                         </ul>
@@ -134,7 +129,7 @@
                                         <ul>
                                             <script>
                                                 for (const [name, project] of Object.entries(getProjects()["Others"])) {
-                                                    document.write("<li><i class=\"mdi mdi-" + project.getIcon() + "\"></i> " + "<a class='project-link' href='" + project.getLink() + "'>" + name + "</a> - " + project.getDescription() + "</li>");
+                                                    document.write("<li>" + "<a class='project-link' href='" + project.getLink() + "'>" + "<i class=\"mdi mdi-" + project.getIcon() + "\"></i> " + name + "</a> - " + project.getDescription() + "</li>");
                                                 }
                                             </script>
                                         </ul>

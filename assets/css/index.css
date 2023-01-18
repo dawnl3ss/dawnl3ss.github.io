@@ -622,9 +622,22 @@ a {
 }
 
 #skills {
+    background: url("../../assets/img/circle-background.svg");
+}
 
+@media screen and (max-width:600px) {
+    #skills {
+        background: url("../../assets/img/circle-background-phone.svg");
+    }
 }
 
 #projects {
     background: #12141c;
+    background: url("../../assets/img/blob-background.svg");
+}
+
+@media screen and (max-width:600px) {
+    #projects {
+        background: url("../../assets/img/blob-background-phone.svg");
+    }
 }
