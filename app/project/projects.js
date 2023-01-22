@@ -11,13 +11,13 @@ function getProjects(){
         "Tools": {
             "Kharon": {
                 getDescription: function (){ return "automated ctf web-server scan which perform basic tasks of webserver pentesting."; },
-                getLink: function(){ return "https://github.com/4m4Sec/Kharon"; },
+                getLink: function (){ return "https://github.com/4m4Sec/Kharon"; },
                 getSatetement: function (){ return "Under Development"; },
                 getIcon: function (){ return "skull"; }
             },
             "Theia": {
                 getDescription: function (){ return "ip-lookup OSINT tool for linux."; },
-                getLink: function(){ return "https://github.com/4m4Sec/Theia"; },
+                getLink: function (){ return "https://github.com/4m4Sec/Theia"; },
                 getSatetement: function (){ return "Completed"; },
                 getIcon: function (){ return "search-web"; }
             },
