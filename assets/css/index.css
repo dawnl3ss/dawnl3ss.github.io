@@ -1,3 +1,11 @@
+:root {
+    --background: white;
+    --primary:  #17ff3e;
+    --secondary: #1effc3;
+    --card-size: 600px;
+    --mobile-card-size: 400px;
+}
+
 *, *::before, *::after {
     -webkit-box-sizing: inherit;
     box-sizing: inherit;
@@ -270,12 +278,6 @@ section {
     right: 8rem;
 }
 
-.header-content .btn:hover,
-.header-content .btn:focus {
-    background-color: #f9861a !important;
-    border-color: #f9861a !important;
-}
-
 @media screen and (max-width:1700px) {
     .header-logo {
         left: 6rem;
@@ -289,14 +291,6 @@ section {
 
     .header-content .btn {
         right: 6rem;
-    }
-
-}
-
-@media screen and (max-width:1000px) {
-    .header-content .btn {
-        height: 4.8rem !important;
-        line-height: 4.4rem !important;
     }
 
 }
@@ -621,6 +615,16 @@ a {
     background: rgb(110, 110, 110);
 }
 
+#myself {
+    background: url("../img/stacked-waves.svg");
+}
+
+@media screen and (max-width:600px) {
+    #myself {
+        background: url("../img/stacked-waves-phone.svg");
+    }
+}
+
 #skills {
     background: url("../../assets/img/circle-background.svg");
 }
@@ -680,12 +684,12 @@ a {
     width: 100%;
 }
 
-.footer .row ul li{
+.footer .row ul li {
     display: inline-block;
     margin: 0px 30px;
 }
 
-.footer .row a i{
+.footer .row a i, .footer .row a img {
     font-size:2em;
     margin:10% 10%;
     margin-left: 25px;
@@ -707,14 +711,14 @@ a {
 
 
 @media screen and (max-width: 1900px) {
-    .footer{
+    .footer {
         background: #000;
         padding: 50px 0px;
         font-family: 'Play', sans-serif;
         text-align: center;
     }
 
-    .footer .row{
+    .footer .row {
         width: 100%;
         margin-left: 15%;
         padding: 0.6% 0%;
@@ -722,26 +726,26 @@ a {
         font-size: 0.8em;
     }
 
-    .footer .row a{
+    .footer .row a {
         text-decoration: none;
         color: gray;
         transition: 0.5s;
     }
 
-    .footer .row a:hover{
+    .footer .row a:hover {
         color: #fff;
     }
 
-    .footer .row ul{
+    .footer .row ul {
         width: 100%;
     }
 
-    .footer .row ul li{
+    .footer .row ul li {
         display: inline-block;
         margin: 0px 30px;
     }
 
-    .footer .row a i{
+    .footer .row a i, .footer .row a img {
         font-size:2em;
         margin:10% 10%;
         margin-left: 25px;
@@ -774,7 +778,7 @@ a {
         margin: 10px 0px;
         text-align: left;
     }
-    .footer .row a i {
+    .footer .row a i, .footer .row a img {
         margin-left: 15px;
     }
 
@@ -803,7 +807,7 @@ a {
         margin: 10px 0px;
         text-align: left;
     }
-    .footer .row a i {
+    .footer .row a i, .footer .row a img {
         margin-left: 15px;
     }
 
@@ -832,7 +836,7 @@ a {
         margin: 10px 0px;
         text-align: left;
     }
-    .footer .row a i {
+    .footer .row a i, .footer .row a img {
         margin-left: 15px;
     }
 
@@ -850,3 +854,186 @@ a {
 }
 
 
+
+
+
+
+
+
+
+
+
+.card {
+    width: calc(var(--card-size) * 1.586);
+    height: var(--card-size);
+    border-radius: 0.75rem;
+    box-shadow: 0 22px 70px 4px rgba(0, 0, 0, 0.56), 0 0 0 1px rgba(0, 0, 0, 0.3);
+    background: black;
+    display: grid;
+    grid-template-columns: 40% auto;
+    color: #a8a8a8;
+    align-items: center;
+    will-change: transform;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: 'Roboto Mono', monospace;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 32px 80px 14px rgba(0, 0, 0, 0.36), 0 0 0 1px rgba(0, 0, 0, 0.3);
+}
+
+.card-details {
+    padding: 3rem;
+}
+
+.name {
+    font-size: 3.75rem;
+}
+
+.occupation {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.card-avatar {
+    display: grid;
+    place-items: center;
+}
+
+.card-img {
+    height: 200px;
+    width: 200px;
+    border-radius: 30px;
+}
+
+.card-about {
+    margin-top: 3rem;
+    display: grid;
+    grid-auto-flow: column;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+
+.item .value {
+    font-size: 3rem;
+}
+
+.item .label {
+    margin-top: 0.75rem;
+    font-size: 2.25rem;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.skills {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.75rem;
+}
+
+.skills .label {
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.skills .value {
+    margin-top: 0.15rem;
+    font-size: 2.25rem;
+}
+
+.links {
+    float: left;
+    padding: 10px;
+    flex-direction: column;
+    margin-top: 10rem;
+}
+
+.links a {
+    width: 50px;
+    height: 50px;
+}
+
+@media screen and (max-width:600px){
+    .card {
+        border-radius: 0.75rem;
+        box-shadow: none;
+        background: black;
+        grid-template-columns: 40% auto;
+        color: #a8a8a8;
+        align-items: center;
+        font-family: 'Roboto Mono', monospace;
+    }
+
+    .card:hover {
+        transform: scale(1);
+        box-shadow: none;
+    }
+
+    .card-details {
+        padding: 1.5rem;
+    }
+
+    .name {
+        font-size: 1.875rem;
+    }
+
+    .occupation {
+        font-weight: 600;
+        color: var(--primary);
+    }
+
+    .card-avatar {
+        display: grid;
+        place-items: center;
+    }
+
+    .card-img {
+        height: 150px;
+        width: 150px;
+    }
+
+    .card-about {
+        margin-top: 1.5rem;
+        display: grid;
+        grid-auto-flow: column;
+    }
+
+    .item {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 0.75rem;
+    }
+
+    .item .value {
+        font-size: 1.5rem;
+    }
+
+    .item .label {
+        margin-top: 0.375rem;
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: var(--primary);
+    }
+
+    .skills {
+        display: flex;
+        flex-direction: column;
+        margin-top: 0.375rem;
+    }
+
+    .skills .label {
+        font-size: 0.75rem;
+        font-weight: 600;
+        color: var(--primary);
+    }
+    .skills .value {
+        margin-top: 0.15rem;
+        font-size: 1.5rem;
+    }
+}
