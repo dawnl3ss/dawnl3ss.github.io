@@ -651,10 +651,6 @@ a {
     }
 }
 
-
-
-
-
 .footer{
     background: #000;
     padding: 50px 0px;
@@ -852,16 +848,6 @@ a {
         margin-left: 20%;
     }
 }
-
-
-
-
-
-
-
-
-
-
 
 .card {
     width: calc(var(--card-size) * 1.586);
