@@ -51,7 +51,8 @@ body {
 }
 
 section {
-    padding: 0; margin: 0;
+    padding: 0;
+    margin: 0;
     width: 100%;
     min-height: 100vh;
     display: -webkit-box;
@@ -66,6 +67,16 @@ section {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     --color-text: #17ff3e;
+}
+
+#thm {
+    padding: 15rem;
+    justify-content: left;
+}
+
+#htb {
+    padding: 15rem;
+    justify-content: right;
 }
 
 .s-header {
@@ -869,6 +880,28 @@ a {
     box-shadow: 0 32px 80px 14px rgba(0, 0, 0, 0.36), 0 0 0 1px rgba(0, 0, 0, 0.3);
 }
 
+
+
+.card-plat {
+    width: calc(var(--card-size) * 1.586);
+    height: calc(var(--card-size) * 0.812);
+    border-radius: 0.75rem;
+    box-shadow: 0 22px 70px 4px rgba(0, 0, 0, 0.56), 0 0 0 1px rgba(0, 0, 0, 0.3);
+    background: black;
+    display: grid;
+    grid-template-columns: 40% auto;
+    color: #a8a8a8;
+    align-items: center;
+    will-change: transform;
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: 'Roboto Mono', monospace;
+}
+
+.card-plat:hover {
+    transform: scale(1.05);
+    box-shadow: 0 32px 80px 14px rgba(0, 0, 0, 0.36), 0 0 0 1px rgba(0, 0, 0, 0.3);
+}
+
 .card-details {
     padding: 3rem;
 }
@@ -945,6 +978,11 @@ a {
     height: 50px;
 }
 
+.links i {
+    color: #a8a8a8;
+    font-size: 50px;
+}
+
 @media screen and (max-width:600px){
     .card {
         border-radius: 0.75rem;
@@ -959,6 +997,32 @@ a {
     .card:hover {
         transform: scale(1);
         box-shadow: none;
+    }
+
+    .card-plat {
+        border-radius: 0.75rem;
+        box-shadow: none;
+        background: black;
+        grid-template-columns: 40% auto;
+        color: #a8a8a8;
+        align-items: center;
+        font-family: 'Roboto Mono', monospace;
+    }
+
+    card-plat:hover {
+        transform: scale(1);
+        box-shadow: none;
+    }
+
+    #thm, #htb {
+        justify-content: center;
+        padding: 0px;
+    }
+
+    #thm:hover, #htb:hover {
+        justify-content: center;
+        padding: 0px;
+        transform: scale(1);
     }
 
     .card-details {
