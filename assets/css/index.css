@@ -70,11 +70,13 @@ section {
 }
 
 #thm {
+    background: url("../../assets/img/stacked-waves.svg");
     padding: 15rem;
     justify-content: left;
 }
 
 #htb {
+    background: url("../../assets/img/stacked-waves.svg");
     padding: 15rem;
     justify-content: right;
 }
@@ -1015,14 +1017,9 @@ a {
     }
 
     #thm, #htb {
+        background: url("../../assets/img/stacked-waves-phone.svg");
         justify-content: center;
         padding: 0px;
-    }
-
-    #thm:hover, #htb:hover {
-        justify-content: center;
-        padding: 0px;
-        transform: scale(1);
     }
 
     .card-details {
