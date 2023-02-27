@@ -1,0 +1,73 @@
+h1 {
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
+    color: white;
+    font-size: 5rem;
+}
+
+hr {
+    margin: 30px;
+}
+
+.writeup-presentation img {
+    width: 900px;
+    height: 510px;
+}
+
+.writeup-section-content, .writeup-presentation {
+    text-align: center;
+    z-index: 99;
+}
+
+.writeup-section-content img {
+    width: 50vw;
+    height: auto;
+    max-width: 100% !important;
+}
+
+.writeup-text {
+    text-align: left;
+    margin: 20px;
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 2rem;
+}
+
+.writeup-command {
+    text-align: left;
+    color: #17ff3e;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 2.5rem;
+    margin: 40px;
+}
+
+@media screen and (max-width:600px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .writeup-presentation img {
+        width: 450px;
+        height: 255px;
+    }
+}
+
+.tag-button {
+    --background: #191e25;
+    --shadow: 0 2px 8px -1px rgba(21, 25, 36, .32);
+    --text: #fff;
+    --font-size: 16px;
+    padding: 16px 32px;
+    font-family: 'Ubuntu', sans-serif;
+    line-height: var(--font-size);
+    border-radius: 24px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: var(--font-size);
+    letter-spacing: 0.5px;
+    background: var(--background);
+    color: var(--text);
+    box-shadow: var(--shadow);
+    -webkit-appearance: none;
+}

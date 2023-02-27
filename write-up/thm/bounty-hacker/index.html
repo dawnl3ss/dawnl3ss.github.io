@@ -1,0 +1,156 @@
+<html>
+    <head>
+        <title> 4m4Sec :: Bounty-Hacker THM Write-UP </title>
+
+        <!-- Head Meta -->
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Amanara | 4m4Sec" property="og:title">
+        <meta content="https://4m4sec.github.io/assets/img/ogimage.jpg" property="og:image">
+        <meta content="4m4sec website. Cybersecurity enthusiast, ctf player and web-dev. Boot-to-Root enjoyer 💀" property="og:description">
+        <meta content="Amanara" name="author">
+
+        <!-- CSS & JS -->
+        <link href="../../../assets/img/icon.png" rel="icon" type="image/png">
+        <link href="../../../assets/css/index.css" rel="stylesheet">
+        <link href="../../../assets/css/writeup.css" rel="stylesheet">
+        <link href="../../../vendor/termynal/termynal.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../../vendor/mdi/css/materialdesignicons.min.css">
+        <script src="../../../app/project/projects.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <header class="s-header">
+            <div class="header-logo">
+                <a href="../../../">
+                    <img src="../../../assets/img/icon.png">
+                </a>
+            </div>
+
+            <div class="header-content">
+                <nav class="row header-nav-wrap">
+                    <ul class="header-nav">
+                        <li><a class="smoothscroll" href="#top"> Top </a></li>
+                        <li><a class="smoothscroll" href="#enum"> Enumeration </a></li>
+                        <li><a class="smoothscroll" href="#top"> Bruteforce </a></li>
+                        <li><a class="smoothscroll" href="#top"> Exploitation </a></li>
+                        <li><a class="smoothscroll" href="#social"> Social </a></li>
+                        <li><a href="../../"> Write-UP </a></li>
+                    </ul>
+                </nav>
+            </div>
+            <a class="header-menu-toggle" href=""><span> Menu </span></a>
+        </header>
+
+        <section id="top" data-image-src="../../../assets/img/header-background.jpg" data-natural-height=1080 data-natural-width=1920 data-parallax="scroll" data-position-y=center>
+            <div class="writeup-presentation">
+                <hr>
+                <div>
+                    <h1> THM - Bounty Hacker CTF - WriteUP </h1>
+                </div>
+                <hr>
+                <div>
+                    <img src="../../../assets/img/thm/bounty-hacker/9ad38a2cc31d6ae0030c888aca7fe646.jpeg">
+                </div>
+                <hr>
+                <div class="tag-list">
+                    <button class="tag-button"> ctf </button>
+                    <button class="tag-button"> linux </button>
+                    <button class="tag-button"> easy </button>
+                    <button class="tag-button"> privesc </button>
+                    <button class="tag-button"> tar </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="s-hero" id="enum">
+            <div class="writeup-section-content">
+                <hr>
+                <div>
+                    <h1> I. Enumeration </h1>
+                </div>
+                <hr>
+
+                <div>
+                    <p class="writeup-text">
+                        We will directly start by enumerating the machine.
+                        Firstly, I used nmap to enumerate open ports on the machine.
+                    </p>
+
+                    <p class="writeup-command">
+                        ⮞ nmap -A 10.10.88.67
+                    </p>
+                </div>
+                <div>
+                    <img src="../../../assets/img/thm/bounty-hacker/1-nmap-scan.png">
+                </div>
+            </div>
+        </section>
+
+        <section class="s-hero">
+            <div class="writeup-section-content">
+                <div>
+                    <p class="writeup-text">
+                        Now, we can see that there is the FTP (21) port open with Anonymous login allowed. Let’s check this :
+                    </p>
+                </div>
+                <div>
+                    <p class="writeup-command">
+                        ⮞ ftp 10.10.88.67
+                    </p>
+                </div>
+                <div>
+                    <img src="../../../assets/img/thm/bounty-hacker/2-ftp-connected-success.png">
+                </div>
+                <div>
+                    <p class="writeup-text">
+                        Nice, now that we are connected to the FTP, we can search for interesting files.
+                    </p>
+                    <p class="writeup-command">
+                        ⮞ pwd
+                    </p>
+                    <p class="writeup-command">
+                        ⮞ ls -la
+                    </p>
+                </div>
+                <div>
+                    <img src="../../../assets/img/thm/bounty-hacker/3-ftp-check-files.png">
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer">
+                <div id="social" class="row">
+                    <a target="_blank" href="https://github.com/4m4sec/"><i class="mdi mdi-github-circle"></i></a>
+                    <a target="_blank" href="https://discord.gg/hardware"><i class="mdi mdi-discord"></i></a>
+                    <a target="_blank" href="http://4m4sec.me/"><i class="mdi mdi-web"></i></a>
+                    <a target="_blank" href="https://twitter.com/4m4sec"><i class="mdi mdi-twitter"></i></a>
+                </div>
+
+                <div id="expl" class="row">
+                    <ul>
+                        <li><a class="smoothscroll" href="#top"> Top </a></li>
+                        <li><a class="smoothscroll" href="#enum"> Enumeration </a></li>
+                        <li><a class="smoothscroll" href="#top"> Bruteforce </a></li>
+                        <li><a class="smoothscroll" href="#top"> Exploitation </a></li>
+                        <li><a href="../../"> Write-UP </a></li>
+                        <li><a href="mailto:4m4Sec@protonmail.com"> Email me </a></li>
+                    </ul>
+                </div>
+
+                <div class="row">
+                    <span class="copy"> Copyright 4m4sec © 2023 </span>
+                </div>
+            </div>
+        </footer>
+
+        <script data-termynal-container="#termynal" src="../../../vendor/termynal/termynal.js"></script>
+        <script src="../../../vendor/jquery/jquery-3.2.1.min.js"></script>
+        <script src="../../../app/App.js"></script>
+        <script src="../../../vendor/parallax/parallax.js"></script>
+    </body>
+</html>
