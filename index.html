@@ -146,7 +146,7 @@
                                         <span class="t"> websites/ </span>
                                         <ul>
                                             <script>
-                                                for (const [name, project] of Object.entries(getProjects()["Websites"])) {
+                                                for (const [name, project] of Object.entries(getProjects()["websites"])) {
                                                     document.write("<li>" + "<a target='_blank' class='project-link' href='" + project.getLink() + "'>" + "<i class=\"mdi mdi-" + project.getIcon() + "\"></i> " + name + "</a>" + "<span class='hidden'> - " + project.getDescription() + "</span>" + "</li>");
                                                 }
                                             </script>
@@ -156,7 +156,7 @@
                                         <span class="t"> tools/ </span>
                                         <ul>
                                             <script>
-                                                for (const [name, project] of Object.entries(getProjects()["Tools"])) {
+                                                for (const [name, project] of Object.entries(getProjects()["tools"])) {
                                                     document.write("<li>" + "<a target='_blank' class='project-link' href='" + project.getLink() + "'>" + "<i class=\"mdi mdi-" + project.getIcon() + "\"></i> " + name + "</a>" + "<span class='hidden'> - " + project.getDescription() + "</span>" + "</li>");
                                                 }
                                             </script>
@@ -166,7 +166,7 @@
                                         <span class="t"> others/ </span>
                                         <ul>
                                             <script>
-                                                for (const [name, project] of Object.entries(getProjects()["Others"])) {
+                                                for (const [name, project] of Object.entries(getProjects()["others"])) {
                                                     document.write("<li>" + "<a target='_blank' class='project-link' href='" + project.getLink() + "'>" + "<i class=\"mdi mdi-" + project.getIcon() + "\"></i> " + name + "</a>" + "<span class='hidden'> - " + project.getDescription() + "</span>" + "</li>");
                                                 }
                                             </script>

@@ -96,8 +96,6 @@
                     <p class="writeup-text">
                         Now, we can see that there is the FTP (21) port open with Anonymous login allowed. Let’s check this :
                     </p>
-                </div>
-                <div>
                     <p class="writeup-command">
                         ⮞ ftp 10.10.88.67
                     </p>
@@ -118,6 +116,33 @@
                 </div>
                 <div>
                     <img src="../../../assets/img/thm/bounty-hacker/3-ftp-check-files.png">
+                </div>
+            </div>
+        </section>
+
+        <section class="s-hero">
+            <div class="writeup-section-content">
+                <div>
+                    <p class="writeup-text">
+                        Okay, looks like there are some interesting files. We can download them with the commands :
+                    </p>
+                    <p class="writeup-command">
+                        ⮞ get locks.txt
+                    </p>
+                    <p class="writeup-command">
+                        ⮞ get task.txt
+                    </p>
+                </div>
+                <div>
+                    <img src="../../../assets/img/thm/bounty-hacker/4-ftp-download-files.png">
+                </div>
+                <div>
+                    <p class="writeup-text">
+                        We can exit the FTP since there is no other interesting files. Now, let’s check their content.
+                    </p>
+                    <p class="writeup-command">
+                        ⮞ cat locks.txt
+                    </p>
                 </div>
             </div>
         </section>

@@ -685,6 +685,7 @@ a {
     transition: 0.5s;
 }
 
+
 .footer .row a:hover{
     color: #fff;
 }
@@ -709,7 +710,9 @@ a {
 }
 
 #social {
+    text-align: center;
     width: 50%;
+    max-width: 100%;
     position: relative;
     left: 29.5%;
 }

@@ -1,6 +1,12 @@
 function getProjects(){
     return {
-        "Websites": {
+        "websites": {
+            "Hardware-Hub": {
+                getDescription: function (){ return "French discord server based on hardware, software and programming."; },
+                getLink: function(){ return "http://hardware-hub.fr/"; },
+                getSatetement: function (){ return "Under Development"; },
+                getIcon: function (){ return "laptop"; }
+            },
             "Lets-Freerun": {
                 getDescription: function (){ return "website which gather a lot of parkour spots around the world."; },
                 getLink: function(){ return "https://github.com/4m4Sec/Lets-Freerun"; },
@@ -8,7 +14,7 @@ function getProjects(){
                 getIcon: function (){ return "human"; }
             }
         },
-        "Tools": {
+        "tools": {
             "Kharon": {
                 getDescription: function (){ return "automated ctf web-server scan which perform basic tasks of webserver pentesting."; },
                 getLink: function (){ return "https://github.com/4m4Sec/Kharon"; },
@@ -22,13 +28,19 @@ function getProjects(){
                 getIcon: function (){ return "search-web"; }
             },
         },
-        "Others": {
-            "ARS-SHELL-CRYPT": {
+        "others": {
+            "ARS-ENCRYPT": {
                 getDescription: function (){ return "modified caesar's-cipher-based encrypt system written in C++."; },
-                getLink: function(){ return "https://github.com/4m4Sec/ARS_SHELL_CRYPT"; },
+                getLink: function(){ return "https://github.com/4m4Sec/ARS_ENCRYPT"; },
                 getSatetement: function (){ return "Completed"; },
                 getIcon: function (){ return "lock"; }
             },
+            "Zephyr": {
+                getDescription: function (){ return "web router written in PHP 7.4."; },
+                getLink: function(){ return "https://github.com/4m4Sec/Zephyr"; },
+                getSatetement: function (){ return "Completed"; },
+                getIcon: function (){ return "directions"; }
+            }
         }
     }
 }
