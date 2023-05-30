@@ -16,7 +16,7 @@ function getProjects(){
         },
         "tools": {
             "Kharon": {
-                getDescription: function (){ return "automated web-server ctf scanner which perform basic tasks of web-server pentesting."; },
+                getDescription: function (){ return "automated ctf web-server scan which perform basic tasks of webserver pentesting."; },
                 getLink: function (){ return "https://github.com/4m4Sec/Kharon"; },
                 getSatetement: function (){ return "Under Development"; },
                 getIcon: function (){ return "skull"; }

@@ -34,11 +34,8 @@
                 <nav class="row header-nav-wrap">
                     <ul class="header-nav">
                         <li><a class="smoothscroll" href="#top"> Top </a></li>
-                        <li><a class="smoothscroll" href="#enum"> Enumeration </a></li>
-                        <li><a class="smoothscroll" href="#top"> Bruteforce </a></li>
-                        <li><a class="smoothscroll" href="#top"> Exploitation </a></li>
                         <li><a class="smoothscroll" href="#social"> Social </a></li>
-                        <li><a href="../../"> Write-UP </a></li>
+                        <li><a href="../../"> Home </a></li>
                     </ul>
                 </nav>
             </div>
@@ -49,7 +46,7 @@
             <div class="writeup-presentation">
                 <hr>
                 <div>
-                    <h1> THM - Bounty Hacker CTF - WriteUP </h1>
+                    <h1> THM - Bounty Hacker - WriteUP </h1>
                 </div>
                 <hr>
                 <div>
@@ -66,86 +63,36 @@
             </div>
         </section>
 
-        <section class="s-hero" id="enum">
-            <div class="writeup-section-content">
-                <hr>
-                <div>
-                    <h1> I. Enumeration </h1>
-                </div>
-                <hr>
-
-                <div>
-                    <p class="writeup-text">
-                        We will directly start by enumerating the machine.
-                        Firstly, I used nmap to enumerate open ports on the machine.
-                    </p>
-
-                    <p class="writeup-command">
-                        ⮞ nmap -A 10.10.88.67
-                    </p>
-                </div>
-                <div>
-                    <img src="../../../assets/img/thm/bounty-hacker/1-nmap-scan.png">
-                </div>
+        <main>
+            <div class="wt-section">
+                <h1> Introduction </h1>
+                <p class="writeup-text"> Bounty Hacker is one of the 'free rooms' implemented by TryHackMe. </p>
+                <ul>
+                    <li>
+                        <p class="writeup-text"> Name : Bounty Hacker</p>
+                    </li>
+                    <li>
+                        <p class="writeup-text"> Difficulty : Easy </p>
+                    </li>
+                    <li>
+                        <p class="writeup-text"> OS : Linux </p>
+                    </li>
+                </ul>
+                <p class="writeup-text"> Let's dive into the challenge ! </p>
             </div>
-        </section>
-
-        <section class="s-hero">
-            <div class="writeup-section-content">
-                <div>
-                    <p class="writeup-text">
-                        Now, we can see that there is the FTP (21) port open with Anonymous login allowed. Let’s check this :
-                    </p>
-                    <p class="writeup-command">
-                        ⮞ ftp 10.10.88.67
-                    </p>
-                </div>
-                <div>
-                    <img src="../../../assets/img/thm/bounty-hacker/2-ftp-connected-success.png">
-                </div>
-                <div>
-                    <p class="writeup-text">
-                        Nice, now that we are connected to the FTP, we can search for interesting files.
-                    </p>
-                    <p class="writeup-command">
-                        ⮞ pwd
-                    </p>
-                    <p class="writeup-command">
-                        ⮞ ls -la
-                    </p>
-                </div>
-                <div>
-                    <img src="../../../assets/img/thm/bounty-hacker/3-ftp-check-files.png">
-                </div>
+            <div class="wt-section">
+                <h1> Enumeration </h1>
+                <p class="writeup-text"> I firstly added the machine ip address to my /etc/hosts files : </p>
+                <p class="writeup-text"> <code>$ sudo echo '{MACHINE-IP} bouty.thm' >> /etc/hosts </code> </p>
+                <p class="writeup-text"> I used nmap scanner to enumerate open ports on the machine : </p>
+                <p class="writeup-text"> <code>$ nmap -A bounty.thm </code> </p>
             </div>
-        </section>
-
-        <section class="s-hero">
-            <div class="writeup-section-content">
-                <div>
-                    <p class="writeup-text">
-                        Okay, looks like there are some interesting files. We can download them with the commands :
-                    </p>
-                    <p class="writeup-command">
-                        ⮞ get locks.txt
-                    </p>
-                    <p class="writeup-command">
-                        ⮞ get task.txt
-                    </p>
-                </div>
-                <div>
-                    <img src="../../../assets/img/thm/bounty-hacker/4-ftp-download-files.png">
-                </div>
-                <div>
-                    <p class="writeup-text">
-                        We can exit the FTP since there is no other interesting files. Now, let’s check their content.
-                    </p>
-                    <p class="writeup-command">
-                        ⮞ cat locks.txt
-                    </p>
-                </div>
+            <div class="wt-section">
+                <h1>Challenge 2</h1>
+                <p>...</p>
             </div>
-        </section>
+            <!-- Ajouter des sections supplémentaires pour chaque challenge -->
+        </main>
 
         <footer>
             <div class="footer">

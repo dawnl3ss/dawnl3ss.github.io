@@ -1,8 +1,8 @@
+
 h1 {
-    font-family: 'Ubuntu', sans-serif;
-    text-align: center;
-    color: white;
-    font-size: 5rem;
+    font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto;
+    color: whitesmoke;
+    font-size: 4rem;
 }
 
 hr {
@@ -10,8 +10,8 @@ hr {
 }
 
 .writeup-presentation img {
-    width: 900px;
-    height: 510px;
+    width: 810px;
+    height: 459px;
 }
 
 .writeup-section-content, .writeup-presentation {
@@ -27,10 +27,9 @@ hr {
 
 .writeup-text {
     text-align: left;
-    margin: 20px;
-    color: white;
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 2rem;
+    color: #cccaca;
+    font-size: 1.80rem;
+    margin: 3rem 0 3rem;
 }
 
 .writeup-command {
@@ -70,4 +69,75 @@ hr {
     color: var(--text);
     box-shadow: var(--shadow);
     -webkit-appearance: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1d1e20;
+    color: #fff;
+}
+
+
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 50px;
+}
+
+.wt-section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+
+
+/* Styles spécifiques pour la version responsive */
+@media (max-width: 768px) {
+    main {
+        padding: 10px;
+    }
+
+    .wt-section {
+        padding: 20px;
+    }
+}
+
+
+ul li {
+    position: relative;
+    left: 2rem;
+}
+
+code {
+    background-color: #2e2e33;
+    border-radius: 4px;
+    padding: 5px;
+    overflow-x: auto;
+    display: inline-block;
+    color: #c8c8c8;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-size: 1.70rem;
 }
