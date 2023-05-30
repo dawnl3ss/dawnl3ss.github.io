@@ -1,0 +1,123 @@
+<html>
+    <head>
+        <title> 4m4Sec :: WriteUP </title>
+
+        <!-- Head Meta -->
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Amanara | 4m4Sec" property="og:title">
+        <meta content="https://4m4sec.github.io/assets/img/ogimage.jpg" property="og:image">
+        <meta content="4m4sec website. Cybersecurity enthusiast, ctf player and web-dev. Boot-to-Root enjoyer 💀" property="og:description">
+        <meta content="Amanara" name="author">
+
+        <!-- CSS & JS -->
+        <link href="../assets/img/icon.png" rel="icon" type="image/png">
+        <link href="../assets/css/index.css" rel="stylesheet">
+        <link href="../assets/css/tree.css" rel="stylesheet">
+        <link href="../vendor/termynal/termynal.css" rel="stylesheet">
+        <link rel="stylesheet" href="../vendor/mdi/css/materialdesignicons.min.css">
+    </head>
+
+    <body>
+        <header class="s-header">
+            <div class="header-logo">
+                <a href="../">
+                    <img src="../assets/img/icon.png">
+                </a>
+            </div>
+
+            <div class="header-content">
+                <nav class="row header-nav-wrap">
+                    <ul class="header-nav">
+                        <li><a class="smoothscroll" href="#top"> Top </a></li>
+                        <li><a class="smoothscroll" href="#thm"> TryHackMe </a></li>
+                        <li><a class="smoothscroll" href="#htb"> HackTheBox </a></li>
+                        <li><a class="smoothscroll" href="#social"> Social </a></li>
+                        <li><a href="../"> Home </a></li>
+                    </ul>
+                </nav>
+            </div>
+            <a class="header-menu-toggle" href=""><span> Menu </span></a>
+        </header>
+
+        <section id="top" data-image-src="../assets/img/header-background.jpg" data-natural-height=1080 data-natural-width=1920 data-parallax="scroll" data-position-y=center>
+            <div data-termynal data-ty-lineDelay="500" data-ty-typeDelay="100" id="termynal">
+                <span data-ty="input" data-ty-prompt="$">cat /home/4m4sec/user.txt</span>
+                <span data-ty>See all my ctf write-up through my learning process.</span>
+                <span data-ty="input" data-ty-prompt="$">find / -perm -4000 2>/dev/null</span>
+                <span data-ty>/bin/less</span>
+                <span data-ty="input" data-ty-prompt="$">/bin/less /root/root.txt</span>
+                <span data-ty>All my write-up are flag-redacted for a better understanding of the process.</span>
+            </div>
+        </section>
+
+        <section class="s-hero" id="thm">
+            <div class="card-plat">
+                <div class="card-avatar">
+                    <img class="card-img" src="../assets/img/tryhackme.svg">
+                </div>
+                <div class="card-details">
+                    <div class="occupation"> Platform </div>
+                    <div class="name"> TryHackMe </div>
+
+                    <div class="skills">
+                        <span class="value"> TryHackMe is a free online platform for learning cyber security, using hands-on exercises and labs, all through your browser ! </span>
+                    </div>
+                    <div class="links">
+                        <a href="thm/"><i class="mdi mdi-arrow-right-thick"></i></a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="s-hero" id="htb">
+            <div class="card-plat">
+                <div class="card-avatar">
+                    <img class="card-img" src="../assets/img/hackthebox.svg">
+                </div>
+                <div class="card-details">
+                    <div class="occupation"> Platform </div>
+                    <div class="name"> HackTheBox </div>
+
+                    <div class="skills">
+                        <span class="value"> Where hackers level up ! An online cybersecurity training platform allowing IT professionals to advance their ethical hacking skills and be part of a worldwide community. Join today and learn how to hack ! </span>
+                    </div>
+                    <div class="links">
+                        <a href="htb/"><i class="mdi mdi-arrow-right-thick"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer">
+                <div id="social" class="row">
+                    <a target="_blank" href="https://github.com/4m4sec/"><i class="mdi mdi-github-circle"></i></a>
+                    <a target="_blank" href="https://discord.gg/hardware"><i class="mdi mdi-discord"></i></a>
+                    <a target="_blank" href="http://4m4sec.me/"><i class="mdi mdi-web"></i></a>
+                    <a target="_blank" href="https://twitter.com/4m4sec"><i class="mdi mdi-twitter"></i></a>
+                </div>
+
+                <div id="expl" class="row">
+                    <ul>
+                        <li><a class="smoothscroll" href="#top"> Top </a></li>
+                        <li><a class="smoothscroll" href="#thm"> TryHackMe </a></li>
+                        <li><a class="smoothscroll" href="#htb"> HackTheBox </a></li>
+                        <li><a href="../"> Home </a></li>
+                        <li><a href="mailto:4m4Sec@protonmail.com"> Email me </a></li>
+                    </ul>
+                </div>
+
+                <div class="row">
+                    <span class="copy"> Copyright 4m4sec © 2023 </span>
+                </div>
+            </div>
+        </footer>
+
+        <script data-termynal-container="#termynal" src="../vendor/termynal/termynal.js"></script>
+        <script src="./../vendor/jquery/jquery-3.2.1.min.js"></script>
+        <script src="./../app/App.js"></script>
+        <script src="../vendor/parallax/parallax.js"></script>
+    </body>
+</html>
