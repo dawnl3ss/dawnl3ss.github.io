@@ -20,7 +20,14 @@ hr {
 }
 
 .writeup-section-content img {
+    max-width: 100%;
     width: 50vw;
+    height: auto;
+    max-width: 100% !important;
+}
+
+.writeup-img {
+    max-width: 100%;
     height: auto;
     max-width: 100% !important;
 }
@@ -46,8 +53,8 @@ hr {
     }
 
     .writeup-presentation img {
-        width: 450px;
-        height: 255px;
+        width: 382.5px;
+        height: 216.75px;
     }
 }
 
@@ -98,7 +105,7 @@ body {
 
 
 main {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 20px auto;
     padding: 50px;
 }
@@ -123,6 +130,10 @@ h2 {
     .wt-section {
         padding: 20px;
     }
+
+    code {
+        max-width: 100%;
+    }
 }
 
 
@@ -140,4 +151,22 @@ code {
     color: #c8c8c8;
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
     font-size: 1.70rem;
+    max-width: 100%;
+}
+
+.shell-response {
+    white-space: pre;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.challenge-answer {
+    font-size: 2rem;
+}
+.challenge-answer span {
+    font-style: italic;
+}
+
+p a {
+    color: white;
 }

