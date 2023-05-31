@@ -34,7 +34,9 @@
                 <nav class="row header-nav-wrap">
                     <ul class="header-nav">
                         <li><a class="smoothscroll" href="#top"> Top </a></li>
-                        <li><a class="smoothscroll" href="#social"> Social </a></li>
+                        <li><a class="smoothscroll" href="#recon"> Reconnaissance </a></li>
+                        <li><a class="smoothscroll" href="#access"> Getting a Shell </a></li>
+                        <li><a class="smoothscroll" href="#privesc"> PrivEsc </a></li>
                         <li><a href="../../"> Home </a></li>
                     </ul>
                 </nav>
@@ -83,7 +85,7 @@
                 </ul>
                 <p class="writeup-text"> Let's dive into the challenge ! </p>
             </div>
-            <div class="wt-section">
+            <div id="recon" class="wt-section">
                 <h1> Reconnaissance </h1>
                 <p class="writeup-text"> I firstly added the machine ip address to my /etc/hosts file : </p>
                 <p class="writeup-text"> <code>$ sudo echo '{MACHINE-IP} bounty.thm' >> /etc/hosts </code> </p>
@@ -191,38 +193,38 @@ $ cat task.txt
                 <p class="writeup-text challenge-answer"><span> Who wrote the task list ? </span> Answer : lin </p>
             </div>
 
-            <div class="wt-section">
+            <div id="access" class="wt-section">
                 <h1> Getting a shell </h1>
                 <p class="writeup-text">
                     <code class="shell-response">
 $ cat locks.txt
 
-rEddrAGON
-ReDdr4g0nSynd!cat3
+rE*********ON
+ReDdr4g0n*********cat3
 Dr@gOn$yn9icat3
-R3DDr46ONSYndIC@Te
+R3DDr46ONS*********@Te
 ReddRA60N
-R3dDrag0nSynd1c4te
-dRa6oN5YNDiCATE
-ReDDR4g0n5ynDIc4te
+R3dDrag0*********1c4te
+dRa6*********DiCATE
+ReDDR*********ynDIc4te
 R3Dr4gOn2044
-RedDr4gonSynd1cat3
-R3dDRaG0Nsynd1c@T3
-Synd1c4teDr@g0n
-reddRAg0N
-REddRaG0N5yNdIc47e
-Dra6oN$yndIC@t3
-4L1mi6H71StHeB357
-rEDdragOn$ynd1c473
-DrAgoN5ynD1cATE
-ReDdrag0n$ynd1cate
-Dr@gOn$yND1C4Te
-RedDr@gonSyn9ic47e
-REd$yNdIc47e
-dr@goN5YNd1c@73
-rEDdrAGOnSyNDiCat3
-r3ddr@g0N
-ReDSynd1ca7e
+RedDr4g*********d1cat3
+R3dDRaG*********d1c@T3
+Syn*********eDr@g0n
+*********Ag0N
+REdd*********5yNdIc47e
+Dra6o*********IC@t3
+4L1mi*********tHeB357
+rEDdr*********ynd1c473
+DrAg*********D1cATE
+Re*********0n$ynd1cate
+Dr@gO*********1C4Te
+RedDr@g*********9ic47e
+REd$*********47e
+dr@*********Nd1c@73
+rEDdrA*********NDiCat3
+r3d*********N
+ReDSy*********7e
                     </code>
                 </p>
                 <p class="writeup-text"> Ok, it looks like a password list. Maybe to bruteforce a login service. Since we know who wrote the task list (lin), we have a potential user. We also know that SSH service is open on the machine. So let’s try to bruteforce the SSH login with the user ‘lin’ and the password list that we found in the FTP.</p>
@@ -282,7 +284,7 @@ THM{REDACTED}
                 <p class="writeup-text challenge-answer"><span> user.txt ? </span> Answer : THM{REDACTED} </p>
             </div>
 
-            <div class="wt-section">
+            <div id="privesc" class="wt-section">
                 <h1> Privilege escalation </h1>
                 <p class="writeup-text"> Since we have the user flag, we should escalate our privileges to display the root.txt file content. I firstly search for sudo misconfiguration : </p>
                     <code class="shell-response">
@@ -335,10 +337,9 @@ THM{REDACTED}
                 <div id="expl" class="row">
                     <ul>
                         <li><a class="smoothscroll" href="#top"> Top </a></li>
-                        <li><a class="smoothscroll" href="#enum"> Enumeration </a></li>
-                        <li><a class="smoothscroll" href="#top"> Bruteforce </a></li>
-                        <li><a class="smoothscroll" href="#top"> Exploitation </a></li>
-                        <li><a href="../../"> Write-UP </a></li>
+                        <li><a class="smoothscroll" href="#recon"> Reconnaissance </a></li>
+                        <li><a class="smoothscroll" href="#access"> Getting a Shell </a></li>
+                        <li><a class="smoothscroll" href="#privesc"> PrivEsc </a></li>
                         <li><a href="mailto:4m4Sec@protonmail.com"> Email me </a></li>
                     </ul>
                 </div>
