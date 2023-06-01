@@ -9,7 +9,7 @@ hr {
     margin: 30px;
 }
 
-.writeup-presentation img {
+.menu-img {
     width: 810px;
     height: 459px;
 }
@@ -52,9 +52,14 @@ hr {
         font-size: 2.5rem;
     }
 
-    .writeup-presentation img {
+    .menu-img {
         width: 382.5px;
         height: 216.75px;
+    }
+
+    .ignite-img {
+        width: 10px;
+        height: auto;
     }
 }
 
@@ -169,4 +174,9 @@ code {
 
 p a {
     color: white;
+}
+
+.ignite-img {
+    width: 375px;
+    height: auto;
 }

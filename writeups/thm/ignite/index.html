@@ -1,0 +1,135 @@
+<html>
+    <head>
+        <title> 4m4Sec :: Ignite THM Write-UP </title>
+
+        <!-- Head Meta -->
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Amanara | 4m4Sec" property="og:title">
+        <meta content="https://4m4sec.github.io/assets/img/ogimage.jpg" property="og:image">
+        <meta content="4m4sec website. Cybersecurity enthusiast, ctf player and web-dev. Boot-to-Root enjoyer 💀"
+              property="og:description">
+        <meta content="Amanara" name="author">
+
+        <!-- CSS & JS -->
+        <link href="../../../assets/img/icon.png" rel="icon" type="image/png">
+        <link href="../../../assets/css/index.css" rel="stylesheet">
+        <link href="../../../assets/css/writeup.css" rel="stylesheet">
+        <link href="../../../vendor/termynal/termynal.css" rel="stylesheet">
+        <link href="../../../vendor/mdi/css/materialdesignicons.min.css" rel="stylesheet">
+        <script src="../../../app/project/projects.js"></script>
+        <link href="https://fonts.googleapis.com" rel="preconnect">
+        <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <header class="s-header">
+            <div class="header-logo">
+                <a href="../../../">
+                    <img src="../../../assets/img/icon.png">
+                </a>
+            </div>
+
+            <div class="header-content">
+                <nav class="row header-nav-wrap">
+                    <ul class="header-nav">
+                        <li><a class="smoothscroll" href="#top"> Top </a></li>
+                        <li><a class="smoothscroll" href="#recon"> Recon </a></li>
+                        <li><a class="smoothscroll" href="#access"> Gaining Access </a></li>
+                        <li><a class="smoothscroll" href="#privesc"> PrivEsc </a></li>
+                        <li><a href="../../"> Home </a></li>
+                    </ul>
+                </nav>
+            </div>
+            <a class="header-menu-toggle" href=""><span> Menu </span></a>
+        </header>
+
+        <section data-image-src="../../../assets/img/header-background.jpg" data-natural-height=1080 data-natural-width=1920 data-parallax="scroll" data-position-y=center id="top">
+            <div class="writeup-presentation">
+                <hr>
+                <div>
+                    <h1> THM - Ignite - WriteUP </h1>
+                </div>
+                <hr>
+                <div>
+                    <img class="ignite-img" src="https://tryhackme-images.s3.amazonaws.com/room-icons/676cb3273c613c9ba00688162efc0979.png">
+                </div>
+                <hr>
+                <div class="tag-list">
+                    <button class="tag-button"> ctf </button>
+                    <button class="tag-button"> boot2root </button>
+                    <button class="tag-button"> privesc </button>
+                    <button class="tag-button"> exploit </button>
+                </div>
+            </div>
+        </section>
+
+        <main>
+            <div class="wt-section">
+                <h1> Introduction </h1>
+                <p class="writeup-text"><a href="https://tryhackme.com/room/ignite">Ignite</a> is one of the 'free
+                    rooms' implemented by TryHackMe. You have to find and obtain user & root flags. </p>
+                <ul>
+                    <li>
+                        <p class="writeup-text"> Name : <a href="https://tryhackme.com/room/ignite">Ignite</a></p>
+                    </li>
+                    <li>
+                        <p class="writeup-text"> Difficulty : Easy </p>
+                    </li>
+                    <li>
+                        <p class="writeup-text"> OS : Linux </p>
+                    </li>
+                    <li>
+                        <p class="writeup-text"> Type : Web-App Security </p>
+                    </li>
+                </ul>
+                <p class="writeup-text"> Let's dive into the challenge ! </p>
+            </div>
+            <div class="wt-section" id="recon">
+                <h1> Reconnaissance </h1>
+
+            </div>
+
+            <div class="wt-section" id="access">
+                <h1> Getting a shell </h1>
+
+            </div>
+
+            <div class="wt-section" id="privesc">
+                <h1> Privilege escalation </h1>
+
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer">
+                <div class="row" id="social">
+                    <a href="https://github.com/4m4sec/" target="_blank"><i class="mdi mdi-github-circle"></i></a>
+                    <a href="https://discord.gg/hardware" target="_blank"><i class="mdi mdi-discord"></i></a>
+                    <a href="http://4m4sec.me/" target="_blank"><i class="mdi mdi-web"></i></a>
+                    <a href="https://twitter.com/4m4sec" target="_blank"><i class="mdi mdi-twitter"></i></a>
+                </div>
+
+                <div class="row" id="expl">
+                    <ul>
+                        <li><a class="smoothscroll" href="#top"> Top </a></li>
+                        <li><a class="smoothscroll" href="#recon"> Recon </a></li>
+                        <li><a class="smoothscroll" href="#access"> Gaining Access </a></li>
+                        <li><a class="smoothscroll" href="#privesc"> PrivEsc </a></li>
+                        <li><a href="mailto:4m4Sec@protonmail.com"> Email me </a></li>
+                    </ul>
+                </div>
+
+                <div class="row">
+                    <span class="copy"> Copyright 4m4sec © 2023 </span>
+                </div>
+            </div>
+        </footer>
+
+        <script data-termynal-container="#termynal" src="../../../vendor/termynal/termynal.js"></script>
+        <script src="../../../vendor/jquery/jquery-3.2.1.min.js"></script>
+        <script src="../../../app/App.js"></script>
+        <script src="../../../vendor/parallax/parallax.js"></script>
+    </body>
+</html>
