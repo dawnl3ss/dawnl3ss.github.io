@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title> 4m4Sec :: WriteUP </title>
+        <title> 4m4Sec :: Writeups </title>
 
         <!-- Head Meta -->
         <meta charset="utf-8">
@@ -14,6 +14,8 @@
         <link href="../assets/img/icon.png" rel="icon" type="image/png">
         <link href="../assets/css/index.css" rel="stylesheet">
         <link href="../assets/css/tree.css" rel="stylesheet">
+        <link href="../assets/css/writeup.css" rel="stylesheet">
+        <script src="./../app/writeup/writeup.js"></script>
         <link href="../vendor/termynal/termynal.css" rel="stylesheet">
         <link rel="stylesheet" href="../vendor/mdi/css/materialdesignicons.min.css">
     </head>
@@ -51,44 +53,13 @@
             </div>
         </section>
 
-        <section class="s-hero" id="thm">
-            <div class="card-plat">
-                <div class="card-avatar">
-                    <img class="card-img" src="../assets/img/tryhackme.svg">
-                </div>
-                <div class="card-details">
-                    <div class="occupation"> Platform </div>
-                    <div class="name"> TryHackMe </div>
-
-                    <div class="skills">
-                        <span class="value"> TryHackMe is a free online platform for learning cyber security, using hands-on exercises and labs, all through your browser ! </span>
-                    </div>
-                    <div class="links">
-                        <a href="thm/"><i class="mdi mdi-arrow-right-thick"></i></a>
-                    </div>
-                </div>
-            </div>
-
-        </section>
-
-        <section class="s-hero" id="htb">
-            <div class="card-plat">
-                <div class="card-avatar">
-                    <img class="card-img" src="../assets/img/hackthebox.svg">
-                </div>
-                <div class="card-details">
-                    <div class="occupation"> Platform </div>
-                    <div class="name"> HackTheBox </div>
-
-                    <div class="skills">
-                        <span class="value"> Where hackers level up ! An online cybersecurity training platform allowing IT professionals to advance their ethical hacking skills and be part of a worldwide community. Join today and learn how to hack ! </span>
-                    </div>
-                    <div class="links">
-                        <a href="htb/"><i class="mdi mdi-arrow-right-thick"></i></a>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <main>
+            <script>
+                for (const [name, project] of Object.entries(getWriteups())) {
+                    document.write(name + ' | ' + project.getLocation() + ' | ' + project.getDifficulty() + "<br><br>")
+                }
+            </script>
+        </main>
 
         <footer>
             <div class="footer">
