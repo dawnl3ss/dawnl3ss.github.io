@@ -1,4 +1,10 @@
-
+* {
+    --gap: 24px;
+    --radius: 8px;
+    --border: #333;
+    --entry: #2e2e33;
+    --secondary: #a8a8a8;
+}
 h1 {
     font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto;
     color: whitesmoke;
@@ -84,17 +90,6 @@ hr {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
 * {
     margin: 0;
     padding: 0;
@@ -107,12 +102,14 @@ body {
     color: #fff;
 }
 
-
-
 main {
     max-width: 1000px;
     margin: 20px auto;
     padding: 50px;
+}
+
+#wt-articles {
+    max-width: 850px;
 }
 
 .wt-section {
@@ -179,4 +176,66 @@ p a {
 .ignite-img {
     width: 375px;
     height: auto;
+}
+
+.post-entry {
+    position: relative;
+    margin-bottom: var(--gap);
+    padding: var(--gap);
+    background: var(--entry);
+    border-radius: var(--radius);
+    transition: transform .1s;
+    border: 1px solid var(--border)
+}
+
+.post-entry:active {
+    transform: scale(.96)
+}
+
+
+.entry-header {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3
+}
+
+.entry-header h1 {
+    font-size: 34px;
+    line-height: 1.3
+}
+
+.entry-header h2 {
+    font-size: 24px
+}
+
+.entry-content {
+    margin: 8px 0;
+    color: var(--secondary);
+    font-size: 14px;
+    line-height: 1.6;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2
+}
+
+.entry-content {
+    margin: 14px 0;
+    font-size: 16px;
+    -webkit-line-clamp: 3;
+    -webkit-line-clamp: unset;
+}
+
+.entry-footer {
+    color: var(--secondary);
+    font-size: 13px;
+}
+
+.entry-link {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0
 }

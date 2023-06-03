@@ -53,10 +53,21 @@
             </div>
         </section>
 
-        <main>
+        <main id="wt-articles">
             <script>
-                for (const [name, project] of Object.entries(getWriteups())) {
-                    document.write(name + ' | ' + project.getLocation() + ' | ' + project.getDifficulty() + "<br><br>")
+                for (const [id, project] of Object.entries(getWriteups())) {
+                    document.write("" +
+                        "<article class='post-entry'>\n" +
+                        "   <header class='entry-header'>\n" +
+                        "       <h2> " + project.getLocation() + " - " + project.getName() + " </h2>\n" +
+                        "   </header>\n" +
+                        "   <div class='entry-content'>\n" +
+                        "       <p> " + project.getLocation() + " - " + project.getName() + " writeup </p>\n" +
+                        "   </div>\n" +
+                        "   <footer class='entry-footer'> Amanara </footer>\n" +
+                        "   <a class='entry-link' href='" + project.getLink() + "'></a>\n" +
+                        "</article>"
+                    );
                 }
             </script>
         </main>
