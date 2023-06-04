@@ -69,18 +69,6 @@ section {
     --color-text: #17ff3e;
 }
 
-#thm {
-    background: url("../../assets/img/stacked-waves.svg");
-    padding: 15rem;
-    justify-content: left;
-}
-
-#htb {
-    background: url("../../assets/img/stacked-waves.svg");
-    padding: 15rem;
-    justify-content: right;
-}
-
 .s-header {
     z-index: 100;
     width: 100%;
@@ -642,9 +630,16 @@ a {
     background: url("../../assets/img/circle-background.svg");
 }
 
+#writeups {
+    background: url("../../assets/img/stacked-waves.svg");
+}
+
 @media screen and (max-width:600px) {
     #skills {
         background: url("../../assets/img/circle-background-phone.svg");
+    }
+    #writeups {
+        background: url("../../assets/img/stacked-waves-phone.svg");
     }
 }
 
@@ -1017,12 +1012,6 @@ a {
     card-plat:hover {
         transform: scale(1);
         box-shadow: none;
-    }
-
-    #thm, #htb {
-        background: url("../../assets/img/stacked-waves-phone.svg");
-        justify-content: center;
-        padding: 0px;
     }
 
     .card-details {

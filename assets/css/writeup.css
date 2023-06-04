@@ -20,6 +20,16 @@ hr {
     height: 459px;
 }
 
+.ignite-img {
+    width: 375px;
+    height: auto;
+}
+
+.wonderland-img {
+    width: 500px;
+    height: auto;
+}
+
 .writeup-section-content, .writeup-presentation {
     text-align: center;
     z-index: 99;
@@ -64,7 +74,11 @@ hr {
     }
 
     .ignite-img {
-        width: 10px;
+        width: 200px;
+        height: auto;
+    }
+    .wonderland-img {
+        width: 300px;
         height: auto;
     }
 }
@@ -171,11 +185,6 @@ code {
 
 p a {
     color: white;
-}
-
-.ignite-img {
-    width: 375px;
-    height: auto;
 }
 
 .post-entry {

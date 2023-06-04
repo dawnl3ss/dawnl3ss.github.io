@@ -1,0 +1,265 @@
+<html>
+    <head>
+        <title> 4m4Sec :: Wonderland THM Write-UP </title>
+
+        <!-- Head Meta -->
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Amanara | 4m4Sec" property="og:title">
+        <meta content="https://4m4sec.github.io/assets/img/ogimage.jpg" property="og:image">
+        <meta content="4m4sec website. Cybersecurity enthusiast, ctf player and web-dev. Boot-to-Root enjoyer 💀"
+              property="og:description">
+        <meta content="Amanara" name="author">
+
+        <!-- CSS & JS -->
+        <link href="../../../assets/img/icon.png" rel="icon" type="image/png">
+        <link href="../../../assets/css/index.css" rel="stylesheet">
+        <link href="../../../assets/css/writeup.css" rel="stylesheet">
+        <link href="../../../vendor/termynal/termynal.css" rel="stylesheet">
+        <link href="../../../vendor/mdi/css/materialdesignicons.min.css" rel="stylesheet">
+        <script src="../../../app/project/projects.js"></script>
+        <link href="https://fonts.googleapis.com" rel="preconnect">
+        <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+    <header class="s-header">
+        <div class="header-logo">
+            <a href="../../../">
+                <img src="../../../assets/img/icon.png">
+            </a>
+        </div>
+
+        <div class="header-content">
+            <nav class="row header-nav-wrap">
+                <ul class="header-nav">
+                    <li><a class="smoothscroll" href="#top"> Top </a></li>
+                    <li><a class="smoothscroll" href="#recon"> Recon </a></li>
+                    <li><a class="smoothscroll" href="#access"> Gaining Access </a></li>
+                    <li><a class="smoothscroll" href="#latmov"> LatMov </a></li>
+                    <li><a class="smoothscroll" href="#privesc"> PrivEsc </a></li>
+                </ul>
+            </nav>
+        </div>
+        <a class="header-menu-toggle" href=""><span> Menu </span></a>
+    </header>
+
+    <section data-image-src="../../../assets/img/header-background.jpg" data-natural-height=1080 data-natural-width=1920 data-parallax="scroll" data-position-y=center id="top">
+        <div class="writeup-presentation">
+            <hr>
+            <div>
+                <h1> THM - Wonderland - WriteUP </h1>
+            </div>
+            <hr>
+            <div>
+                <img class="wonderland-img" src="https://tryhackme-images.s3.amazonaws.com/room-icons/fdba6eaf85513262b2a9b12875b0f342.jpeg">
+            </div>
+            <hr>
+            <div class="tag-list">
+                <button class="tag-button"> ctf </button>
+                <button class="tag-button"> alice in wonderland </button>
+                <button class="tag-button"> privesc </button>
+                <button class="tag-button"> linux </button>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <div class="wt-section">
+            <h1> Introduction </h1>
+            <p class="writeup-text"><a href="https://tryhackme.com/room/wonderland">Wonderland</a> is one of the 'free rooms' implemented by TryHackMe. You have to find and obtain user & root flags. </p>
+            <ul>
+                <li>
+                    <p class="writeup-text"> Name : <a href="https://tryhackme.com/room/wonderland">Wonderland</a></p>
+                </li>
+                <li>
+                    <p class="writeup-text"> Difficulty : Medium </p>
+                </li>
+                <li>
+                    <p class="writeup-text"> OS : Linux </p>
+                </li>
+                <li>
+                    <p class="writeup-text"> Type : Web-App Security </p>
+                </li>
+            </ul>
+            <p class="writeup-text"> Let's dive into the challenge ! </p>
+        </div>
+        <div class="wt-section" id="recon">
+            <h1> Reconnaissance </h1>
+            <p class="writeup-text"> I firstly added the machine ip address to my /etc/hosts file : </p>
+            <p class="writeup-text"> <code>$ sudo echo '{MACHINE-IP} wonderland.thm' >> /etc/hosts </code> </p>
+            <p class="writeup-text"> I used nmap scanner to enumerate open ports on the machine : </p>
+            <p class="writeup-text">
+                <code class="shell-response">
+$ nmap -A wonderland.thm
+
+Starting Nmap 7.93 ( https://nmap.org ) at 2023-06-04 16:29 CEST
+Nmap scan report for wonderland.thm (10.10.169.71)
+Host is up (0.028s latency).
+Not shown: 998 closed tcp ports (conn-refused)
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey:
+|   2048 8eeefb96cead70dd05a93b0db071b863 (RSA)
+|   256 7a927944164f204350a9a847e2c2be84 (ECDSA)
+|_  256 000b8044e63d4b6947922c55147e2ac9 (ED25519)
+80/tcp open  http    Golang net/http server (Go-IPFS json-rpc or InfluxDB API)
+|_http-title: Follow the white rabbit.
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/
+Nmap done: 1 IP address (1 host up) scanned in 13.84 seconds
+                </code>
+            </p>
+            <p class="writeup-text"> We can see that port 80 is open, let's explore the website : </p>
+            <div>
+                <img class="writeup-img" src="../../../assets/img/thm/wonderland/1.png">
+            </div>
+            <p class="writeup-text"> Hmmm... Nothing interesting here, besides the sentence : "Follow the white Rabbit". Maybe a hint. </p>
+            <p class="writeup-text"> Since we have no indication, let's fuzz the website. I like to use FFUF to do tasks like that because it is faster than others. </p>
+            <p class="writeup-text">
+                <code class="shell-response">
+$ ffuf -u http://wonderland.thm/FUZZ -w /usr/share/dirb/wordlists/common.txt -c -t 150 -recursion
+
+  /'___\  /'___\           /'___\
+ /\ \__/ /\ \__/  __  __  /\ \__/
+ \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\
+  \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/
+   \ \_\   \ \_\  \ \____/  \ \_\
+    \/_/    \/_/   \/___/    \/_/
+
+        v1.4.1-dev
+________________________________________________
+
+ :: Method           : GET
+ :: URL              : http://wonderland.thm/FUZZ
+ :: Wordlist         : FUZZ: /usr/share/dirb/wordlists/common.txt
+ :: Follow redirects : false
+ :: Calibration      : false
+ :: Timeout          : 10
+ :: Threads          : 150
+ :: Matcher          : Response status: 200,204,301,302,307,401,403,405,500
+________________________________________________
+
+r                       [Status: 301, Size: 0, Words: 1, Lines: 1, Duration: 24ms]
+[INFO] Adding a new job to the queue: http://wonderland.thm/r/FUZZ
+
+[INFO] Starting queued job on target: http://wonderland.thm/r/FUZZ
+
+a                       [Status: 301, Size: 0, Words: 1, Lines: 1, Duration: 26ms]
+[INFO] Adding a new job to the queue: http://wonderland.thm/r/a/FUZZ
+
+[INFO] Starting queued job on target: http://wonderland.thm/r/a/FUZZ
+
+b                       [Status: 301, Size: 0, Words: 1, Lines: 1, Duration: 25ms]
+[INFO] Adding a new job to the queue: http://wonderland.thm/r/a/b/FUZZ
+
+[INFO] Starting queued job on target: http://wonderland.thm/r/a/b/FUZZ
+
+b                       [Status: 301, Size: 0, Words: 1, Lines: 1, Duration: 32ms]
+[INFO] Adding a new job to the queue: http://wonderland.thm/r/a/b/b/FUZZ
+
+[INFO] Starting queued job on target: http://wonderland.thm/r/a/b/b/FUZZ
+
+i                       [Status: 301, Size: 0, Words: 1, Lines: 1, Duration: 34ms]
+[INFO] Adding a new job to the queue: http://wonderland.thm/r/a/b/b/i/FUZZ
+
+[INFO] Starting queued job on target: http://wonderland.thm/r/a/b/b/i/FUZZ
+
+t                       [Status: 301, Size: 0, Words: 1, Lines: 1, Duration: 38ms]
+[INFO] Adding a new job to the queue: http://wonderland.thm/r/a/b/b/i/t/FUZZ
+
+[INFO] Starting queued job on target: http://wonderland.thm/r/a/b/b/i/t/FUZZ
+
+index.html              [Status: 301, Size: 0, Words: 1, Lines: 1, Duration: 27ms]
+:: Progress: [4614/4614] :: Job [8/8] :: 2259 req/sec :: Duration: [0:00:01] :: Errors: 0 ::
+                </code>
+            </p>
+            <p class="writeup-text"> Wow okay. Interesting. Now we know that there is a particular path in the website that looks like : /r/a/b/b/i/t/index.html. </p>
+        </div>
+
+        <div class="wt-section" id="access">
+            <h1> Gaining Access </h1>
+            <p class="writeup-text"> Let's check the content of the index.html file under /r/a/b/b/i/t/ path : </p>
+            <div>
+                <img class="writeup-img" src="../../../assets/img/thm/wonderland/2.png">
+            </div>
+            <p class="writeup-text"> Looks like there is nothing interesting here but if we look closer, we can see credentials in the page's source code : </p>
+            <div>
+                <img class="writeup-img" src="../../../assets/img/thm/wonderland/3.png">
+            </div>
+            <p class="writeup-text"> I reckon that it is SSH crendential since it is the only other service that is running on the machine. </p>
+            <p class="writeup-text"> Let's try to log in with these : </p>
+            <p class="writeup-text">
+                <code class="shell-response">
+$ ssh alice@wonderland.thm
+
+alice@wonderland.thm's password:
+Welcome to Ubuntu 18.04.4 LTS (GNU/Linux 4.15.0-101-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+ System information as of Sun Jun  4 14:47:02 UTC 2023
+
+ System load:  0.0                Processes:           85
+ Usage of /:   18.9% of 19.56GB   Users logged in:     0
+ Memory usage: 31%                IP address for eth0: 10.10.169.71
+ Swap usage:   0%
+
+
+0 packages can be updated.
+0 updates are security updates.
+
+
+Last login: Mon May 25 16:37:21 2020 from 192.168.170.1
+alice@wonderland:~$
+                </code>
+            </p>
+            <p class="writeup-text"> Nice ! I was right. Now we have initial access with user alice. Let's escalate our privileges. </p>
+        </div>
+
+        <div class="wt-section" id="latmov">
+            <h1> Lateral Movements </h1>
+
+        </div>
+
+        <div class="wt-section" id="privesc">
+            <h1> Privilege Escalation </h1>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer">
+            <div class="row" id="social">
+                <a href="https://github.com/4m4sec/" target="_blank"><i class="mdi mdi-github-circle"></i></a>
+                <a href="https://discord.gg/hardware" target="_blank"><i class="mdi mdi-discord"></i></a>
+                <a href="http://4m4sec.me/" target="_blank"><i class="mdi mdi-web"></i></a>
+                <a href="https://twitter.com/4m4sec" target="_blank"><i class="mdi mdi-twitter"></i></a>
+            </div>
+
+            <div class="row" id="expl">
+                <ul>
+                    <li><a class="smoothscroll" href="#top"> Top </a></li>
+                    <li><a class="smoothscroll" href="#recon"> Recon </a></li>
+                    <li><a class="smoothscroll" href="#access"> Gaining Access </a></li>
+                    <li><a class="smoothscroll" href="#access"> LatMov </a></li>
+                    <li><a class="smoothscroll" href="#privesc"> PrivEsc </a></li>
+                </ul>
+            </div>
+
+            <div class="row">
+                <span class="copy"> Copyright 4m4sec © 2023 </span>
+            </div>
+        </div>
+    </footer>
+
+    <script data-termynal-container="#termynal" src="../../../vendor/termynal/termynal.js"></script>
+    <script src="../../../vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="../../../app/App.js"></script>
+    <script src="../../../vendor/parallax/parallax.js"></script>
+    </body>
+</html>

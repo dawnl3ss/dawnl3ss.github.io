@@ -64,7 +64,10 @@
                         "   <div class='entry-content'>\n" +
                         "       <p> " + project.getLocation() + " - " + project.getName() + " writeup </p>\n" +
                         "   </div>\n" +
-                        "   <footer class='entry-footer'> Amanara </footer>\n" +
+                        "   <div class='entry-content'>\n" +
+                        "       <p> Difficulty : " + project.getDifficulty() + "</p>\n" +
+                        "   </div>\n" +
+                        "   <footer class='entry-footer'> Published by Amanara on " + project.getDate() + "</footer>\n" +
                         "   <a class='entry-link' href='" + project.getLink() + "'></a>\n" +
                         "</article>"
                     );
