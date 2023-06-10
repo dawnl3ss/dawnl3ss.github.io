@@ -1,5 +1,12 @@
 function getWriteups(){
     return {
+        "looking-glass": {
+            getName: function(){ return "Looking Glass"; },
+            getLocation: function(){ return "TryHackMe"; },
+            getLink: function(){ return "thm/looking-glass/"; },
+            getDifficulty: function(){ return "Medium"; },
+            getDate: function(){ return "06/11/2023"; }
+        },
         "wonderland": {
             getName: function (){ return "Wonderland"; },
             getLocation: function() { return "TryHackMe"; },
