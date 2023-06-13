@@ -119,6 +119,91 @@ higher
 
         <div class="wt-section" id="access">
             <h1> Gaining Access </h1>
+            <p class="writeup-text">
+                <code class="shell-response">
+$ ssh looking.thm -p 12538
+
+You've found the real service.
+Solve the challenge to get access to the box
+
+Jabberwocky
+'Mdes mgplmmz, cvs alv lsmtsn aowil
+Fqs ncix hrd rxtbmi bp bwl arul;
+Elw bpmtc pgzt alv uvvordcet,
+Egf bwl qffl vaewz ovxztiql.
+
+'Fvphve ewl Jbfugzlvgb, ff woy!
+Ioe kepu bwhx sbai, tst jlbal vppa grmjl!
+Bplhrf xag Rjinlu imro, pud tlnp
+Bwl jintmofh Iaohxtachxta!'
+
+Oi tzdr hjw oqzehp jpvvd tc oaoh:
+Eqvv amdx ale xpuxpqx hwt oi jhbkhe--
+Hv rfwmgl wl fp moi Tfbaun xkgm,
+Puh jmvsd lloimi bp bwvyxaa.
+
+Eno pz io yyhqho xyhbkhe wl sushf,
+Bwl Nruiirhdjk, xmmj mnlw fy mpaxt,
+Jani pjqumpzgn xhcdbgi xag bjskvr dsoo,
+Pud cykdttk ej ba gaxt!
+
+Vnf, xpq! Wcl, xnh! Hrd ewyovka cvs alihbkh
+Ewl vpvict qseux dine huidoxt-achgb!
+Al peqi pt eitf, ick azmo mtd wlae
+Lx ymca krebqpsxug cevm.
+
+'Ick lrla xhzj zlbmg vpt Qesulvwzrr?
+Cpqx vw bf eifz, qy mthmjwa dwn!
+V jitinofh kaz! Gtntdvl! Ttspaj!'
+Wl ciskvttk me apw jzn.
+
+'Awbw utqasmx, tuh tst zljxaa bdcij
+Wph gjgl aoh zkuqsi zg ale hpie;
+Bpe oqbzc nxyi tst iosszqdtz,
+Eew ale xdte semja dbxxkhfe.
+Jdbr tivtmi pw sxderpIoeKeudmgdstd
+
+Enter the secret code :
+                </code>
+            </p>
+            <p class="writeup-text"> Okay. Here we have an encrypted message. It looks like Vigenere cipher. But we don't know the key. </p>
+            <p class="writeup-text"> Thanks god, I know a very useful website : <a href="https://www.boxentriq.com/code-breaking/vigenere-cipher">boxentriq.com</a> that help us to break the key. </p>
+            <p class="writeup-text"> So we copy the encrypted text (without the 'Jabberwocky' at the start) and we paste it in the text box. Then we increase the 'Max Key Length' to 20, and we click to 'Auto solve' : </p>
+            <div>
+                <img class="writeup-img" src="../../../assets/img/thm/looking-glass/vigenere_crack.png">
+            </div>
+            <p class="writeup-text"> Then, it will take some times to break the vigenere key : </p>
+            <div>
+                <img class="writeup-img" src="../../../assets/img/thm/looking-glass/cracked_key.png">
+            </div>
+            <p class="writeup-text"> Now that we have the key, let's decrypt the text with the help of <a href="https://gchq.github.io/CyberChef/">CyberChef</a> :</p>
+            <p class="writeup-text"> We can see at the bottom of the decrypted text that we have the 'secret code' asked by the ssh connection. We can paste it and it will give us ssh credentials : </p>
+            <p class="writeup-text">
+                <code class="shell-response">
+$ ssh looking.thm -p 12538
+
+You've found the real service.
+Solve the challenge to get access to the box
+
+[...]
+
+Enter the secret code : [REDACTED]
+
+jabberwock:[REDACTED]
+                </code>
+            </p>
+            <p class="writeup-text"> Now that we have jabberwock's ssh credentials, we can connect : </p>
+            <p class="writeup-text">
+                <code class="shell-response">
+$ ssh jabberwock@10.10.65.227
+
+jabberwock@10.10.65.227's password:
+Last login: Fri Jul  3 03:05:33 2020 from 192.168.170.1
+
+jabberwock@looking-glass:~$
+                </code>
+            </p>
+            <p class="writeup-text"> Alright ! We are connected as Jabberwock. Let's leverage our privileges. </p>
         </div>
 
         <div class="wt-section" id="latmov">
