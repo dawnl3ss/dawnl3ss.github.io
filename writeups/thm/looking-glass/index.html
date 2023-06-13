@@ -92,6 +92,29 @@
             <p class="writeup-text"> I used nmap scanner to enumerate open ports on the machine : </p>
             <p class="writeup-text"><code> $ nmap -A looking.thm </code></p>
             <p class="writeup-text"> We can see that a lot of port are open : they all refer to a ssh service. </p>
+            <p class="writeup-text"> When we try to connect to a random port, we get something strange : </p>
+            <p class="writeup-text">
+                <code class="shell-response">
+$ ssh looking.thm -p 12000
+
+lower
+                </code>
+            </p>
+            <p class="writeup-text">
+                <code class="shell-response">
+$ ssh looking.thm -p 13000
+
+higher
+                </code>
+            </p>
+            <p class="writeup-text"> Hmmm... That's kinda weird because the port should be smaller than 12000 and higher than 13000. There is something wrong here. Let's take a look to the room hint : </p>
+            <div>
+                <img class="writeup-img" src="../../../assets/img/thm/looking-glass/room_hint.png">
+            </div>
+            <p class="writeup-text"> Ok so, what does a mirror do ? It basically reflects what's in front of it, but it's reversed. </p>
+            <p class="writeup-text"> Taking this information, we can deduce the fact that ssh's login response should be reversed. </p>
+            <p class="writeup-text"> Thus, my ssh login response tell us that the port is higher than 12000 but lower than 13000. That makes sense. </p>
+            <p class="writeup-text"> After trying to connect to all ports between 12000 anb 13000, I finally found the right one ! </p>
         </div>
 
         <div class="wt-section" id="access">
