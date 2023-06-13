@@ -91,7 +91,7 @@
             <p class="writeup-text"> <code>$ sudo echo '{MACHINE-IP} looking.thm' >> /etc/hosts </code> </p>
             <p class="writeup-text"> I used nmap scanner to enumerate open ports on the machine : </p>
             <p class="writeup-text"><code> $ nmap -A looking.thm </code></p>
-            <p class="writeup-text"> We can see that a lot of port are open : they all refer to a ssh service. </p>
+            <p class="writeup-text"> We can see that a lot of port are open : they all refer to ssh service. </p>
             <p class="writeup-text"> When we try to connect to a random port, we get something strange : </p>
             <p class="writeup-text">
                 <code class="shell-response">
@@ -172,12 +172,12 @@ Enter the secret code :
             <div>
                 <img class="writeup-img" src="../../../assets/img/thm/looking-glass/vigenere_crack.png">
             </div>
-            <p class="writeup-text"> Then, it will take some times to break the vigenere key : </p>
+            <p class="writeup-text"> Then, it will take some times to break the Vigenère key : </p>
             <div>
                 <img class="writeup-img" src="../../../assets/img/thm/looking-glass/cracked_key.png">
             </div>
             <p class="writeup-text"> Now that we have the key, let's decrypt the text with the help of <a href="https://gchq.github.io/CyberChef/">CyberChef</a> :</p>
-            <p class="writeup-text"> We can see at the bottom of the decrypted text that we have the 'secret code' asked by the ssh connection. We can paste it and it will give us ssh credentials : </p>
+            <p class="writeup-text"> We can see at the bottom of the decrypted text that we have the 'secret code' asked by the ssh connection. We can paste it, and it will give us ssh credentials : </p>
             <p class="writeup-text">
                 <code class="shell-response">
 $ ssh looking.thm -p 12538
