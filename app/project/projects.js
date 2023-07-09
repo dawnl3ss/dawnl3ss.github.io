@@ -59,6 +59,20 @@ function getProjects() {
                     return "search-web";
                 }
             },
+            "Selene": {
+                getDescription: function () {
+                    return "table data dumper written in python3.";
+                },
+                getLink: function () {
+                    return "https://github.com/4m4Sec/Selene";
+                },
+                getSatetement: function () {
+                    return "Completed";
+                },
+                getIcon: function () {
+                    return "database-export";
+                }
+            },
         },
         "others": {
             "ARS-ENCRYPT": {
@@ -73,6 +87,20 @@ function getProjects() {
                 },
                 getIcon: function () {
                     return "lock";
+                }
+            },
+            "Klephtes": {
+                getDescription: function () {
+                    return "grab and stock your website-viewers' data in a database written in PHP & SQL.";
+                },
+                getLink: function () {
+                    return "https://github.com/4m4Sec/Klephtes";
+                },
+                getSatetement: function () {
+                    return "Completed";
+                },
+                getIcon: function () {
+                    return "account-key";
                 }
             },
             "Zephyr": {
