@@ -48,18 +48,18 @@
             <div class="writeup-presentation">
                 <hr>
                 <div>
-                    <h1> THM - CMess - WriteUP </h1>
+                    <h1> THM - CMesS - WriteUP </h1>
                 </div>
                 <hr>
                 <div>
-                    <img class="ignite-img" src="https://tryhackme-images.s3.amazonaws.com/room-icons/676cb3273c613c9ba00688162efc0979.png">
+                    <img class="ignite-img" src="https://tryhackme-images.s3.amazonaws.com/room-icons/1516b0c85bb9f7312a88638df5b0f3af.png">
                 </div>
                 <hr>
                 <div class="tag-list">
-                    <button class="tag-button"> ctf </button>
-                    <button class="tag-button"> boot2root </button>
-                    <button class="tag-button"> privesc </button>
-                    <button class="tag-button"> exploit </button>
+                    <button class="tag-button"> security </button>
+                    <button class="tag-button"> cms </button>
+                    <button class="tag-button"> gila </button>
+                    <button class="tag-button"> tar </button>
                 </div>
             </div>
         </section>
@@ -67,14 +67,14 @@
         <main>
             <div class="wt-section">
                 <h1> Introduction </h1>
-                <p class="writeup-text"><a href="https://tryhackme.com/room/ignite">Ignite</a> is one of the 'free
+                <p class="writeup-text"><a href="https://tryhackme.com/room/cmess">CMesS</a> is one of the 'free
                   rooms' implemented by TryHackMe. You have to find and obtain user & root flags. </p>
                 <ul>
                     <li>
-                        <p class="writeup-text"> Name : <a href="https://tryhackme.com/room/ignite">Ignite</a></p>
+                        <p class="writeup-text"> Name : <a href="https://tryhackme.com/room/cmess">CMesS</a></p>
                     </li>
                     <li>
-                        <p class="writeup-text"> Difficulty : Easy </p>
+                        <p class="writeup-text"> Difficulty : Medium </p>
                     </li>
                     <li>
                         <p class="writeup-text"> OS : Linux </p>
@@ -87,6 +87,36 @@
             </div>
             <div class="wt-section" id="recon">
                 <h1> Reconnaissance </h1>
+                <p class="writeup-text"> I firstly added the machine ip address to my /etc/hosts file : </p>
+                <p class="writeup-text"> <code>$ sudo echo '{MACHINE-IP} cmess.thm' >> /etc/hosts </code> </p>
+                <p class="writeup-text"> I used nmap scanner to enumerate open ports on the machine : </p>
+                <p class="writeup-text">
+                    <code class="shell-response">
+$ nmap -A cmess.thm
+
+Starting Nmap 7.93 ( https://nmap.org ) at 2023-06-06 16:44 CEST
+Nmap scan report for cmess.thm (10.10.91.94)
+Host is up (0.024s latency).
+Not shown: 998 closed tcp ports (conn-refused)
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.8 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey:
+|   2048 d9b652d3939a3850b4233bfd210c051f (RSA)
+|   256 21c36e318b85228a6d72868fae64662b (ECDSA)
+|_  256 5bb9757805d7ec43309617ffc6a86ced (ED25519)
+80/tcp open  http    Apache httpd 2.4.18 ((Ubuntu))
+| http-robots.txt: 3 disallowed entries
+|_/src/ /themes/ /lib/
+|_http-title: Site doesn't have a title (text/html; charset=UTF-8).
+|_http-generator: Gila CMS
+|_http-server-header: Apache/2.4.18 (Ubuntu)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/
+Nmap done: 1 IP address (1 host up) scanned in 12.33 seconds
+                    </code>
+                </p>
+
             </div>
 
             <div class="wt-section" id="access">
