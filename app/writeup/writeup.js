@@ -1,5 +1,12 @@
 function getWriteups(){
     return {
+        "cmess": {
+            getName: function(){ return "CMesS"; },
+            getLocation: function(){ return "TryHackMe"; },
+            getLink: function(){ return "thm/cmess/"; },
+            getDifficulty: function(){ return "Medium"; },
+            getDate: function(){ return "07/13/2023"; }
+        },
         "looking-glass": {
             getName: function(){ return "Looking Glass"; },
             getLocation: function(){ return "TryHackMe"; },
