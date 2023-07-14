@@ -116,7 +116,11 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 12.33 seconds
                     </code>
                 </p>
-                <p class="writeup-text"> Here, we can see that we have only two open ports : http (80) and ssh(22). Only http seems to be interesting at that point. After taking a look at the website, there is nothing interesting. Let's take a hint. </p>
+                <p class="writeup-text"> Here, we can see that we have only two open ports : http (80) and ssh(22). Only http seems to be interesting at that point. </p>
+                <div>
+                    <img class="writeup-img" src="../../../assets/img/thm/cmess/home_page.png">
+                </div>
+                <p class="writeup-text"> After taking a look at the website, there is nothing interesting because we don't have any credentials. Let's take a hint.  </p>
                 <div>
                     <img class="writeup-img" src="../../../assets/img/thm/cmess/hint.png">
                 </div>
@@ -161,11 +165,12 @@ Requests/sec.: 81.27969
                 <div>
                     <img class="writeup-img" src="../../../assets/img/thm/cmess/subd_page.png">
                 </div>
-                <p class="writeup-text"> Alright ! We got a password for andre user on admin panel. </p>
+                <p class="writeup-text"> Alright ! We got a password for andre user on admin panel. And we got the email associated since it is Andre who asked to reset his password. </p>
             </div>
 
             <div class="wt-section" id="access">
                 <h1> Getting a shell </h1>
+                
             </div>
 
             <div class="wt-section" id="privesc">
