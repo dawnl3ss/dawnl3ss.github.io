@@ -7,7 +7,7 @@
  */
 
 /*
- * Customed by Amanara for 4m4sec.me
+ * Customed by Dawnl3ss for dawnl3ss.me
  */
 
 :root {
@@ -46,7 +46,7 @@
 }
 
 [data-termynal]:after {
-    content: '4m4sec@parrot-sec';
+    content: 'dawnl3ss@parrot-sec';
     position: absolute;
     color: var(--color-text-subtle);
     top: 5px;
