@@ -61,7 +61,7 @@ function getProjects() {
             },
             "Selene": {
                 getDescription: function () {
-                    return "table data dumper written in python3.";
+                    return "database dumper written in python3";
                 },
                 getLink: function () {
                     return "https://github.com/dawnl3ss/Selene";
