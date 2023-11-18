@@ -657,6 +657,9 @@ a {
         display: none;
         color: #17ff3e;
     }
+    .hidden2 {
+        display: none;
+    }
 }
 
 .footer{
@@ -935,7 +938,6 @@ a {
 .item {
     display: flex;
     flex-direction: column;
-    margin-bottom: 1.5rem;
 }
 
 .item .value {
