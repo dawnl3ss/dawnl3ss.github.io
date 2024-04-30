@@ -201,6 +201,24 @@ p a {
     transform: scale(.96)
 }
 
+.post-thumb {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    margin-left: 600px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+@media screen and (max-width:600px) {
+    .post-thumb {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        margin-left: 280px;
+        margin-top: 50px;
+    }
+}
 
 .entry-header {
     overflow: hidden;
