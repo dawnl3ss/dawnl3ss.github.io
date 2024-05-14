@@ -1,5 +1,13 @@
 function getWriteups(){
     return {
+        "usage": {
+            getName: function (){ return "Usage"; },
+            getLocation: function (){ return "HackTheBox"; },
+            getLink: function (){ return "htb/usage/"; },
+            getDifficulty: function (){ return "Easy"; },
+            getDate: function (){ return "05/14/2024" },
+            getThumb: function (){ return "https://labs.hackthebox.com/storage/avatars/23e804513a47e8f20bc865d0419946e1.png"; }
+        },
         "headless": {
             getName: function (){ return "Headless"; },
             getLocation: function (){ return "HackTheBox"; },
