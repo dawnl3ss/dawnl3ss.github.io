@@ -168,11 +168,13 @@ section {
 
 .header-nav a {
     color: rgba(255, 255, 255, 0.4);
+    transition: 0.1s ease;
 }
 
 .header-nav a:hover,
 .header-nav a:focus {
     color: #ffffff !important;
+    transition: 0.2s ease;
 }
 
 .header-nav li {
@@ -485,7 +487,7 @@ a {
 
 .row {
     width: 89%;
-    max-width: 1200px;
+    max-width: 1250px;
     margin: 0 auto;
     display: -ms-flexbox;
     display: -webkit-box;
@@ -1076,5 +1078,21 @@ a {
     .skills .value {
         margin-top: 1.5rem;
         font-size: 1.5rem;
+    }
+}
+
+.nav-wu-icon {
+    color: #FFFFFF66;
+    margin-left: 30vw;
+    font-size: 19px;
+}
+
+.nav-wu-icon:hover {
+    color: white;
+}
+
+@media screen and (max-width:600px){
+    .nav-wu-icon {
+        margin-left: 0vw;
     }
 }
