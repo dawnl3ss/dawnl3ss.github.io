@@ -1,5 +1,13 @@
 function getWriteups(){
     return {
+        "legacy": {
+            getName: function (){ return "Legacy"; },
+            getLocation: function (){ return "HackTheBox"; },
+            getLink: function (){ return "htb/legacy/"; },
+            getDifficulty: function (){ return "Easy"; },
+            getDate: function (){ return "06/16/2024" },
+            getThumb: function (){ return "https://labs.hackthebox.com/storage/avatars/60dc190c4c015cfe3a3aef9b5afca254.png"; }
+        },
         "boardlight": {
             getName: function (){ return "BoardLight"; },
             getLocation: function (){ return "HackTheBox"; },
