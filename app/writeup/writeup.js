@@ -1,5 +1,13 @@
 function getWriteups(){
     return {
+        "openadmin": {
+            getName: function (){ return "OpenAdmin"; },
+            getLocation: function (){ return "HackTheBox"; },
+            getLink: function (){ return "htb/openadmin/"; },
+            getDifficulty: function (){ return "Easy"; },
+            getDate: function (){ return "06/19/2024" },
+            getThumb: function (){ return "https://labs.hackthebox.com/storage/avatars/5b00db157dbbd7099ff6c0ef10f910ea.png"; }
+        },
         "legacy": {
             getName: function (){ return "Legacy"; },
             getLocation: function (){ return "HackTheBox"; },
