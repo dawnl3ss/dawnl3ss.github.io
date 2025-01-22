@@ -3,10 +3,10 @@ function getProjects() {
         "websites": {
             "Hardware-Hub": {
                 getDescription: function () {
-                    return "French discord server based on hardware, software and programming.";
+                    return "French community and company based on hardware, software and programming.";
                 },
                 getLink: function () {
-                    return "http://hardware-hub.fr/";
+                    return "https://hardware-hub.fr/";
                 },
                 getSatetement: function () {
                     return "Under Development";
