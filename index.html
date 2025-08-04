@@ -1,271 +1,407 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
-        <title> Dawnl3ss :: Home </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dawnl3ss :: Home</title>
 
-        <!-- Head Meta -->
-        <meta charset="utf-8">
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <!-- Meta Tags -->
         <meta content="Dawnless | .dawnl3ss" property="og:title">
         <meta content="http://dawnl3ss.me/assets/img/ogimage.jpg" property="og:image">
         <meta content="Dawnl3ss website. Cybersecurity enthusiast, ctf player and web-dev. Boot-to-Root enjoyer 💀" property="og:description">
         <meta content="Dawnless" name="author">
 
-        <!-- CSS & JS -->
+        <!-- Favicon -->
         <link href="assets/img/icon.jpg" rel="icon" type="image/png">
+
+        <!-- CSS Files -->
         <link href="assets/css/index.css" rel="stylesheet">
-        <link href="assets/css/tree.css" rel="stylesheet">
-        <link href="assets/css/career.css" rel="stylesheet">
+        <link href="assets/css/components.css" rel="stylesheet">
+        <link href="assets/css/animations.css" rel="stylesheet">
         <link href="vendor/termynal/termynal.css" rel="stylesheet">
-        <link rel="stylesheet" href="vendor/mdi/css/materialdesignicons.min.css">
-        <script src="app/project/projects.js"></script>
+
+        <!-- Material Design Icons -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css">
     </head>
-
     <body>
-        <header class="s-header">
-            <div class="header-logo">
-                <a href="./">
-                    <img src="assets/img/icon.jpg">
+        <!-- Header -->
+        <header class="header" id="header">
+            <nav class="nav container">
+                <a href="./" class="nav__logo">
+                    <img src="assets/img/icon.jpg" alt="Dawnl3ss Logo">
                 </a>
-            </div>
 
-            <div class="header-content">
-                <nav class="row header-nav-wrap">
-                    <ul class="header-nav">
-                        <li><a class="smoothscroll" href="#top"> Home </a></li>
-                        <li><a class="smoothscroll" href="#whoami"> Whoami </a></li>
-                        <li><a class="smoothscroll" href="#skills"> Skills </a></li>
-                        <li><a class="smoothscroll" href="#career"> Career </a></li>
-                        <li><a class="smoothscroll" href="#projects"> Projects </a></li>
-                        <li><a class="nav-wu-icon" href="./writeups"> Writeups <i class="mdi mdi-book-open-page-variant"></i></a></li>
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item">
+                            <a href="#home" class="nav__link active">Home</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#whoami" class="nav__link">Whoami</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#skills" class="nav__link">Skills</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#career" class="nav__link">Career</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#projects" class="nav__link">Projects</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="./writeups" class="nav__link nav__link--special">
+                                Writeups <i class="mdi mdi-book-open-page-variant"></i>
+                            </a>
+                        </li>
                     </ul>
-                </nav>
-            </div>
-            <a class="header-menu-toggle" href=""><span> Menu </span></a>
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
         </header>
 
-        <section id="top" data-image-src="assets/img/1268172.jpg" data-natural-height=1080 data-natural-width=1920 data-parallax="scroll" data-position-y=center>
-            <div data-termynal data-ty-lineDelay="500" data-ty-typeDelay="100" id="termynal">
-                <span data-ty="input" data-ty-prompt="$">whoami</span>
-                <span data-ty>Dawnless (.dawnl3ss)</span>
-                <span data-ty="input" data-ty-prompt="$">/bin/bash about-me.sh</span>
-                <span data-ty>Young cybersecurity enthusiast, ctf player and web-dev following his dreams.</span>
-                <span data-ty="input" data-ty-prompt="$">/bin/python3 life.py -job</span>
-                <span data-ty>Wannabe red-teamer || pentester.</span>
-            </div>
-        </section>
-
-        <section id="whoami">
-            <div class="card">
-                <div class="card-avatar">
-                    <img class="card-img" src="assets/img/ogimage.jpg">
-                </div>
-                <div class="card-details">
-                    <div class="occupation"> Whoami </div>
-                    <div class="name"> Dawnless </div>
-
-                    <div class="card-about">
-                        <div class="item">
-                            <span class="label"> Age </span>
-                            <span class="value"> 19yo </span>
-                        </div>
-                        <div class="item">
-                            <span class="label"> Country </span>
-                            <span class="value"> France </span>
-                        </div>
-                    </div>
-                    <div class="skills">
-                        <span class="value"> Parrot-Sec user, boot-to-root enjoyer. Currently training for CPTS... </span>
-                        <span class="value"> I love break stuff & understand how they work. </span>
-                        <span class="value"> You can see all of my <a style="color: white" href="writeups/">writeups here <i style="color: white;" class="mdi mdi-book-open-page-variant"></i></a> </span>
-                    </div>
-                    <div class="links">
-                        <a target="_blank" href="https://github.com/dawnl3ss"><img src="assets/img/github.svg" height="50" width="50"></a>
-                        <a target="_blank" href="https://app.hackthebox.com/profile/1321357"><img src="assets/img/hackthebox.svg" height="50" width="50"></a>
-                        <a target="_blank" href="https://tryhackme.com/p/dawnl3ss"><img src="assets/img/tryhackme.svg" height="50" width="50"></a>
-                        <a target="_blank" href="https://www.root-me.org/dawnl3ss"><img src="assets/img/rootme.svg" height="50" width="50"></a>
-                    </div>
+        <!-- Hero Section -->
+        <section class="hero section" id="home">
+            <div class="hero__bg"></div>
+            <div class="hero__container container">
+                <div class="terminal" data-termynal data-ty-typeDelay="80" data-ty-lineDelay="400">
+                    <span data-ty="input" data-ty-prompt="$">whoami</span>
+                    <span data-ty>Dawnless (.dawnl3ss)</span>
+                    <span data-ty="input" data-ty-prompt="$">/bin/bash about-me.sh</span>
+                    <span data-ty>Young cybersecurity enthusiast, ctf player and web-dev following his dreams.</span>
+                    <span data-ty="input" data-ty-prompt="$">/bin/python3 life.py -job</span>
+                    <span data-ty>Wannabe red-teamer || pentester.</span>
                 </div>
             </div>
-        </section>
-
-        <section class="s-hero" id="skills">
-            <div class="tree">
-                <ul>
-                    <li><i class="mdi mdi-folder-sync"></i>
-                        <span class="t"> skills/ </span>
-                        <ul>
-                            <li><i class="mdi mdi-folder-open"></i>
-                                <span class="t"> web-dev/ </span>
-                                <ul>
-                                    <li><i class="mdi mdi-folder-open"></i>
-                                        <span class="t"> front-end/ </span>
-                                        <ul>
-                                            <li><i class="mdi mdi-language-html5"></i> .html, .css </li>
-                                            <li><i class="mdi mdi-language-javascript"></i> .javascript </li>
-                                            <li><i class="mdi mdi-language-javascript"></i> .react, .jquery, .vue </li>
-                                        </ul>
-                                    </li>
-                                    <li><i class="mdi mdi-folder-open"></i>
-                                        <span class="t"> back-end/ </span>
-                                        <ul>
-                                            <li><i class="mdi mdi-language-php"></i> .php </li>
-                                            <li><i class="mdi mdi-language-php"></i> .symfony, .laravel </li>
-                                            <li><i class="mdi mdi-nodejs"></i> .nodejs </li>
-                                            <li><i class="mdi mdi-ruby"></i> .ruby </li>
-                                            <li><i class="mdi mdi-language-cpp"></i> .c, .cpp </li>
-                                        </ul>
-                                    </li>
-                                    <li><i class="mdi mdi-database"></i> .mysql, .mariadb, .mongodb </li>
-                                </ul>
-                            </li>
-                            <li><i class="mdi mdi-folder-open"></i>
-                                <span class="t"> cybersecurity/ </span>
-                                <ul>
-                                    <li><i class="mdi mdi-web"></i> .websec </li>
-                                    <li><i class="mdi mdi-bug"></i> .reverse </li>
-                                    <li><i class="mdi mdi-windows"></i> .activedir </li>
-                                    <li><i class="mdi mdi-image"></i> .steganography </li>
-                                    <li><i class="mdi mdi-account-search"></i> .osint </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+            <div class="hero__scroll">
+                <span>Scroll Down</span>
+                <i class="mdi mdi-chevron-down"></i>
             </div>
         </section>
 
-        <section id="career" class="career">
-            <div class="timeline">
-                <div style="margin: 10px 40px 10px;">
-                    <h3 class="career-title text-center"> Career </h3>
-                    <div class="experience">
+        <!-- Whoami Section -->
+        <section class="whoami section" id="whoami">
+            <div class="container">
+                <div class="profile-card">
+                    <div class="profile-card__image">
+                        <img src="assets/img/ogimage.jpg" alt="Dawnl3ss Profile">
+                        <div class="profile-card__status"></div>
+                    </div>
 
-                        <div class="item">
-                            <h5 class="company-name"> Highschool </h5>
-                            <div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> France </div>
-                            <div class="job-info">
-                                <div class="title"> Student </div>
-                                <div> 2016 - 2024 </div>
+                    <div class="profile-card__content">
+                        <span class="profile-card__subtitle">Whoami</span>
+                        <h2 class="profile-card__title">Dawnless</h2>
+
+                        <div class="profile-card__info">
+                            <div class="info-item">
+                                <span class="info-item__label">Age</span>
+                                <span class="info-item__value">19yo</span>
                             </div>
-                            <div style="max-width: 90%">
-                                <ul class="fa-ul">
-                                    <li class="hidden"> I started to learn HTML & CSS at eleven. It took me two years to master these languages and I created my first website in August 2017. </li>
-                                    <li class="career-txt hidden"> Then, I learnt and practice PHP and Javascript. After mastering PHP, I was curious about web-related frameworks such as Symfony/Laravel and React/JQuery. I also learnt SQL with MySQL/MongoDB. </li>
-                                    <li class="career-txt hidden"> I also discovered cyber-security field two years ago. Thus, I learnt Python C and C++ to master the "programming part" of cybersec. </li>
-                                    <li class="career-txt hidden"> Recently, I found myself a real passion in pentesting & red-teaming. I am currently griding HackTheBox by doing CTFs boxes. </li>
-                                </ul>
+                            <div class="info-item">
+                                <span class="info-item__label">Country</span>
+                                <span class="info-item__value">France</span>
                             </div>
                         </div>
 
-                        <div class="item">
-                            <h5 class="company-name"> Hardware Hub </h5>
-                            <div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> France </div>
-                            <div class="job-info">
-                                <div class="title"> Founder & <br> web developper </div>
-                                <div> 2022 - Present </div>
-                            </div>
-                            <div style="max-width: 90%">
-                                <ul class="fa-ul">
-                                    <li class="hidden"> I founded, with a friend of mine, in 2022 a company named Hardware Hub based on help & advices about hardware and IT in general. </li>
-                                    <li class="career-txt hidden"> More pecisly, we give advices about how to build a computer, what componant is the best for a given price etc. </li>
-                                </ul>
-                            </div>
+                        <div class="profile-card__description">
+                            <p>Parrot-Sec user, boot-to-root enjoyer. Currently training for CPTS...</p>
+                            <p>I love breaking stuff & understanding how they work.</p>
+                            <p>You can see all of my <a href="writeups/">writeups here <i class="mdi mdi-book-open-page-variant"></i></a></p>
                         </div>
 
-                        <div class="item">
-                            <h5 class="company-name"> EPITA - Engineering & Computer Science School </h5>
-                            <div class="location"><i class="fa fa-map-marker" aria-hidden="true"></i> France </div>
-                            <div class="job-info">
-                                <div class="title"> Student </div>
-                                <div> 2024 - Present </div>
-                            </div>
-                            <div style="max-width: 90%">
-                                <ul class="fa-ul">
-                                    <li class="hidden"> After graduating from highschool, I entered one of the famous private IT engineering school. </li>
-                                    <li class="career-txt hidden"> I am currently learning advanced maths, physics and computer science. </li>
-                                </ul>
-                                <br>
-                            </div>
+                        <div class="profile-card__social">
+                            <a href="https://github.com/dawnl3ss" target="_blank" class="social-link">
+                                <i class="mdi mdi-github"></i>
+                            </a>
+                            <a href="https://app.hackthebox.com/profile/1321357" target="_blank" class="social-link">
+                                <img src="assets/img/hackthebox.svg" alt="HackTheBox">
+                            </a>
+                            <a href="https://tryhackme.com/p/dawnl3ss" target="_blank" class="social-link">
+                                <img src="assets/img/tryhackme.svg" alt="TryHackMe">
+                            </a>
+                            <a href="https://www.root-me.org/dawnl3ss" target="_blank" class="social-link">
+                                <img src="assets/img/rootme.svg" alt="Root-Me">
+                            </a>
                         </div>
                     </div>
-                    <br><br>
                 </div>
             </div>
         </section>
 
-        <section class="s-hero" id="projects">
-            <div data-termynal data-ty-lineDelay="500" data-ty-typeDelay="100" id="termynal-projects">
-                <span data-ty="input" data-ty-prompt="$">tree /home/dawnl3ss/.projects </span>
-                <span data-ty>
-                    <div class="tree">
-                        <ul>
-                            <li><i class="mdi mdi-folder-sync"></i>
-                                <span class="t"> projects/ </span>
-                                <ul>
-                                    <li><i class="mdi mdi-folder-open"></i>
-                                        <span class="t"> websites/ </span>
-                                        <ul>
-                                            <script>
-                                                for (const [name, project] of Object.entries(getProjects()["websites"])) {
-                                                    document.write("<li>" + "<a target='_blank' class='project-link' href='" + project.getLink() + "'>" + "<i class=\"mdi mdi-" + project.getIcon() + "\"></i> " + name + "</a>" + "<span class='hidden'> - " + project.getDescription() + "</span>" + "</li>");
-                                                }
-                                            </script>
-                                        </ul>
-                                    </li>
-                                    <li><i class="mdi mdi-folder-open"></i>
-                                        <span class="t"> tools/ </span>
-                                        <ul>
-                                            <script>
-                                                for (const [name, project] of Object.entries(getProjects()["tools"])) {
-                                                    document.write("<li>" + "<a target='_blank' class='project-link' href='" + project.getLink() + "'>" + "<i class=\"mdi mdi-" + project.getIcon() + "\"></i> " + name + "</a>" + "<span class='hidden'> - " + project.getDescription() + "</span>" + "</li>");
-                                                }
-                                            </script>
-                                        </ul>
-                                    </li>
-                                    <li><i class="mdi mdi-folder-open"></i>
-                                        <span class="t"> others/ </span>
-                                        <ul>
-                                            <script>
-                                                for (const [name, project] of Object.entries(getProjects()["others"])) {
-                                                    document.write("<li>" + "<a target='_blank' class='project-link' href='" + project.getLink() + "'>" + "<i class=\"mdi mdi-" + project.getIcon() + "\"></i> " + name + "</a>" + "<span class='hidden'> - " + project.getDescription() + "</span>" + "</li>");
-                                                }
-                                            </script>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </span>
-            </div>
-        </section>
-
-        <footer>
-            <div class="footer">
-                <div class="social">
-                    <a target="_blank" href="https://github.com/dawnl3ss/"><i class="mdi mdi-github-circle"></i></a>
-                    <a target="_blank" href="https://discord.gg/hardware"><i class="mdi mdi-discord"></i></a>
-                    <a target="_blank" href="http://dawnl3ss.me/"><i class="mdi mdi-web"></i></a>
-                    <a target="_blank" href="https://twitter.com/dawnl3ss"><i class="mdi mdi-twitter"></i></a>
-                </div>
-
-                <div class="pages">
-                    <ul>
-                        <li><a href="/"> Home </a></li>
-                        <li><a href="writeups/"> Writeups </a></li>
-                        <li><a href="mailto:dawnl3ss@protonmail.com"> Email me </a></li>
+        <!-- Skills Section -->
+        <section class="skills section" id="skills">
+            <div class="container">
+                <h2 class="section__title">Skills</h2>
+                <div class="file-tree">
+                    <ul class="tree">
+                        <li class="tree__folder">
+                                <span class="tree__item">
+                                    <i class="mdi mdi-folder-sync"></i>
+                                    <span class="tree__name">skills/</span>
+                                </span>
+                            <ul>
+                                <li class="tree__folder">
+                                        <span class="tree__item">
+                                            <i class="mdi mdi-folder-open"></i>
+                                            <span class="tree__name">web-dev/</span>
+                                        </span>
+                                    <ul>
+                                        <li class="tree__folder">
+                                                <span class="tree__item">
+                                                    <i class="mdi mdi-folder-open"></i>
+                                                    <span class="tree__name">front-end/</span>
+                                                </span>
+                                            <ul>
+                                                <li class="tree__file">
+                                                        <span class="tree__item">
+                                                            <i class="mdi mdi-language-html5"></i>
+                                                            <span>.html, .css</span>
+                                                        </span>
+                                                </li>
+                                                <li class="tree__file">
+                                                        <span class="tree__item">
+                                                            <i class="mdi mdi-language-javascript"></i>
+                                                            <span>.javascript</span>
+                                                        </span>
+                                                </li>
+                                                <li class="tree__file">
+                                                        <span class="tree__item">
+                                                            <i class="mdi mdi-react"></i>
+                                                            <span>.react, .jquery, .vue</span>
+                                                        </span>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="tree__folder">
+                                                <span class="tree__item">
+                                                    <i class="mdi mdi-folder-open"></i>
+                                                    <span class="tree__name">back-end/</span>
+                                                </span>
+                                            <ul>
+                                                <li class="tree__file">
+                                                        <span class="tree__item">
+                                                            <i class="mdi mdi-language-php"></i>
+                                                            <span>.php</span>
+                                                        </span>
+                                                </li>
+                                                <li class="tree__file">
+                                                        <span class="tree__item">
+                                                            <i class="mdi mdi-language-php"></i>
+                                                            <span>.symfony, .laravel</span>
+                                                        </span>
+                                                </li>
+                                                <li class="tree__file">
+                                                        <span class="tree__item">
+                                                            <i class="mdi mdi-nodejs"></i>
+                                                            <span>.nodejs</span>
+                                                        </span>
+                                                </li>
+                                                <li class="tree__file">
+                                                        <span class="tree__item">
+                                                            <i class="mdi mdi-language-ruby"></i>
+                                                            <span>.ruby</span>
+                                                        </span>
+                                                </li>
+                                                <li class="tree__file">
+                                                        <span class="tree__item">
+                                                            <i class="mdi mdi-language-cpp"></i>
+                                                            <span>.c, .cpp</span>
+                                                        </span>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="tree__file">
+                                                <span class="tree__item">
+                                                    <i class="mdi mdi-database"></i>
+                                                    <span>.mysql, .mariadb, .mongodb</span>
+                                                </span>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="tree__folder">
+                                        <span class="tree__item">
+                                            <i class="mdi mdi-folder-open"></i>
+                                            <span class="tree__name">cybersecurity/</span>
+                                        </span>
+                                    <ul>
+                                        <li class="tree__file">
+                                                <span class="tree__item">
+                                                    <i class="mdi mdi-web"></i>
+                                                    <span>.websec</span>
+                                                </span>
+                                        </li>
+                                        <li class="tree__file">
+                                                <span class="tree__item">
+                                                    <i class="mdi mdi-bug"></i>
+                                                    <span>.reverse</span>
+                                                </span>
+                                        </li>
+                                        <li class="tree__file">
+                                                <span class="tree__item">
+                                                    <i class="mdi mdi-microsoft-windows"></i>
+                                                    <span>.activedir</span>
+                                                </span>
+                                        </li>
+                                        <li class="tree__file">
+                                                <span class="tree__item">
+                                                    <i class="mdi mdi-image"></i>
+                                                    <span>.steganography</span>
+                                                </span>
+                                        </li>
+                                        <li class="tree__file">
+                                                <span class="tree__item">
+                                                    <i class="mdi mdi-account-search"></i>
+                                                    <span>.osint</span>
+                                                </span>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
-                <br>
-                <div class="author">
-                    <span class=""> Copyright Dawnl3ss © 2025 </span>
+            </div>
+        </section>
+
+        <!-- Career Section -->
+        <section class="career section" id="career">
+            <div class="container">
+                <h2 class="section__title">Career</h2>
+                <div class="timeline">
+                    <div class="timeline__item">
+                        <div class="timeline__date">
+                            <span>2016 - 2024</span>
+                        </div>
+                        <div class="timeline__content">
+                            <h3 class="timeline__title">Highschool</h3>
+                            <p class="timeline__company">Student · France</p>
+                            <ul class="timeline__description">
+                                <li>Started learning HTML & CSS at eleven. Mastered these languages and created my first website in August 2017.</li>
+                                <li>Learnt and practiced PHP and Javascript. Explored web frameworks like Symfony/Laravel and React/JQuery.</li>
+                                <li>Discovered cybersecurity two years ago. Learnt Python, C and C++ to master the programming aspects.</li>
+                                <li>Found a real passion in pentesting & red-teaming. Currently grinding HackTheBox CTF boxes.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline__item">
+                        <div class="timeline__date">
+                            <span>2022 - Present</span>
+                        </div>
+                        <div class="timeline__content">
+                            <h3 class="timeline__title">Hardware Hub</h3>
+                            <p class="timeline__company">Founder & Web Developer · France</p>
+                            <ul class="timeline__description">
+                                <li>Founded a company with a friend in 2022, focused on hardware and IT consulting.</li>
+                                <li>Provide advice on computer building, component selection, and IT solutions.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline__item">
+                        <div class="timeline__date">
+                            <span>2024 - Present</span>
+                        </div>
+                        <div class="timeline__content">
+                            <h3 class="timeline__title">EPITA</h3>
+                            <p class="timeline__company">Engineering & Computer Science Student · France</p>
+                            <ul class="timeline__description">
+                                <li>Entered one of France's renowned private IT engineering schools.</li>
+                                <li>Currently learning advanced mathematics, physics and computer science.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects section" id="projects">
+            <div class="container">
+                <h2 class="section__title">Projects</h2>
+                <div class="projects__terminal">
+                    <div class="terminal terminal--projects" data-termynal data-ty-typeDelay="60" data-ty-lineDelay="300">
+                        <span data-ty="input" data-ty-prompt="$">tree /home/dawnl3ss/.projects</span>
+                        <span data-ty>
+                                <div class="file-tree file-tree--dark">
+                                    <ul class="tree">
+                                        <li class="tree__folder">
+                                            <span class="tree__item">
+                                                <i class="mdi mdi-folder-sync"></i>
+                                                <span class="tree__name">projects/</span>
+                                            </span>
+                                            <ul>
+                                                <li class="tree__folder">
+                                                    <span class="tree__item">
+                                                        <i class="mdi mdi-folder-open"></i>
+                                                        <span class="tree__name">websites/</span>
+                                                    </span>
+                                                    <ul id="websites-list"></ul>
+                                                </li>
+                                                <li class="tree__folder">
+                                                    <span class="tree__item">
+                                                        <i class="mdi mdi-folder-open"></i>
+                                                        <span class="tree__name">tools/</span>
+                                                    </span>
+                                                    <ul id="tools-list"></ul>
+                                                </li>
+                                                <li class="tree__folder">
+                                                    <span class="tree__item">
+                                                        <i class="mdi mdi-folder-open"></i>
+                                                        <span class="tree__name">others/</span>
+                                                    </span>
+                                                    <ul id="others-list"></ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__content">
+                    <div class="footer__social">
+                        <a href="https://github.com/dawnl3ss/" target="_blank">
+                            <i class="mdi mdi-github"></i>
+                        </a>
+                        <a href="https://discord.gg/hardware" target="_blank">
+                            <i class="mdi mdi-discord"></i>
+                        </a>
+                        <a href="http://dawnl3ss.me/" target="_blank">
+                            <i class="mdi mdi-web"></i>
+                        </a>
+                        <a href="https://twitter.com/dawnl3ss" target="_blank">
+                            <i class="mdi mdi-twitter"></i>
+                        </a>
+                    </div>
+
+                    <nav class="footer__nav">
+                        <a href="/">Home</a>
+                        <a href="writeups/">Writeups</a>
+                        <a href="mailto:dawnl3ss@protonmail.com">Email me</a>
+                    </nav>
+
+                    <p class="footer__copyright">
+                        Copyright Dawnl3ss © 2025
+                    </p>
                 </div>
             </div>
         </footer>
 
-        <script data-termynal-container="#termynal" src="vendor/termynal/termynal.js"></script>
-        <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+        <!-- Scripts -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="vendor/termynal/termynal.js"></script>
+        <script src="app/project/projects.js"></script>
         <script src="app/App.js"></script>
-        <script src="vendor/parallax/parallax.js"></script>
     </body>
 </html>
