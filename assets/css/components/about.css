@@ -1,0 +1,252 @@
+.about-container {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: var(--spacing-lg);
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-image {
+    position: relative;
+}
+
+.image-wrapper {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 3px solid var(--primary);
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    transition: var(--transition-base);
+}
+
+.status-indicator {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 20px;
+    height: 20px;
+    background: var(--primary);
+    border-radius: 50%;
+    border: 3px solid var(--bg-card);
+    animation: pulse 2s infinite;
+}
+
+.info-card {
+    background: var(--bg-card);
+    border-radius: 20px;
+    padding: var(--spacing-lg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-lg);
+}
+
+.card-header h3 {
+    font-size: 3.2rem;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+}
+
+.role {
+    color: var(--primary);
+    font-size: 1.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+    margin: var(--spacing-md) 0;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    background: var(--bg-secondary);
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+}
+
+.info-item i {
+    color: var(--primary);
+    font-size: 2rem;
+}
+
+.info-item .label {
+    color: var(--text-dim);
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.info-item .value {
+    color: var(--text-primary);
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.description {
+    margin: var(--spacing-md) 0;
+}
+
+.description p {
+    font-size: 1.8rem;
+    line-height: 1.8;
+    margin-bottom: var(--spacing-sm);
+}
+
+.social-links {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: var(--bg-secondary);
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    transition: var(--transition-base);
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.social-link:hover {
+    background: var(--bg-tertiary);
+    border-color: var(--primary);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-glow);
+}
+
+.social-link i {
+    font-size: 2rem;
+    color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+        text-align: center;
+    }
+
+    .about-image {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .image-wrapper {
+        border-radius: 15px;
+    }
+
+    .image-wrapper img {
+        height: 300px;
+    }
+
+    .info-card {
+        padding: var(--spacing-md);
+        border-radius: 15px;
+    }
+
+    .card-header h3 {
+        font-size: 2.8rem;
+    }
+
+    .role {
+        font-size: 1.4rem;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+
+    .info-item {
+        padding: 12px;
+        flex-direction: column;
+        text-align: center;
+        gap: 5px;
+    }
+
+    .info-item i {
+        font-size: 2.4rem;
+    }
+
+    .info-item .label {
+        font-size: 1.2rem;
+    }
+
+    .info-item .value {
+        font-size: 1.4rem;
+    }
+
+    .description p {
+        font-size: 1.6rem;
+        text-align: left;
+    }
+
+    .social-links {
+        justify-content: center;
+        gap: var(--spacing-xs);
+    }
+
+    .social-link {
+        padding: 10px 15px;
+        font-size: 1.2rem;
+    }
+
+    .social-link i {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-image {
+        max-width: 250px;
+    }
+
+    .image-wrapper img {
+        height: 250px;
+    }
+
+    .card-header h3 {
+        font-size: 2.4rem;
+    }
+
+    .info-item {
+        padding: 10px;
+    }
+
+    .description p {
+        font-size: 1.4rem;
+    }
+
+    .social-links {
+        gap: 8px;
+    }
+
+    .social-link {
+        padding: 8px 12px;
+        font-size: 1.1rem;
+    }
+
+    .social-link span {
+        display: none;
+    }
+
+    .social-link i {
+        font-size: 1.6rem;
+    }
+}

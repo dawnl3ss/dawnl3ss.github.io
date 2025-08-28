@@ -1,0 +1,43 @@
+:root {
+    /* Colors */
+    --primary: #4a90e2;
+    --primary-dim: #3a7bc8;
+    --primary-dark: #2968a3;
+    --secondary: #64b5f6;
+    --accent: #7986cb;
+
+    /* Backgrounds */
+    --bg-primary: #0a0f1c;
+    --bg-secondary: #111827;
+    --bg-tertiary: #1a2332;
+    --bg-card: rgba(26, 35, 50, 0.6);
+    --bg-terminal: rgba(17, 24, 39, 0.95);
+
+    /* Text Colors */
+    --text-primary: #ffffff;
+    --text-secondary: #a8a8aa;
+    --text-dim: #666668;
+
+    /* Borders & Shadows */
+    --border-color: #2a2a3e;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
+    --shadow-glow: 0 0 20px rgba(0, 255, 65, 0.2);
+
+    /* Layout */
+    --header-height: 110px;
+    --container-width: 1300px;
+
+    /* Spacing */
+    --spacing-xs: 0.8rem;
+    --spacing-sm: 1.4rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 5.6rem;
+    --spacing-xl: 8.4rem;
+
+    /* Transitions */
+    --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}

@@ -1,0 +1,162 @@
+.projects-terminal {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.terminal-projects {
+    background: var(--bg-terminal);
+    border-radius: 15px;
+    padding: 80px 60px 50px;
+    box-shadow: var(--shadow-lg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    position: relative;
+    font-family: 'Fira Code', monospace;
+    font-size: 1.6rem;
+}
+
+.terminal-projects::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ff5f56;
+    box-shadow: 20px 0 0 #ffbd2e, 40px 0 0 #27c93f;
+}
+
+.terminal-projects::after {
+    content: 'dawnl3ss@parrot-sec';
+    position: absolute;
+    top: 16px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 1.3rem;
+}
+
+.file-tree-dark {
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+.tree {
+    list-style: none;
+    font-size: 1.6rem;
+    line-height: 2;
+}
+
+.tree ul {
+    list-style: none;
+    padding-left: 30px;
+    position: relative;
+}
+
+.tree-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: var(--transition-fast);
+}
+
+.tree-item:hover {
+    background: rgba(0, 255, 65, 0.1);
+}
+
+.tree-name {
+    color: var(--text-secondary);
+}
+
+.tree-folder > .tree-item .tree-name {
+    color: var(--primary);
+    font-weight: 500;
+}
+
+.tree-file .tree-item {
+    color: var(--text-primary);
+}
+
+.tree-file .tree-item i {
+    color: var(--primary);
+}
+
+.project-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.project-description {
+    color: var(--text-dim);
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .projects-terminal {
+        max-width: 100%;
+    }
+
+    .terminal-projects {
+        padding: 60px 15px 30px;
+        font-size: 1.3rem;
+        border-radius: 12px;
+    }
+
+    .terminal-projects::before {
+        top: 15px;
+        left: 15px;
+        width: 8px;
+        height: 8px;
+        box-shadow: 15px 0 0 #ffbd2e, 30px 0 0 #27c93f;
+    }
+
+    .terminal-projects::after {
+        font-size: 1.1rem;
+        top: 12px;
+    }
+
+    .tree {
+        font-size: 1.3rem;
+    }
+
+    .tree ul {
+        padding-left: 20px;
+    }
+
+    .tree-item {
+        padding: 3px 8px;
+        flex-wrap: wrap;
+    }
+
+    .project-description {
+        font-size: 1.1rem;
+        margin-top: 5px;
+        width: 100%;
+        margin-left: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .terminal-projects {
+        padding: 50px 10px 20px;
+        font-size: 1.1rem;
+    }
+
+    .tree {
+        font-size: 1.1rem;
+    }
+
+    .tree ul {
+        padding-left: 15px;
+    }
+
+    .project-description {
+        font-size: 1rem;
+        margin-left: 20px;
+    }
+}

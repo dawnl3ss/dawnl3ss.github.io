@@ -1,0 +1,205 @@
+.hero {
+    position: relative;
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    overflow: hidden;
+}
+
+.hero-container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.hero-scroll {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    animation: bounce 2s infinite;
+    z-index: 2;
+}
+
+.hero-scroll span {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+}
+
+.hero-scroll i {
+    font-size: 2.4rem;
+    color: var(--primary);
+}
+
+
+
+.hero-terminal {
+    background: var(--bg-terminal);
+    border-radius: 15px;
+    box-shadow: var(--shadow-lg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    font-family: 'Fira Code', monospace;
+    min-width: 800px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.terminal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background: var(--bg-secondary);
+    border-radius: 15px 15px 0 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.terminal-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.terminal-buttons span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.btn-close { background: #ff5f56; }
+.btn-minimize { background: #ffbd2e; }
+.btn-maximize { background: #27c93f; }
+
+.terminal-title {
+    color: var(--text-dim);
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.terminal-body {
+    padding: 30px;
+    font-size: 1.8rem;
+    line-height: 1.8;
+}
+
+.terminal-line {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.prompt {
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.command {
+    color: var(--text-primary);
+}
+
+.output {
+    color: var(--text-secondary);
+    margin-left: 20px;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.matrix-rain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+}
+
+@media (max-width: 768px) {
+    .hero {
+        min-height: 100vh;
+        padding-top: 70px;
+    }
+
+    .hero-terminal {
+        min-width: auto;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .terminal-header {
+        padding: 10px 15px;
+    }
+
+    .terminal-title {
+        font-size: 1.1rem;
+    }
+
+    .terminal-body {
+        padding: 20px 15px;
+        font-size: 1.4rem;
+    }
+
+    .terminal-buttons span {
+        width: 10px;
+        height: 10px;
+    }
+
+    .hero-scroll {
+        bottom: 20px;
+    }
+
+    .hero-scroll span {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-terminal {
+        border-radius: 10px;
+    }
+
+    .terminal-header {
+        padding: 8px 12px;
+    }
+
+    .terminal-body {
+        padding: 15px 12px;
+        font-size: 1.2rem;
+        line-height: 1.6;
+    }
+
+    .terminal-line {
+        margin-bottom: 8px;
+        flex-wrap: wrap;
+    }
+
+    .command, .output {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: 100px 0 50px;
+    }
+
+    .hero-scroll {
+        display: none;
+    }
+}
