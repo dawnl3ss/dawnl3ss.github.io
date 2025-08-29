@@ -1,3 +1,6 @@
+<?php
+/** @var $projects */
+?>
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -354,21 +357,51 @@
                                                 <i class="mdi mdi-folder-open"></i>
                                                 <span class="tree-name">websites/</span>
                                             </span>
-                                            <ul id="websites-list"></ul>
+                                            <ul id="websites-list">
+                                                <?php foreach ($projects["websites"] as $project) : ?>
+                                                    <li class="tree-file">
+                                                        <a href="/projects<?= $project->_get_route(); ?>" class="tree-item project-link" target="_blank" style="transition: 0.2s;" style="transition: 0.2s;">
+                                                            <i class="mdi mdi-<?= $project->_get_icon(); ?>"></i>
+                                                            <span class="tree-name"> <?= $project->_get_name(); ?> </span>
+                                                            <span class="project-description"> - <?= $project->_get_description(); ?> </span>
+                                                        </a>
+                                                    </li>
+                                                <?php endforeach; ?>
+                                            </ul>
                                         </li>
                                         <li class="tree-folder">
                                             <span class="tree-item">
                                                 <i class="mdi mdi-folder-open"></i>
                                                 <span class="tree-name">tools/</span>
                                             </span>
-                                            <ul id="tools-list"></ul>
+                                            <ul id="tools-list">
+                                                <?php foreach ($projects["tools"] as $project) : ?>
+                                                    <li class="tree-file">
+                                                        <a href="/projects<?= $project->_get_route(); ?>" class="tree-item project-link" target="_blank" style="transition: 0.2s;" style="transition: 0.2s;">
+                                                            <i class="mdi mdi-<?= $project->_get_icon(); ?>"></i>
+                                                            <span class="tree-name"> <?= $project->_get_name(); ?> </span>
+                                                            <span class="project-description"> - <?= $project->_get_description(); ?> </span>
+                                                        </a>
+                                                    </li>
+                                                <?php endforeach; ?>
+                                            </ul>
                                         </li>
                                         <li class="tree-folder">
                                             <span class="tree-item">
                                                 <i class="mdi mdi-folder-open"></i>
                                                 <span class="tree-name">others/</span>
                                             </span>
-                                            <ul id="others-list"></ul>
+                                            <ul id="others-list">
+                                                <?php foreach ($projects["others"] as $project) : ?>
+                                                    <li class="tree-file">
+                                                        <a href="/projects<?= $project->_get_route(); ?>" class="tree-item project-link" target="_blank" style="transition: 0.2s;" style="transition: 0.2s;">
+                                                            <i class="mdi mdi-<?= $project->_get_icon(); ?>"></i>
+                                                            <span class="tree-name"> <?= $project->_get_name(); ?> </span>
+                                                            <span class="project-description"> - <?= $project->_get_description(); ?> </span>
+                                                        </a>
+                                                    </li>
+                                                <?php endforeach; ?>
+                                            </ul>
                                         </li>
                                     </ul>
                                 </li>
