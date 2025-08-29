@@ -14,7 +14,10 @@ class Project {
     /** @var string $url */
     private $url;
 
-    public function __construct(string $route, string $name, string $description, string $url, $icon){
+    /** @var string $icon */
+    private $icon;
+
+    public function __construct(string $route, string $name, string $description, string $url, string $icon){
         $this->route = $route;
         $this->name = $name;
         $this->description = $description;
