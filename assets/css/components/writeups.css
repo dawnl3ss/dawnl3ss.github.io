@@ -565,6 +565,11 @@
     .stat-label {
         font-size: 1.2rem;
     }
+
+    .writeups-filters {
+        position: relative;
+    }
+
 }
 
 @media (max-width: 480px) {
@@ -597,6 +602,10 @@
 
     .stats-grid {
         grid-template-columns: 1fr;
+    }
+
+    .writeups-filters {
+        position: inherit;
     }
 }
 
