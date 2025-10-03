@@ -22,12 +22,21 @@ class AppController {
                         var_dump($project);
                 }
             }
-
-
         });
 
         create_route(METHOD_GET, '/writeups', function(){
-            echo "Writeups";
+            require_once "views/writeups.view.php";
+        });
+
+
+        create_route(METHOD_GET, '/writeups/{each}', function($platform){
+            $wt = Wrapper::_load_writeups()[$platform];
+            $platform = $platform;
+            if (!in_array($platform, ["hackthebox", "tryhackme"])){
+                header("Location: /writeups");
+                return;
+            }
+            require_once "views/writeups/each.view.php";
         });
 
         load_routes();

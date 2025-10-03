@@ -40,7 +40,6 @@ class AnimationManager {
             element.textContent = '';
             element.style.borderRight = '2px solid var(--primary)';
 
-            // Start typing after a delay based on element position
             setTimeout(() => {
                 this.typeText(element, text, 100);
             }, index * 1500 + 500);
@@ -56,7 +55,6 @@ class AnimationManager {
                 i++;
             } else {
                 clearInterval(typeInterval);
-                // Remove cursor after typing is complete
                 setTimeout(() => {
                     element.style.borderRight = 'none';
                 }, 500);

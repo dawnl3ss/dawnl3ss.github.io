@@ -6,7 +6,7 @@
     <div class="nav-menu" id="nav-menu">
         <ul class="nav-list">
             <li class="nav-item">
-                <a href="#home" class="nav-link active">
+                <a href="/" class="nav-link active">
                     <span> Home </span>
                 </a>
             </li>
