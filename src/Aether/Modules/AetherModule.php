@@ -21,10 +21,51 @@
 */
 declare(strict_types=1);
 
-# - Autoload
-
-require_once __DIR__ . '/autoload.php';
+namespace Aether\Modules;
 
 
-# - Core init
-\Aether\Aether::_init();
+abstract class AetherModule extends ModuleFactory implements ModuleInterface {
+
+    /** @var string $_name */
+    protected string $_name;
+
+    /** @var float $_version */
+    protected float $_version;
+
+    /** @var string $_description */
+    protected string $_description;
+
+
+    public function __construct(string $_name, float $_version, string $_description){
+        $this->_name = $_name;
+        $this->_version = $_version;
+        $this->_description = $_description;
+    }
+
+    /**
+     * @return string
+     */
+    public function _getName() : string { return $this->_name; }
+
+    /**
+     * @return float
+     */
+    public function _getVersion() : float { return $this->_version; }
+
+    /**
+     * @return string
+     */
+    public function _getDescription() : string { return $this->_description; }
+
+
+    /**
+     * Function triggered on Aether Core loading
+     */
+    abstract public function _onLoad();
+
+
+    /**
+     * @return AetherModule
+     */
+    abstract public static function _make() : AetherModule;
+}

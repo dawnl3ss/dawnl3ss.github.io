@@ -21,10 +21,42 @@
 */
 declare(strict_types=1);
 
-# - Autoload
-
-require_once __DIR__ . '/autoload.php';
+namespace Aether\Session;
 
 
-# - Core init
-\Aether\Aether::_init();
+use Aether\Auth\User\UserInstance;
+use Aether\Session\Data\SessionAppdata;
+use Aether\Session\Data\SessionMetadata;
+
+interface SessionInterface {
+
+
+    /**
+     * Return UserIntance if user is logged in (cf. Auth/), null if not.
+     *
+     * @return UserInstance|null
+     */
+    public function _getUser() : ?UserInstance;
+
+    /**
+     * Return SessionMetadata instance which contains all data related to the actual current session (id, related ips...)
+     *
+     * @return SessionMetadata
+     */
+    public function _getMetadata() : SessionMetadata;
+
+    /**
+     * Return SessionAppdata instance if the custom implemented App/ needs backend cache saving.
+     *
+     * @return SessionAppdata|null
+     */
+    public function _getAppdata() : ?SessionAppdata;
+
+    /**
+     *  Getter function that permits to instantiate the class easily
+     *
+     * @return SessionInstance
+     */
+    public static function _get() : SessionInstance;
+
+}

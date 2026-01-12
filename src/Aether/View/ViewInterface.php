@@ -21,10 +21,23 @@
 */
 declare(strict_types=1);
 
-# - Autoload
-
-require_once __DIR__ . '/autoload.php';
+namespace Aether\View;
 
 
-# - Core init
-\Aether\Aether::_init();
+interface ViewInterface {
+
+
+    /**
+     * Render the provided view with extracted params
+     */
+    public function _render();
+
+
+    /**
+     * Static function used to instantiate the class easily (i should implement this everywhere lol)
+     *
+     * @param string $path
+     * @param array $vars
+     */
+    public static function _make(string $path, array $vars);
+}

@@ -1,0 +1,4 @@
+name: "Aether CLI Module"
+version: 1.0
+description: "Permits you to use the full power of Aether-PHP core engine through cli and command files (eg. docker)"
+author: "Dawnless"

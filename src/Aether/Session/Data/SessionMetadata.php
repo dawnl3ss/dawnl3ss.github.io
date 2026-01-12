@@ -21,10 +21,22 @@
 */
 declare(strict_types=1);
 
-# - Autoload
-
-require_once __DIR__ . '/autoload.php';
+namespace Aether\Session\Data;
 
 
-# - Core init
-\Aether\Aether::_init();
+use Aether\Security\Token\CsrfToken;
+
+final class SessionMetadata extends SessionData {
+
+    public function __construct(){
+        parent::__construct(array(
+            "sessid" => session_id()
+        ));
+    }
+
+    /**
+     * @return string
+     */
+    public function _getSessId() : string { return $this->_get("sessid"); }
+
+}

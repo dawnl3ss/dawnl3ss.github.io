@@ -21,10 +21,20 @@
 */
 declare(strict_types=1);
 
-# - Autoload
+use Aether\Modules\I18n\I18N;
 
-require_once __DIR__ . '/autoload.php';
+if (!function_exists('__')){
 
-
-# - Core init
-\Aether\Aether::_init();
+    /**
+     * Translate a string (from I18N Module)
+     *
+     * @param string $_key
+     * @param array  $_replace
+     * @param string|null $_language
+     *
+     * @return string
+     */
+    function __(string $_identifier, array $_params = [], string $_language = null) : string {
+        return I18N::__($_identifier, $_params, $_language);
+    }
+}

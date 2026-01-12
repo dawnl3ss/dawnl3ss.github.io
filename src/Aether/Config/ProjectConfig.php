@@ -21,10 +21,40 @@
 */
 declare(strict_types=1);
 
-# - Autoload
-
-require_once __DIR__ . '/autoload.php';
+namespace Aether\Config;
 
 
-# - Core init
-\Aether\Aether::_init();
+final class ProjectConfig {
+
+    /** @var bool $_loaded */
+    private static bool $_loaded = false;
+
+    /** @var array $_data */
+    private static array $_data = [];
+    
+
+    public static function _load(){
+        if (self::$_loaded)
+            return;
+
+        self::$_data = (new EnvDataUnpacker())->_raw();
+        self::$_loaded = true;
+    }
+
+
+    /**
+     * @param string $key
+     * @param mixed|null $default
+     *
+     * @return mixed
+     */
+    public static function _get(string $key, mixed $default = null) : mixed {
+        self::_ensureLoaded();
+        return self::$_data[strtoupper($key)] ?? $default;
+    }
+
+    
+    private static function _ensureLoaded(){
+        if (!self::$_loaded) self::load();
+    }
+}

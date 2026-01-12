@@ -21,10 +21,15 @@
 */
 declare(strict_types=1);
 
-# - Autoload
-
-require_once __DIR__ . '/autoload.php';
+namespace Aether\Session\Data;
 
 
-# - Core init
-\Aether\Aether::_init();
+final class SessionAppdata extends SessionData {
+
+    public function __construct(){
+        parent::__construct(array(
+            # - Add extra data here
+        ));
+    }
+
+}

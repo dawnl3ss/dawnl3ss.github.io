@@ -21,10 +21,25 @@
 */
 declare(strict_types=1);
 
-# - Autoload
-
-require_once __DIR__ . '/autoload.php';
+namespace Aether\Router;
 
 
-# - Core init
-\Aether\Aether::_init();
+interface RouterInterface {
+
+    /**
+     * Add a route in the list
+     *
+     * @param string $method
+     * @param string $route
+     * @param $callable
+     *
+     * @return Router
+     */
+    public function _addRoute(string $method, string $route, $callable) : Router;
+
+    /**
+     * Run the core Router job
+     */
+    public function _run() : bool;
+
+}

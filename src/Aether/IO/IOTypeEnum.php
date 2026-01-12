@@ -21,10 +21,19 @@
 */
 declare(strict_types=1);
 
-# - Autoload
-
-require_once __DIR__ . '/autoload.php';
+namespace Aether\IO;
 
 
-# - Core init
-\Aether\Aether::_init();
+enum IOTypeEnum : string {
+
+    case TEXT = 'text';
+    case JSON = 'json';
+    case YAML = 'yaml';
+    case ENV  = 'env';
+    case CSV  = 'csv';
+    case PNG  = 'png';
+    case PHP  = 'php';
+    case JPG  = 'jpg';
+    case OTHER  = 'other';
+
+}

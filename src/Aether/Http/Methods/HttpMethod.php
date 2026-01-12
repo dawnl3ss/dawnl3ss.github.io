@@ -14,17 +14,34 @@
  *
  *  Built from scratch. No bloat. POO Embedded.
  *
- *  @author: dawnl3ss (Alex') ©2025 — All rights reserved
+ *  @author: dawnl3ss (Alex') ©2026 — All rights reserved
  *  Source available • Commercial license required for redistribution
  *  → github.com/dawnl3ss/Aether-PHP
  *
 */
 declare(strict_types=1);
 
-# - Autoload
-
-require_once __DIR__ . '/autoload.php';
+namespace Aether\Http\Methods;
 
 
-# - Core init
-\Aether\Aether::_init();
+abstract class HttpMethod implements MethodInterface {
+
+
+    /** @var string $_name */
+    private string $_name;
+
+
+    public function __construct(string $_name){
+        $this->_name = $_name;
+    }
+
+    /**
+     * @return string
+     */
+    public function _getName() : string { return $this->_name; }
+
+    /**
+     * @return string
+     */
+    public function __toString() : string { return $this->_getName(); }
+}

@@ -21,10 +21,36 @@
 */
 declare(strict_types=1);
 
-# - Autoload
-
-require_once __DIR__ . '/autoload.php';
+namespace Aether\Modules;
 
 
-# - Core init
-\Aether\Aether::_init();
+abstract class ModuleFactory {
+
+
+    /**
+     * Function triggered when Aether Core is initialized
+     * Scan all modules and trigger _onLoad()
+     *
+     * @param array $_modules
+     */
+    public static function _load(array $_modules) : void {
+
+        foreach ($_modules as $module){
+            $class = new $module();
+
+            if (!$class instanceof AetherModule){
+                echo "[ModuleFactory] - Error - {$module} does not implement AetherModule.";
+                die();
+            }
+            $class->_onLoad();
+        }
+    }
+
+    /**
+     * Permits to easily instantiate the class
+     *
+     * @return AetherModule
+     */
+    abstract public static function _make() : AetherModule;
+
+}

@@ -21,10 +21,17 @@
 */
 declare(strict_types=1);
 
-# - Autoload
+namespace Aether\Security;
 
-require_once __DIR__ . '/autoload.php';
+trait UserInputValidatorTrait {
 
 
-# - Core init
-\Aether\Aether::_init();
+    /*
+     * @param string $_str
+     *
+     * @return string
+     */
+    public function _sanitizeInput(string $_str) : string {
+        return htmlspecialchars($_str, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+    }
+}

@@ -10,7 +10,7 @@
  *     ╚═╝  ╚═╝╚══════╝   ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝        ╚═╝     ╚═╝  ╚═╝╚═╝
  *
  *                      The divine lightweight PHP framework
- *                  < 1 Mo • Zero dependencies • Pure PHP 8.3+
+ *                   < 1 Mo • Zero dependencies • Pure PHP 8.3+
  *
  *  Built from scratch. No bloat. POO Embedded.
  *
@@ -21,10 +21,14 @@
 */
 declare(strict_types=1);
 
-# - Autoload
-
-require_once __DIR__ . '/autoload.php';
+namespace Aether\Router\Http;
 
 
-# - Core init
-\Aether\Aether::_init();
+enum HttpStandardsEnum: string {
+
+    case HTTP_GET = 'GET';
+    case HTTP_POST = 'POST';
+    case HTTP_DELETE = 'DELETE';
+    case HTTP_PUT = 'PUT';
+
+}

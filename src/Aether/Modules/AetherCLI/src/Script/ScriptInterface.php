@@ -14,17 +14,29 @@
  *
  *  Built from scratch. No bloat. POO Embedded.
  *
- *  @author: dawnl3ss (Alex') ©2025 — All rights reserved
+ *  @author: dawnl3ss (Alex') ©2026 — All rights reserved
  *  Source available • Commercial license required for redistribution
  *  → github.com/dawnl3ss/Aether-PHP
  *
 */
 declare(strict_types=1);
 
-# - Autoload
-
-require_once __DIR__ . '/autoload.php';
+namespace Aether\Modules\AetherCLI\src\Script;
 
 
-# - Core init
-\Aether\Aether::_init();
+interface ScriptInterface {
+
+    /**
+     * Function triggered when script is loaded by AetherCLI module
+     *
+     * @return void
+     */
+    public function _onLoad() : void;
+
+    /**
+     * Function triggered when script is executed by AetherCLI module
+     *
+     * @return bool
+     */
+    public function _onRun() : bool;
+}

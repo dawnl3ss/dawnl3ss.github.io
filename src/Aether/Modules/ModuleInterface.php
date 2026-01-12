@@ -21,10 +21,35 @@
 */
 declare(strict_types=1);
 
-# - Autoload
-
-require_once __DIR__ . '/autoload.php';
+namespace Aether\Modules;
 
 
-# - Core init
-\Aether\Aether::_init();
+interface ModuleInterface {
+
+    /**
+     * Get module's name
+     *
+     * @return string
+     */
+    public function _getName() : string;
+
+    /**
+     * Get module's version
+     *
+     * @return float
+     */
+    public function _getVersion() : float;
+
+    /**
+     * Get module's description
+     *
+     * @return string
+     */
+    public function _getDescription() : string;
+
+
+    /**
+     * Function triggered on Aether Core loading
+     */
+    public function _onLoad();
+}

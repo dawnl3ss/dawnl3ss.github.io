@@ -21,10 +21,30 @@
 */
 declare(strict_types=1);
 
-# - Autoload
-
-require_once __DIR__ . '/autoload.php';
+namespace Aether\Session\Data;
 
 
-# - Core init
-\Aether\Aether::_init();
+interface SessionDataInterface {
+
+
+    /**
+     * @param string $key
+     *
+     * @return mixed
+     */
+    public function _get(string $key) : mixed;
+
+    /**
+     * @param string $key
+     *
+     * @param $value
+     */
+    public function _set(string $key, $value) : void;
+
+    /**
+     * @param string $key
+     *
+     * @return bool
+     */
+    public function _is(string $key) : bool;
+}

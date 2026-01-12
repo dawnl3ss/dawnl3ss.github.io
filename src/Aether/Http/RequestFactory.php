@@ -12,19 +12,31 @@
  *                      The divine lightweight PHP framework
  *                  < 1 Mo • Zero dependencies • Pure PHP 8.3+
  *
- *  Built from scratch. No bloat. POO Embedded.
+ *  Built from scratch. No bloat. OOP Embedded.
  *
- *  @author: dawnl3ss (Alex') ©2025 — All rights reserved
+ *  @author: dawnl3ss (Alex') ©2026 — All rights reserved
  *  Source available • Commercial license required for redistribution
  *  → github.com/dawnl3ss/Aether-PHP
  *
 */
 declare(strict_types=1);
 
-# - Autoload
+namespace Aether\Http;
 
-require_once __DIR__ . '/autoload.php';
+use Aether\Http\Methods\HttpMethodEnum;
+use Aether\Http\Request\HttpRequest;
 
 
-# - Core init
-\Aether\Aether::_init();
+class RequestFactory {
+
+    /**
+     * @param HttpMethodEnum $_method
+     * @param string $_destination
+     *
+     * @return HttpRequest
+     */
+    public static function _create(HttpMethodEnum $_method, string $_destination) : HttpRequest {
+        return new HttpRequest($_destination, $_method->_make());
+    }
+
+}

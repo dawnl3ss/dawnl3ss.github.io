@@ -21,10 +21,22 @@
 */
 declare(strict_types=1);
 
-# - Autoload
-
-require_once __DIR__ . '/autoload.php';
+namespace Aether\Router\Http;
 
 
-# - Core init
-\Aether\Aether::_init();
+final class RouterHttpGateway {
+
+    /**
+     * @return string
+     */
+    public static function _getHttpRequestUri() : string {
+        return $_SERVER['REQUEST_URI'];
+    }
+
+    /**
+     * @return string
+     */
+    public static function _getHttpRequestMethod() : string {
+        return $_SERVER['REQUEST_METHOD'];
+    }
+}

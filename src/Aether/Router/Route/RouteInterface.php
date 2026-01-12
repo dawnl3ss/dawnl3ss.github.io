@@ -21,10 +21,29 @@
 */
 declare(strict_types=1);
 
-# - Autoload
-
-require_once __DIR__ . '/autoload.php';
+namespace Aether\Router\Route;
 
 
-# - Core init
-\Aether\Aether::_init();
+interface RouteInterface {
+
+    /**
+     * Get Route's HTTP method
+     *
+     * @return string
+     */
+    public function _getMethod() : string;
+
+    /**
+     * Get Route's name
+     *
+     * @return string
+     */
+    public function _getRoute() : string;
+
+    /**
+     * Get Route's callable function
+     *
+     * @return
+     */
+    public function _getCallable();
+}

@@ -1,3 +1,4 @@
+#!/usr/bin/env php
 <?php
 
 /*
@@ -22,9 +23,19 @@
 declare(strict_types=1);
 
 # - Autoload
+if (str_contains(__DIR__, "/bin"))
+    require_once __DIR__ . '/../autoload.php';
+else
+    require_once __DIR__ . '/autoload.php';
 
-require_once __DIR__ . '/autoload.php';
+use Aether\Config\ProjectConfig;
+use Aether\Modules\ModuleFactory;
+use Aether\Modules\AetherCLI\Kernel as CliKernel;
 
+# - .Env File load
+ProjectConfig::_load();
 
-# - Core init
-\Aether\Aether::_init();
+# - Modules load
+ModuleFactory::_load([
+    CliKernel::class
+]);

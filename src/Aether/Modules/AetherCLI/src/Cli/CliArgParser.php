@@ -21,10 +21,25 @@
 */
 declare(strict_types=1);
 
-# - Autoload
-
-require_once __DIR__ . '/autoload.php';
+namespace Aether\Modules\AetherCLI\Cli;
 
 
-# - Core init
-\Aether\Aether::_init();
+final class CliArgParser {
+
+    /**
+     * @return string|array
+     */
+    public static function _parse() : string|array {
+        if (php_sapi_name() !== 'cli')
+            return CliColorEnum::FG_RED->_paint("[CliArgParser] - Error - Client is not using PHP-CLI.");
+
+        $args = $_SERVER['argv'];
+
+        if (count($args) < 2)
+            return CliColorEnum::FG_RED->_paint("[CliArgParser] - Error - Not enough arguments. Run ./bin/aether help for help.");
+
+        unset($args[0]);
+        return array_values($args);
+    }
+
+}

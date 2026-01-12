@@ -21,10 +21,11 @@
 */
 declare(strict_types=1);
 
-# - Autoload
+namespace Aether\IO;
 
-require_once __DIR__ . '/autoload.php';
+/**
+ * TODO: @class IOFolder - will permits to interact w folders (better abstraction, easy to use)
+ */
+final class IOFolder {
 
-
-# - Core init
-\Aether\Aether::_init();
+}

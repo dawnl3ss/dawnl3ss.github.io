@@ -12,19 +12,36 @@
  *                      The divine lightweight PHP framework
  *                  < 1 Mo • Zero dependencies • Pure PHP 8.3+
  *
- *  Built from scratch. No bloat. POO Embedded.
+ *  Built from scratch. No bloat. OOP Embedded.
  *
- *  @author: dawnl3ss (Alex') ©2025 — All rights reserved
+ *  @author: dawnl3ss (Alex') ©2026 — All rights reserved
  *  Source available • Commercial license required for redistribution
  *  → github.com/dawnl3ss/Aether-PHP
  *
 */
 declare(strict_types=1);
 
-# - Autoload
+namespace Aether\Http;
 
-require_once __DIR__ . '/autoload.php';
+use Aether\Http\Methods\HttpMethodEnum;
+use Aether\Http\Response\Format\HttpResponseFormatEnum;
+use Aether\Http\Response\HttpResponse;
 
 
-# - Core init
-\Aether\Aether::_init();
+class ResponseFactory {
+
+    /**
+     *  Create HTTP response instance.
+     *
+     * @param HttpResponseFormatEnum $_format
+     * @param string|array $_body
+     * @param int $_statusCode
+     * @param string $_url
+     * @param HttpMethodEnum $_method
+     *
+     * @return HttpResponse
+     */
+    public static function _create(HttpResponseFormatEnum $_format, string|array $_body, int $_statusCode, string $_url = "", HttpMethodEnum $_method = HttpMethodEnum::GET) : HttpResponse {
+        return new HttpResponse($_format, $_body, $_statusCode, $_url, $_method);
+    }
+}

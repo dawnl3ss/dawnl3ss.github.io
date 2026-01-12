@@ -21,10 +21,34 @@
 */
 declare(strict_types=1);
 
-# - Autoload
+namespace Aether\Config;
 
-require_once __DIR__ . '/autoload.php';
+use Aether\IO\IOFile;
+use Aether\IO\IOTypeEnum;
 
 
-# - Core init
-\Aether\Aether::_init();
+final class EnvDataUnpacker {
+
+    /** @var array $_envData */
+    private array $_envData;
+
+
+    public function __construct(){
+        $this->_envData = IOFile::_open(IOTypeEnum::ENV, ".env")->_readDecoded();
+    }
+
+
+    /**
+     * @param string $_key
+     *
+     * @return mixed
+     */
+    public function _get(string $_key){
+        return $this->_envData[$_key];
+    }
+
+    /**
+     * @return array
+     */
+    public function _raw() : array { return $this->_envData; }
+}

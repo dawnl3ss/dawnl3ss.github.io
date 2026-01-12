@@ -21,10 +21,20 @@
 */
 declare(strict_types=1);
 
-# - Autoload
+namespace Aether\Router\Controller;
 
-require_once __DIR__ . '/autoload.php';
+use Aether\View\ViewInstance;
 
 
-# - Core init
-\Aether\Aether::_init();
+class Controller {
+
+    /**
+     * Render the provided view (with parameters)
+     *
+     * @param string $view
+     * @param array $params
+     */
+    protected function _render(string $view, array $params = []) {
+        ViewInstance::_make($view, $params);
+    }
+}

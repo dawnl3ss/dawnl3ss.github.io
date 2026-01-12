@@ -21,10 +21,27 @@
 */
 declare(strict_types=1);
 
-# - Autoload
-
-require_once __DIR__ . '/autoload.php';
+namespace Aether\IO\Parser;
 
 
-# - Core init
-\Aether\Aether::_init();
+interface ParserInterface {
+
+    /**
+     * Encode provided $_data
+     *
+     * @param mixed $_data
+     *
+     * @return string
+     */
+    public function _encode(mixed $_data): string;
+
+    /**
+     * Decode provided $_content
+     *
+     * @param string $_content
+     *
+     * @return mixed
+     */
+    public function _decode(string $_content): mixed;
+
+}

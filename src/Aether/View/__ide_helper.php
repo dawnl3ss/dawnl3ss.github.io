@@ -1,0 +1,3 @@
+<?php
+
+/** @var string $test */
