@@ -326,7 +326,7 @@
 
 
                             <div class="startup-links">
-                                <a href="https://getaether.php" target="_blank" class="startup-link secondary">
+                                <a href="https://github.com/dawnl3ss/Aether-PHP" target="_blank" class="startup-link secondary">
                                     <i class="mdi mdi-code-block-braces"></i>
                                     <span> Get Aether </span>
                                     <i class="mdi mdi-arrow-right"></i>
@@ -562,7 +562,7 @@
                                             <ul id="websites-list">
                                                 <?php foreach ($projects["main"] as $project) : ?>
                                                     <li class="tree-file">
-                                                        <a href="/projects<?= $project->_get_route(); ?>" class="tree-item project-link" target="_blank" style="transition: 0.2s;" style="transition: 0.2s;">
+                                                        <a href="<?= $project->_get_url(); ?>" class="tree-item project-link" target="_blank" style="transition: 0.2s;" style="transition: 0.2s;">
                                                             <i class="mdi mdi-<?= $project->_get_icon(); ?>"></i>
                                                             <span class="tree-name"> <?= $project->_get_name(); ?> </span>
                                                             <span class="project-description"> - <?= $project->_get_description(); ?> </span>
@@ -581,7 +581,7 @@
                                             <ul id="websites-list">
                                                 <?php foreach ($projects["web"] as $project) : ?>
                                                     <li class="tree-file">
-                                                        <a href="/projects<?= $project->_get_route(); ?>" class="tree-item project-link" target="_blank" style="transition: 0.2s;" style="transition: 0.2s;">
+                                                        <a href="<?= $project->_get_url(); ?>" class="tree-item project-link" target="_blank" style="transition: 0.2s;" style="transition: 0.2s;">
                                                             <i class="mdi mdi-<?= $project->_get_icon(); ?>"></i>
                                                             <span class="tree-name"> <?= $project->_get_name(); ?> </span>
                                                             <span class="project-description"> - <?= $project->_get_description(); ?> </span>
@@ -599,7 +599,7 @@
                                             <ul id="tools-list">
                                                 <?php foreach ($projects["cybersecurity"] as $project) : ?>
                                                     <li class="tree-file">
-                                                        <a href="/projects<?= $project->_get_route(); ?>" class="tree-item project-link" target="_blank" style="transition: 0.2s;" style="transition: 0.2s;">
+                                                        <a href="<?= $project->_get_url(); ?>" class="tree-item project-link" target="_blank" style="transition: 0.2s;" style="transition: 0.2s;">
                                                             <i class="mdi mdi-<?= $project->_get_icon(); ?>"></i>
                                                             <span class="tree-name"> <?= $project->_get_name(); ?> </span>
                                                             <span class="project-description"> - <?= $project->_get_description(); ?> </span>
