@@ -56,14 +56,14 @@
                             <span class="command typing-animation">whoami</span>
                         </div>
                         <div class="terminal-line output">
-                            <span class="fade-in-text">Dawnless (.dawnl3ss) - Alex' </span>
+                            <span class="fade-in-text">Dawnless (Neptune) - Alex' </span>
                         </div>
                         <div class="terminal-line">
                             <span class="prompt">$</span>
                             <span class="command typing-animation">cat about.txt</span>
                         </div>
                         <div class="terminal-line output">
-                            <span class="fade-in-text"> Senior PHP & Full Stack Developer | Cybersecurity Enthusiast | <br> Cybersecurity Student @ EPITA, Graduate School of Computer Engineering </span>
+                            <span class="fade-in-text"> Senior PHP & Full Stack Developer | Cybersecurity Enthusiast | <br> Student @ EPITA, Graduate School of Computer Engineering </span>
                         </div>
                         <div class="terminal-line">
                             <span class="prompt">$</span>
@@ -106,11 +106,18 @@
                     <div class="about-content" data-aos="fade-left">
                         <div class="info-card">
                             <div class="card-header">
-                                <h3> Dawnless </h3>
+                                <h3> Alexandre VOISIN </h3>
                                 <span class="role"> Cybersecurity Enthusiast </span>
                             </div>
 
                             <div class="info-grid">
+                                <div class="info-item">
+                                    <i class="mdi mdi-account-group"></i>
+                                    <div>
+                                        <span class="label"> Usernames </span>
+                                        <span class="value"> Dawnless, Neptune </span>
+                                    </div>
+                                </div>
                                 <div class="info-item">
                                     <i class="mdi mdi-calendar"></i>
                                     <div>
@@ -130,13 +137,6 @@
                                     <div>
                                         <span class="label"> Education </span>
                                         <span class="value"> EPITA Student </span>
-                                    </div>
-                                </div>
-                                <div class="info-item">
-                                    <i class="mdi mdi-linux"></i>
-                                    <div>
-                                        <span class="label"> OS </span>
-                                        <span class="value"> Parrot Security </span>
                                     </div>
                                 </div>
                             </div>
@@ -249,7 +249,7 @@
                                 <div class="feature-item">
                                     <i class="mdi mdi-currency-eur"></i>
                                     <h4> Best Prices </h4>
-                                    <p> Automatic optimization for the best value for money </p>
+                                    <p> Automatic optimization for the best value for moneey </p>
                                 </div>
                                 <div class="feature-item">
                                     <i class="mdi mdi-lightning-bolt"></i>
@@ -326,7 +326,7 @@
 
 
                             <div class="startup-links">
-                                <a href="https://github.com/dawnl3ss/Aether-PHP" target="_blank" class="startup-link secondary">
+                                <a href="https://github.com/Aether-PHP/Aether-PHP" target="_blank" class="startup-link secondary">
                                     <i class="mdi mdi-code-block-braces"></i>
                                     <span> Get Aether </span>
                                     <i class="mdi mdi-arrow-right"></i>
@@ -403,7 +403,7 @@
                                                             web_security (OWASP 10, Pentest API...)
                                                         </span>
                                                 <div class="skill-level">
-                                                    <div class="level-bar" data-level="85"></div>
+                                                    <div class="level-bar" data-level="90"></div>
                                                 </div>
                                             </div>
                                             <div class="file-item">
@@ -421,7 +421,7 @@
                                                             linux_security (Cron, SUID, Sudo...)
                                                         </span>
                                                 <div class="skill-level">
-                                                    <div class="level-bar" data-level="90"></div>
+                                                    <div class="level-bar" data-level="80"></div>
                                                 </div>
                                             </div>
                                             <div class="file-item">
@@ -460,6 +460,15 @@
                                             </div>
                                             <div class="file-item">
                                                         <span>
+                                                            <i class="mdi mdi-database"></i>
+                                                            databases (MySQL, MongoDB, PostgreSQL)
+                                                        </span>
+                                                <div class="skill-level">
+                                                    <div class="level-bar" data-level="90"></div>
+                                                </div>
+                                            </div>
+                                            <div class="file-item">
+                                                        <span>
                                                             <i class="mdi mdi-language-python"></i>
                                                             software (C, C++, C#, Python, Java, Rust)
                                                         </span>
@@ -474,6 +483,32 @@
                                                         </span>
                                                 <div class="skill-level">
                                                     <div class="level-bar" data-level="75"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="folder-item" data-folder="cybersecurity">
+                                        <span><i class="mdi mdi-folder-open"></i> devops/ </span>
+
+                                        <div class="folder-content">
+                                            <div class="file-item">
+                                                        <span>
+                                                            <i class="mdi mdi-monitor"></i>
+                                                            ci/cd (Apache2, Nginx, Docker, Kubernetes)
+                                                        </span>
+                                                <div class="skill-level">
+                                                    <div class="level-bar" data-level="75"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="file-item">
+                                                        <span>
+                                                            <i class="mdi mdi-cached"></i>
+                                                            cache (RAM, Redis, Memcached)
+                                                        </span>
+                                                <div class="skill-level">
+                                                    <div class="level-bar" data-level="65"></div>
                                                 </div>
                                             </div>
 
@@ -505,7 +540,7 @@
                             <h3 class="timeline-title"> High School </h3>
                             <span class="timeline-date"> 2016 - 2023 </span>
                             <p> Began coding at 11 with HTML/CSS and PHP, built my first website in 2017. Later explored JavaScript, Symfony, Laravel, React, jQuery and way more. </p>
-                            <p> Discovered cybersecurity four years ago, learning and mastering Python, C, and C++. Passionate about pentesting & red teaming, currently active on HackTheBox. </p>
+                            <p> Discovered cybersecurity 2 years before the end of highschool, thus I learned and mastered Python, C, and C++. </p>
                         </div>
                     </div>
                     <div class="timeline-item" data-aos="fade-left">
@@ -521,6 +556,16 @@
                         </div>
                     </div>
                     <div class="timeline-item" data-aos="fade-right">
+                        <div class="timeline-marker">
+                            <i class="mdi mdi-school"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title"> HackTheBox </h3>
+                            <span class="timeline-date"> 2023 - Present </span>
+                            <p> I like to pursue the Certified Penetration Testing Specialist (CPTS) Job Role Path on HackTheBox Academy, coupled with a practical part on HackTheBox labs. </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-aos="fade-left">
                         <div class="timeline-marker">
                             <i class="mdi mdi-school"></i>
                         </div>
@@ -617,7 +662,7 @@
                                             <ul id="others-list">
                                                 <?php foreach ($projects["misc"] as $project) : ?>
                                                     <li class="tree-file">
-                                                        <a href="/projects<?= $project->_get_route(); ?>" class="tree-item project-link" target="_blank" style="transition: 0.2s;" style="transition: 0.2s;">
+                                                        <a href="<?= $project->_get_url(); ?>" class="tree-item project-link" target="_blank" style="transition: 0.2s;" style="transition: 0.2s;">
                                                             <i class="mdi mdi-<?= $project->_get_icon(); ?>"></i>
                                                             <span class="tree-name"> <?= $project->_get_name(); ?> </span>
                                                             <span class="project-description"> - <?= $project->_get_description(); ?> </span>
