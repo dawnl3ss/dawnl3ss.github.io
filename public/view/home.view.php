@@ -81,7 +81,6 @@
             </div>
 
             <div class="hero-scroll">
-                <span> Scroll to explore </span>
                 <i class="mdi mdi-chevron-down"></i>
             </div>
         </section>
@@ -142,9 +141,9 @@
                             </div>
 
                             <div class="description">
-                                <p> Senior PHP Developer & Architect with 9 years of experience, specializing in high-performance, secure, and maintainable PHP backends. </p>
-                                <p> A Full-Stack Developer when needed, building complete applications is part of my daily work. </p>
-                                <p> Passionate about cybersecurity and ethical hacking. Currently training for CPTS certification while pursuing engineering studies at EPITA.</p>
+                                <p> Senior PHP Developer & Architect with 5 years of experience, specializing in high-performance, secure, and maintainable PHP backends. </p>
+                                <p> Full-Stack Developer when needed, building complete and secure applications is part of my daily work. </p>
+                                <p> Passionate about cybersecurity and ethical hacking. Currently training for CPTS certification with HackTheBox Academy while pursuing engineering studies at EPITA. </p>
                             </div>
 
                             <div class="social-links">
@@ -306,8 +305,8 @@
 
                                 <div class="feature-item">
                                     <i class="mdi mdi-shield-check"></i>
-                                    <h4> Freelance-Ready </h4>
-                                    <p> Scalable, secure, and modular for real-world client missions. </p>
+                                    <h4> Ultra Secure </h4>
+                                    <p> Secure-by-design framework that permits to build fast but secure backends </p>
                                 </div>
 
 
@@ -319,14 +318,14 @@
 
                                 <div class="feature-item">
                                     <i class="mdi mdi-atom"></i>
-                                    <h4> Effortless Embedding </h4>
-                                    <p> OOP design makes integration into existing projects easy. </p>
+                                    <h4> Freelance-Ready </h4>
+                                    <p> Scalable, secure, and modular for real-world client missions. </p>
                                 </div>
                             </div>
 
 
                             <div class="startup-links">
-                                <a href="https://github.com/Aether-PHP/Aether-PHP" target="_blank" class="startup-link secondary">
+                                <a href="https://getaether.space" target="_blank" class="startup-link secondary">
                                     <i class="mdi mdi-code-block-braces"></i>
                                     <span> Get Aether </span>
                                     <i class="mdi mdi-arrow-right"></i>

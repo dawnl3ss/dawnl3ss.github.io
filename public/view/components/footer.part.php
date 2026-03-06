@@ -2,13 +2,13 @@
     <div class="container">
         <div class="footer-content">
             <div class="footer-social">
-                <a href="https://github.com/dawnl3ss/" target="_blank">
+                <a href="https://github.com/dawnl3ss" target="_blank">
                     <i class="mdi mdi-github"></i>
                 </a>
                 <a href="https://discord.gg/hardware" target="_blank">
                     <i class="mdi mdi-discord"></i>
                 </a>
-                <a href="https://dawnl3ss.me/" target="_blank">
+                <a href="https://dawnless.me" target="_blank">
                     <i class="mdi mdi-web"></i>
                 </a>
                 <a href="https://twitter.com/dawnl3ss" target="_blank">
@@ -21,10 +21,10 @@
                 <a href="mailto:dawnl3ss@protonmail.com"> Email me </a>
             </nav>
             <p class="footer-copyright">
-                Copyright Dawnl3ss © <?= date("Y"); ?>
+                Copyright Dawnless © <?= date("Y"); ?>
             </p>
             <p class="footer-copyright">
-                Powered by <a target="_blank" href="https://github.com/dawnl3ss/Aether-PHP">Aether Framework</a> ☄️
+                Powered by <a target="_blank" href="https://github.com/Aether-PHP/Aether-PHP">Aether Framework</a> ☄️
             </p>
         </div>
     </div>
