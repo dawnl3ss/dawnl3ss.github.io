@@ -70,7 +70,7 @@ class WriteupController extends Controller {
      * [@route] => /writeups/tryhackme/{wt}
      */
     public function thm($wt){
-        if (!in_array($wt, [ "bounty-hacker", "cmess", "looking-glass", "simple-ctf" ])){
+        if (!in_array($wt, [ "bounty-hacker", "cmess", "looking-glass", "wonderland", "simple-ctf" ])){
             header("Location: /writeups");
             exit;
         }
@@ -87,6 +87,9 @@ class WriteupController extends Controller {
                 break;
             case "simple-ctf":
                 $this->_render("view/writeups/thm/simple-ctf.wt");
+                break;
+            case "wonderland":
+                $this->_render("view/writeups/thm/wonderland.wt");
                 break;
         }
     }
