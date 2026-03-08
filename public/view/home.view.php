@@ -181,6 +181,105 @@
             </div>
         </section>
 
+        <section class="about section" id="writeups">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">
+                    <span class="title-bracket">[</span>
+                    Writeups &amp; Articles
+                    <span class="title-bracket">]</span>
+                </h2>
+
+                <div class="wl-card" data-aos="fade-up">
+
+                    <div class="wl-header">
+                        <div>
+                            <h3> CTF Writeups &amp; Technical Articles </h3>
+                            <p> HackTheBox, TryHackMe, sécurité web, développement. </p>
+                        </div>
+                        <span class="wl-count"><span>11</span> writeups</span>
+                    </div>
+
+                    <div class="wl-list">
+
+                        <a class="wl-item" target="_blank" href="/writeups/hackthebox/boardlight">
+                            <div class="wl-icon ctf"><img src="https://labs.hackthebox.com/storage/avatars/7768afed979c9abe917b0c20df49ceb8.png"></div>
+                            <div class="wl-body">
+                                <div class="wl-title"> HTB - BoardLight </div>
+                                <div class="wl-desc"> Dolibarr 17.0 default creds -> CVE-2023-30253 RCE -> SUID Enlightenment LPE -> root </div>
+                            </div>
+                            <div class="wl-right">
+                                <span class="wl-platform"> HackTheBox </span>
+                                <span class="wl-diff easy"> Easy </span>
+                                <i class="mdi mdi-arrow-right wl-arrow"></i>
+                            </div>
+                        </a>
+
+                        <a class="wl-item" target="_blank" href="/writeups/tryhackme/wonderland">
+                            <div class="wl-icon ctf"><img src="https://tryhackme-images.s3.amazonaws.com/room-icons/fdba6eaf85513262b2a9b12875b0f342.jpeg"></i></div>
+                            <div class="wl-body">
+                                <div class="wl-title"> THM - Wonderland </div>
+                                <div class="wl-desc"> FFUF recursive -> hidden SSH creds in source -> Python lib hijack -> PATH hijack -> Perl cap_setuid </div>
+                            </div>
+                            <div class="wl-right">
+                                <span class="wl-platform"> TryHackMe </span>
+                                <span class="wl-diff medium"> Medium </span>
+                                <i class="mdi mdi-arrow-right wl-arrow"></i>
+                            </div>
+                        </a>
+
+                        <a class="wl-item" target="_blank" href="/writeups/hackthebox/usage">
+                            <div class="wl-icon ctf"><img src="https://labs.hackthebox.com/storage/avatars/23e804513a47e8f20bc865d0419946e1.png"></i></div>
+                            <div class="wl-body">
+                                <div class="wl-title"> HTB - Usage </div>
+                                <div class="wl-desc"> SQLi password reset -> sqlmap -> file upload .php.jpg bypass -> 7za wildcard symlink -> root </div>
+                            </div>
+                            <div class="wl-right">
+                                <span class="wl-platform"> HackTheBox </span>
+                                <span class="wl-diff easy"> Easy </span>
+                                <i class="mdi mdi-arrow-right wl-arrow"></i>
+                            </div>
+                        </a>
+
+                        <a class="wl-item" target="_blank" href="/writeups/tryhackme/simple-ctf">
+                            <div class="wl-icon ctf"><img src="https://tryhackme-images.s3.amazonaws.com/room-icons/f28ade2b51eb7aeeac91002d41f29c47.png"></i></div>
+                            <div class="wl-body">
+                                <div class="wl-title"> THM - Simple CTF </div>
+                                <div class="wl-desc"> FTP anonymous -> ForMitch.txt -> Hydra SSH bruteforce -> vim GTFOBins -> root </div>
+                            </div>
+                            <div class="wl-right">
+                                <span class="wl-platform"> TryHackMe </span>
+                                <span class="wl-diff easy"> Easy </span>
+                                <i class="mdi mdi-arrow-right wl-arrow"></i>
+                            </div>
+                        </a>
+
+                        <a class="wl-item" target="_blank" href="/writeups/tryhackme/looking-glass">
+                            <div class="wl-icon ctf"><img src="https://tryhackme-images.s3.amazonaws.com/room-icons/56215a135c08963843afda2240c317a3.png"></i></div>
+                            <div class="wl-body">
+                                <div class="wl-title"> THM - Looking Glass </div>
+                                <div class="wl-desc"> SSH binary search -> Vigenère cipher -> cron @reboot injection -> reversed sudoers hostname </div>
+                            </div>
+                            <div class="wl-right">
+                                <span class="wl-platform"> TryHackMe </span>
+                                <span class="wl-diff medium"> Medium </span>
+                                <i class="mdi mdi-arrow-right wl-arrow"></i>
+                            </div>
+                        </a>
+
+                    </div>
+
+                    <div class="startup-links">
+                        <a href="/writeups" class="startup-link secondary">
+                            <i class="mdi mdi-book-open-variant"></i>
+                            <span> Voir tous les writeups </span>
+                            <i class="mdi mdi-arrow-right"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
 
         <section class="hardware-hub section" id="hardware-hub">
             <div class="container">
@@ -272,7 +371,7 @@
         </section>
 
 
-        <section class="hardware-hub section" id="hardware-hub">
+        <section class="hardware-hub section" id="aether-php">
             <div class="container">
                 <h2 class="section-title" data-aos="fade-up">
                     <span class="title-bracket">[</span>

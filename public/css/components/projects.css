@@ -160,3 +160,220 @@
         margin-left: 20px;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ── Writeups & Articles ── */
+
+.wl-card {
+    background: var(--bg-card);
+    border-radius: 20px;
+    padding: var(--spacing-lg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-lg);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.wl-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.wl-header h3 {
+    font-size: 2rem;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.wl-header p {
+    font-size: 1.5rem;
+    color: var(--text-dim);
+    margin: 6px 0 0;
+    font-weight: 400;
+}
+
+.wl-count {
+    font-family: 'Fira Code', monospace;
+    font-size: 1.2rem;
+    color: var(--text-dim);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 6px 14px;
+    flex-shrink: 0;
+}
+
+.wl-count span {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.wl-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: var(--spacing-lg);
+}
+
+.wl-item {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 16px 18px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-base);
+}
+
+.wl-item:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(74, 144, 226, 0.08);
+}
+
+.wl-item:hover .wl-title {
+    color: var(--primary);
+}
+
+.wl-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 2rem;
+}
+
+.wl-icon img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover
+}
+
+.wl-icon.ctf  { background: rgba(239, 68,  68,  0.1); color: #ef4444; }
+.wl-icon.sec  { background: rgba(100, 181, 246, 0.1); color: var(--secondary); }
+.wl-icon.dev  { background: rgba(167, 139, 250, 0.1); color: #a78bfa; }
+.wl-icon.misc { background: rgba(34,  197, 94,  0.1); color: #22c55e; }
+
+.wl-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.wl-title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+    transition: var(--transition-fast);
+}
+
+.wl-desc {
+    font-size: 1.35rem;
+    color: var(--text-dim);
+    line-height: 1.5;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.wl-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.wl-diff {
+    font-family: 'Fira Code', monospace;
+    font-size: 1.15rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.wl-diff.easy   { background: rgba(34,  197, 94,  0.1); color: #22c55e; }
+.wl-diff.medium { background: rgba(255, 189, 46,  0.1); color: #ffbd2e; }
+.wl-diff.hard   { background: rgba(239, 68,  68,  0.1); color: #ef4444; }
+
+.wl-platform {
+    font-family: 'Fira Code', monospace;
+    font-size: 1.15rem;
+    color: var(--text-dim);
+    opacity: 0.6;
+}
+
+.wl-arrow {
+    color: var(--primary);
+    font-size: 1.8rem;
+    opacity: 0;
+    transition: var(--transition-fast);
+}
+
+.wl-item:hover .wl-arrow {
+    opacity: 1;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .wl-card {
+        padding: var(--spacing-md);
+        border-radius: 15px;
+    }
+
+    .wl-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .wl-desc     { display: none; }
+    .wl-platform { display: none; }
+
+    .wl-item {
+        padding: 14px;
+        gap: 14px;
+    }
+
+    .wl-title { font-size: 1.45rem; }
+}
+
+@media (max-width: 480px) {
+    .wl-icon  { width: 36px; height: 36px; font-size: 1.8rem; }
+    .wl-title { font-size: 1.35rem; }
+    .wl-arrow { display: none; }
+}
