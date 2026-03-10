@@ -11,10 +11,10 @@
         <!-- Meta Tags -->
         <meta property="og:title" content="Dawnless | .dawnl3ss">
         <meta property="og:description" content="Dawnl3ss website. Senior PHP Developer, Cybersecurity enthusiast and ctf player. Student @ EPITA.">
-        <meta property="og:image" content="public/img/ogimage.jpg">
+        <meta property="og:imageog:image" content="https://dawnless.me/public/img/ogimage.jpg">
         <meta content="Dawnless" name="author">
 
-        <link href="public/img/icon.jpg" rel="icon" type="image/png">
+        <link href="https://dawnless.me/public/img/icon.jpg" rel="icon" type="image/png">
 
         <link href="public/css/variables.css" rel="stylesheet">
         <link href="public/css/base.css" rel="stylesheet">
@@ -63,14 +63,15 @@
                             <span class="command typing-animation">cat about.txt</span>
                         </div>
                         <div class="terminal-line output">
-                            <span class="fade-in-text"> Senior PHP & Full Stack Developer | Cybersecurity Enthusiast | <br> Student @ EPITA, Graduate School of Computer Engineering </span>
+                            <span class="fade-in-text"> Experienced PHP Developer | Cybersecurity Student, Enthusiast | <br> Creator of Aether-PHP Framework | CTF Player </span>
                         </div>
+
                         <div class="terminal-line">
                             <span class="prompt">$</span>
                             <span class="command typing-animation">./passions.sh</span>
                         </div>
                         <div class="terminal-line output">
-                            <span class="fade-in-text"> Programming | Red team/Pentest | Travel | Sports </span>
+                            <span class="fade-in-text"> Red team/Pentest | Programming | Travel | Sports </span>
                         </div>
                         <div class="terminal-line">
                             <span class="prompt">$</span>
@@ -106,7 +107,7 @@
                         <div class="info-card">
                             <div class="card-header">
                                 <h3> Alexandre VOISIN </h3>
-                                <span class="role"> Cybersecurity Enthusiast </span>
+                                <span class="role"> Cybersecurity Student </span>
                             </div>
 
                             <div class="info-grid">
@@ -141,9 +142,9 @@
                             </div>
 
                             <div class="description">
-                                <p> Senior PHP Developer & Architect with 5 years of experience, specializing in high-performance, secure, and maintainable PHP backends. </p>
-                                <p> Full-Stack Developer when needed, building complete and secure applications is part of my daily work. </p>
-                                <p> Passionate about cybersecurity and ethical hacking. Currently training for CPTS certification with HackTheBox Academy while pursuing engineering studies at EPITA. </p>
+                                <p> Experienced PHP Developer & Architect, specializing in high-performance, secure, and maintainable PHP backends. </p>
+                                <p> Full-stack developer and CTF enjoyer. Passionate about cybersecurity and ethical hacking. Currently training for CPTS certification with HackTheBox Academy while pursuing engineering studies at EPITA. </p>
+                                <p> Wannabe red-teamer || pentester. </p>
                             </div>
 
                             <div class="social-links">
@@ -163,8 +164,6 @@
                                     <img class="applogo" src="public/img/tryhackme.svg" alt="THM Logo">
                                     <span> TryHackMe </span>
                                 </a>
-
-
                             </div>
                             <br>
                             <div class="startup-links">
@@ -172,6 +171,11 @@
                                 <a href="/resume/fr" target="_blank" class="startup-link secondary">
                                     <i class="mdi mdi-text"></i>
                                     <span> See my resume </span>
+                                    <i class="mdi mdi-arrow-right"></i>
+                                </a>
+                                <a href="/writeups" target="_blank" class="startup-link secondary">
+                                    <i class="mdi mdi-book-plus-multiple-outline"></i>
+                                    <span> See my writeups </span>
                                     <i class="mdi mdi-arrow-right"></i>
                                 </a>
                             </div>
@@ -194,7 +198,7 @@
                     <div class="wl-header">
                         <div>
                             <h3> CTF Writeups &amp; Technical Articles </h3>
-                            <p> HackTheBox, TryHackMe, sécurité web, développement. </p>
+                            <p> HackTheBox, TryHackMe, web security, programming. </p>
                         </div>
                         <span class="wl-count"><span>11</span> writeups</span>
                     </div>
@@ -271,7 +275,7 @@
                     <div class="startup-links">
                         <a href="/writeups" class="startup-link secondary">
                             <i class="mdi mdi-book-open-variant"></i>
-                            <span> Voir tous les writeups </span>
+                            <span> See all writeups </span>
                             <i class="mdi mdi-arrow-right"></i>
                         </a>
                     </div>
@@ -424,7 +428,7 @@
 
 
                             <div class="startup-links">
-                                <a href="https://getaether.space" target="_blank" class="startup-link secondary">
+                                <a href="https://aetherphp.net" target="_blank" class="startup-link secondary">
                                     <i class="mdi mdi-code-block-braces"></i>
                                     <span> Get Aether </span>
                                     <i class="mdi mdi-arrow-right"></i>
@@ -648,7 +652,7 @@
                         <div class="timeline-content">
                             <h3 class="timeline-title"> Hardware Hub - Main Project </h3>
                             <span class="timeline-date"> 2022 - Present </span>
-                            <p> Co-Founder (CTO) and Full Stack Developer of Hardware Hub. </p>
+                            <p> Co-Founder and Full Stack Developer of Hardware Hub. </p>
                             <p> Our smart tool helps you design the perfect setup at the best prices available. Whether you're a beginner or a pro, Config-Maker by Hardware Hub makes building your PC simple, optimized, and affordable. </p>
                             <p> -> <a target="_blank" href="https://hardware-hub.fr">https://hardware-hub.fr</a> </p>
                         </div>
@@ -669,7 +673,7 @@
                         </div>
                         <div class="timeline-content">
                             <h3 class="timeline-title"> EPITA - Master of Science </h3>
-                            <span class="timeline-date"> 2023 - Present </span>
+                            <span class="timeline-date"> 2023 - 2026 </span>
                             <p> Joined EPITA, a leading private IT engineering school in France, currently studying advanced mathematics, physics, and computer science. </p>
                         </div>
                     </div>

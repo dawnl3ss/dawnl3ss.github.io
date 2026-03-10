@@ -102,7 +102,7 @@
             </div>
 
             <p>
-                <a href="https://app.hackthebox.com/machines/597" target="_blank">Usage</a> is an active machine on HackTheBox.
+                <a href="https://app.hackthebox.com/machines/597" target="_blank">Usage</a> is a retired machine on HackTheBox.
                 The objective is to compromise the target and retrieve both the user and root flags.
             </p>
 

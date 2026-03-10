@@ -24,7 +24,7 @@
                 Copyright Dawnless © <?= date("Y"); ?>
             </p>
             <p class="footer-copyright">
-                Powered by <a target="_blank" href="https://github.com/Aether-PHP/Aether-PHP">Aether Framework</a> ☄️
+                Powered by <a target="_blank" href="https://aetherphp.net">Aether Framework</a> ☄️
             </p>
         </div>
     </div>

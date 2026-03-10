@@ -99,7 +99,7 @@
             </div>
 
             <p>
-                <a href="https://app.hackthebox.com/machines/594" target="_blank">Headless</a> is an active machine on HackTheBox.
+                <a href="https://app.hackthebox.com/machines/594" target="_blank">Headless</a> is a retired machine on HackTheBox.
                 The objective is to compromise the target and capture both the user and root flags.
             </p>
 

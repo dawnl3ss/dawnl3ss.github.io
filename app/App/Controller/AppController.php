@@ -26,7 +26,6 @@ namespace App\Controller;
 use Aether\Http\Response\Format\HttpResponseFormatEnum;
 use Aether\Http\ResponseFactory;
 use Aether\IO\IOFile;
-use Aether\IO\IOStream;
 use Aether\IO\IOTypeEnum;
 use Aether\Router\Controller\Controller;
 use App\App;

@@ -104,7 +104,7 @@
             </div>
 
             <p>
-                <a href="https://app.hackthebox.com/machines/BoardLight" target="_blank">BoardLight</a> is an active machine on HackTheBox.
+                <a href="https://app.hackthebox.com/machines/BoardLight" target="_blank">BoardLight</a> is a retired machine on HackTheBox.
                 The objective is to compromise the target and retrieve both the user and root flags.
             </p>
 
